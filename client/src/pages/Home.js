@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./Home.css";
+import "./../stylings/Home.css";
 import logo from "./logo.svg";
 
 export function Home() {
