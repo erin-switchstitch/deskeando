@@ -1,7 +1,0 @@
-install npm via command line not ubuntu terminal. Run postgres in command line as well. Then run "npm run dev" in command line.  
-
-
-export DATABASE_URL=postgres://Erin:dust2dust@localhost:5432/cyf  
-
-
-npm run dev
