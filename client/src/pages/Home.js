@@ -4,6 +4,7 @@ import "./../stylings/Home.css";
 
 export function Home() {
 	return (
+
 		<DeskList />
 	);
 }
