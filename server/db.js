@@ -11,10 +11,18 @@ app.use(cors());
 
 const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
 
-// const dbUrl = process.env.DATABASE_URLx || "postgres://beelasisi@localhost:5432/cyf";
+console.log(config);
 
-// const dbUrl = process.env.DATABASE_URL || `postgres://${config.USERNAME}:${config.PASSWORD}@localhost:5432/${config.DATABASE_NAME}`;
-const dbUrl = process.env.DATABASE_URL || "postgres://Erin:dust2dust@localhost:5432/cyf";
+// const dbUrl = process.env.DATABASE_URLx || "postgres://beelasisi@localhost:5432/cyf";
+// const dbUrl = process.env.DATABASE_URL || "postgres://Erin:dust2dust@localhost:5432/cyf";
+
+let dbUrl;
+
+if (!config.REACT_APP_PASSWORD){
+	dbUrl = process.env.DATABASE_URL || `postgres://${config.REACT_APP_USERNAME}@localhost:5432/${config.REACT_APP_DATABASE_NAME}`;
+} else {
+	dbUrl = process.env.DATABASE_URL || `postgres://${config.REACT_APP_USERNAME}:${config.REACT_APP_PASSWORD}@localhost:5432/${config.REACT_APP_DATABASE_NAME}`;
+}
 
 
 const pool = new Pool({
