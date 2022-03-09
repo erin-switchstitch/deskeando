@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-
-import About from "./pages/About";
 import Home from "./pages/Home";
-import DeskList from "./components/DeskList";
+
+// import About from "./pages/About";
+// import DeskList from "./components/DeskList";
 
 const App = () => (
 	<Routes>
 		<Route path="/" element={<Home />} />
-		<Route path="/about/this/site" element={<About />} />
-		<Route path="/desks" element={<DeskList />} />
+		{/* We have left these old paths in the code incase we are adding anymore pages: */}
+		{/* <Route path="/about/this/site" element={<About />} /> */}
+		{/* <Route path="/desks" element={<DeskList />} /> */}
 	</Routes>
 );
 

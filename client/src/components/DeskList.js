@@ -11,8 +11,8 @@ export default function DeskList(){
 
     return (
         <div className="DeskListContainer">
-            <h1>Desk</h1>
-            <h1>Book Desk</h1>
+            <h1>Current Date selected in calender: </h1>
+            <h2>09/03/2020</h2>
             <table>
                 <thead>
                     <tr>
@@ -24,22 +24,22 @@ export default function DeskList(){
                 <tbody>
                 {templateData.map((element)=>{
                                     return (
-                                        <div key={element.id}>
+                                        <div key={element.id} className="tableRows">
                                         <tr>
-                                            <td>Desk {element.number}</td>
-                                            <td>
-                                                {element.booked ? (
-                                                    <td>Booked</td>
+                                            <td className="tableLeftColumn">Desk {element.desk_id}</td>
+                                            <td className="tableRightColumn">
+                                                {element.desk_booked ? (
+                                                    <div>Booked</div>
                                                 ) : (
-                                                    <td>
-                                                        <button onClick={()=>setToOpen({ number: element.number, open: true })}>Book Now</button>
-                                                    </td>
+                                                    <div>
+                                                        <button onClick={()=>setToOpen({ number: element.desk_id, open: true })}>Book Now</button>
+                                                    </div>
                                                 )}
                                             </td>
                                         </tr>
                                         <div>
-                                                {toOpen.open && (toOpen.number === element.number) ? (
-                                                        <DeskListBooker />
+                                                {toOpen.open && (toOpen.number === element.desk_id) ? (
+                                                        <DeskListBooker deskNumber={element.desk_id} />
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )

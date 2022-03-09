@@ -4,19 +4,19 @@
 		"desk_features": ["wheelchair","toilet"],
 		"desk_booked": true,
         "date_booked": "08/03/2022",
-		"duration_till_reset" : 0
+		"duration_till_reset" : 2
 	},	
     {
 		"desk_id": 2,
 		"desk_features": ["wheelchair","toilet"],
 		"desk_booked": true,
         "date_booked": "08/03/2022",
-		"duration_till_reset" : 0
+		"duration_till_reset" : 1
 	},
     {
 		"desk_id": 3,
 		"desk_features": ["wheelchair","toilet"],
-		"desk_booked": true,
+		"desk_booked": false,
         "date_booked": "08/03/2022",
 		"duration_till_reset" : 0
 	},
@@ -25,13 +25,13 @@
 		"desk_features": ["wheelchair","toilet"],
 		"desk_booked": true,
         "date_booked": "08/03/2022",
-		"duration_till_reset" : 0
+		"duration_till_reset" : 4
 	},
         {
 		"desk_id": 5,
 		"desk_features": ["wheelchair","toilet"],
-		"desk_booked": true,
+		"desk_booked": false,
         "date_booked": "08/03/2022",
-		"duration_till_reset" : 0
+		"duration_till_reset" : 5
 	}
 ]
