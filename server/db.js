@@ -16,7 +16,6 @@ const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) rename
 // const dbUrl = process.env.DATABASE_URL || `postgres://${config.USERNAME}:${config.PASSWORD}@localhost:5432/${config.DATABASE_NAME}`;
 const dbUrl = process.env.DATABASE_URL || "postgres://Erin:dust2dust@localhost:5432/cyf";
 
-
 const pool = new Pool({
 	connectionString: dbUrl,
 	connectionTimeoutMillis: 5000,
