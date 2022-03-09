@@ -1,7 +1,5 @@
 import { Pool } from "pg";
 
-const dbUrl = process.env.DATABASE_URLx || "postgres://Erin:dust2dust@localhost:5432/cyf";
-
 const pool = new Pool({
 	connectionString: dbUrl,
 	connectionTimeoutMillis: 5000,
