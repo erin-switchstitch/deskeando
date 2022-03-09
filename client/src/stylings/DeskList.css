@@ -30,6 +30,17 @@ tbody div tr td{
     border : 1px solid black;
 }
 
+/* 
+.tableLeftColumn{
+    width: 500px;
+    background-color: aqua;
+}
+
+.tableRightColumn{
+    width: 50%;
+    background-color: red;
+}
+ */
 
 .noShow{
     display: none;

@@ -7,7 +7,7 @@ import DeskList from "./components/DeskList";
 const App = () => (
 	<Routes>
 		<Route path="/" element={<Home />} />
-		<Route path="/about/this/site" element={<About />} />
+		{/* <Route path="/about/this/site" element={<About />} /> */}
 		<Route path="/desks" element={<DeskList />} />
 	</Routes>
 );
