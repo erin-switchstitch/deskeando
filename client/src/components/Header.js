@@ -1,4 +1,5 @@
-import React, {fragment }from React
+import React, { fragment } from "react";
+
 const Header = ()=> {
     return (
         <fragment>
@@ -6,6 +7,7 @@ const Header = ()=> {
             <h2> Flexible desk booking, with Deskendo you can manage your hybrid workspace </h2>
         </fragment>
 
-    )
-}
-export default Headers;
+    );
+};
+
+export default Header;
