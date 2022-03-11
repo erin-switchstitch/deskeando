@@ -14,7 +14,7 @@
 - [x] [Cloud Foundry] deployment
 - [x] [Docker] build
 - [x] [Postgres] database with [node-postgres]
-
+test
 ## Setup
 
 Pick one member of the team to own the repository and pipeline. That person should do the following:
