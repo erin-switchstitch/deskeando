@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 
 // import About from "./pages/About";
 // import DeskList from "./components/DeskList";
-
 const App = () => (
 	<Routes>
 		<Route path="/" element={<Home />} />

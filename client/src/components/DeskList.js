@@ -3,7 +3,7 @@ import templateData from "./templateData.json";
 import "./../stylings/DeskList.css";
 import { useState } from "react";
 
-export default function DeskList(){
+export default function DeskList(props){
 
     console.log(templateData);
 
@@ -12,7 +12,7 @@ export default function DeskList(){
     return (
         <div className="DeskListContainer">
             <h1>Current Date selected in calender: </h1>
-            <h2>09/03/2020</h2>
+            <h2>{props.date}</h2>
             <table>
                 <thead>
                     <tr>
