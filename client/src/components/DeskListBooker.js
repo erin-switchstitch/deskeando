@@ -32,5 +32,4 @@ export default function DeskListBooker(props){
         </div>
 
     );
-
 }

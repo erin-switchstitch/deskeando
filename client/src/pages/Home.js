@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import DeskList from "../components/DeskList";
+import Header from "../components/Header";
 import "./../stylings/Home.css";
 
 export function Home() {
 	return (
+		<div>
+			<Header />
+			<DeskList />
+		</div>
 
-		<DeskList />
 	);
 }
 
