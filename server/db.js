@@ -13,7 +13,7 @@ const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) rename
 
 console.log(config);
 
-// const dbUrl = process.env.DATABASE_URLx || "postgres://beelasisi@localhost:5432/cyf";
+// const dbUrl = process.env.DATABASE_URLx || "postgres://sharmainetaylor@localhost:5432/sharmainetaylor";
 // const dbUrl = process.env.DATABASE_URL || "postgres://Erin:dust2dust@localhost:5432/cyf";
 
 let dbUrl;
