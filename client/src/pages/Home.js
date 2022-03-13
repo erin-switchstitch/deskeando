@@ -2,16 +2,13 @@ import { useEffect, useState } from "react";
 import DeskList from "../components/DeskList";
 import Header from "../components/Header";
 import "./../stylings/Home.css";
-import DatePicker from "../components/DatePicker";
 import DisplayCalendar from "../components/DisplayCalender";
+
 export function Home() {
 	return (
 		<div>
-			
 			<Header />
 			<DisplayCalendar />
-			<DatePicker />
-			
 		</div>
 
 	);

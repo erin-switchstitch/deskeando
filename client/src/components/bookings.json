@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "name_of_staff":"Jane Hall",
+        "date":"15/03/2022",
+        "am":true,
+        "pm":false,
+        "desk_id":1
+    },
+    {
+        "id":1,
+        "name_of_staff":"Paul Dickinson",
+        "date":"10/03/2022",
+        "am":true,
+        "pm":true,
+        "desk_id":2
+    },
+    {
+        "id":3,
+        "name_of_staff":"Helen Allen",
+        "date":"11/03/2022",
+        "am":false,
+        "pm":true,
+        "desk_id":3
+    },
+    {
+        "id":4,
+        "name_of_staff":"Julian Madock",
+        "date":"08/03/2022",
+        "am":true,
+        "pm":true,
+        "desk_id":4
+    }
+]
