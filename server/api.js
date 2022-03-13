@@ -39,7 +39,7 @@ router.get("/desks", (req, res) => {
 			res.status(500).json(error);
 		});
 });
-
+//testing
 //Get all bookings;
 router.get("/bookings", (req, res) => {
 	const date = req.query.date;
