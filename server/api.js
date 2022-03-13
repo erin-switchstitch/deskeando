@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { Pool } from "pg";
+import Moment from 'react-moment';
+import moment from 'moment';
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -45,7 +47,9 @@ router.get("/bookings", (req, res) => {
 	const date = req.query.date;
 	console.log(date);
 	pool
-		.query("SELECT * FROM bookings WHERE date_booked=11/03/2022")
+		// .query(`SELECT * FROM bookings date_booked=${req.query.date}`)
+		.query(`SELECT * FROM bookings`)
+
 		.then((result) => {
 			res.json(result.rows);
 		})
