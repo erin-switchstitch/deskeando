@@ -9,7 +9,7 @@
 		"build:client": "webpack --config client/webpack/prod.config.js",
 		"build:server": "babel server --out-dir dist",
 		"cleanup": "rimraf ./dist/*",
-		"dev": "concurrently -k -n \"client,server\" \"npm run dev:client\" \"npm run dev:server\"",
+		"dev": "concurrently -k -n \"client,server\" \"npm run dev:client\" \"npm run dev:server\" \"psql -d deskeando -f ./server/deskeando.sql",
 		"dev:client": "webpack serve --config client/webpack/dev.config.js",
 		"dev:server": "cross-env PORT=3100 nodemon --exitcrash --inspect --delay 500ms --watch server --exec babel-node server/server.js",
 		"lint": "npm run lint:eslint && npm run lint:prettier -- --check",
@@ -74,9 +74,11 @@
 		"dotenv": "^16.0.0",
 		"express": "^4.17.2",
 		"helmet": "^5.0.2",
+		"moment": "^2.29.1",
 		"morgan": "^1.10.0",
 		"pg": "^8.7.3",
-		"react-calendar": "^3.7.0"
+		"react-calendar": "^3.7.0",
+		"react-moment": "^1.1.1"
 	},
 	"engines": {
 		"node": "^12 || ^14 || ^16 || ^17",
