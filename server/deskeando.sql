@@ -1,16 +1,17 @@
+-- If the table "desks" exists delete it
 drop table if exists desks;
 
-
+-- If the table "bookings" exists delete it
 drop table if exists bookings;
 
-
+-- Creating a table called "desks"
 CREATE TABLE desks (id INT PRIMARY KEY,
                                    desk_features JSONB);
 
-
+-- Creating a table called "bookings"
 create TABLE bookings (id INT PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 
-
+-- Adding rows of data to the "desks" table
 INSERT INTO desks (id, desk_features)
 VALUES (1,
         '{"accessibilty":true, "capacity":2}');
@@ -31,6 +32,7 @@ VALUES (4,
         '{"accessibilty":true, "capacity":2}');
 
 
+-- Adding rows of data to the "bookings" table
 INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
 VALUES (1,
         'Amanda',
