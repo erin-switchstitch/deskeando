@@ -1,14 +1,27 @@
 import { Router } from "express";
+import { Pool } from "pg";
+const express = require("express");
+const dotenv = require("dotenv");
+const cors = require("cors");
+const { json } = require("body-parser");
+const axios = require("axios");
+const app = express();
+
+app.use(json());
+app.use(cors());
+
+const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
+
 // import desks from "./tem-templateData.json";
 
 const router = Router();
 
-const { Pool } = require("pg");
+// const { Pool } = require("pg");
 
 const pool = new Pool({
-	user: "beelasisi",
+	user:  process.env.USERNAME,
 	host: "localhost",
-	database: "deskeando",
+	database: process.env.DATABASE_URL,
 	password: "",
 	port: 5432,
 });
