@@ -19,10 +19,10 @@ const router = Router();
 // const { Pool } = require("pg");
 
 const pool = new Pool({
-	user:  process.env.USERNAME,
+	user:  process.env.REACT_APP_USERNAME,
 	host: "localhost",
-	database: process.env.DATABASE_URL,
-	password: "",
+	database: process.env.REACT_APP_DATABASE_NAME,
+	password: process.env.REACT_APP_PASSWORD,
 	port: 5432,
 });
 
