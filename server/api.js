@@ -6,7 +6,7 @@ const router = Router();
 const { Pool } = require("pg");
 
 const pool = new Pool({
-	user: "sharmainetaylor",
+	user: "beelasisi",
 	host: "localhost",
 	database: "deskeando",
 	password: "",
@@ -29,8 +29,10 @@ router.get("/desks", (req, res) => {
 
 //Get all bookings;
 router.get("/bookings", (req, res) => {
+	const date = req.query.date;
+	console.log(date);
 	pool
-		.query("SELECT * FROM bookings")
+		.query("SELECT * FROM bookings WHERE date_booked=11/03/2022")
 		.then((result) => {
 			res.json(result.rows);
 		})

@@ -41,7 +41,7 @@ INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
 VALUES (1,
         'Amanda',
         2,
-        '2022-03-10',
+        '13/03/2022',
         TRUE,
         FALSE);
 
@@ -50,7 +50,7 @@ INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
 VALUES (2,
         'Sharmaine',
         1,
-        '2022-03-10',
+        '14/03/2022',
         FALSE,
         TRUE);
 
@@ -59,7 +59,7 @@ INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
 VALUES (3,
         'Bimbola',
         3,
-        '2022-03-10',
+        '15/03/2022',
         TRUE,
         FALSE);
 
@@ -68,6 +68,6 @@ INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
 VALUES (4,
         'Erin',
         3,
-        '2022-03-10',
+        '16/03/2022',
         FALSE,
         TRUE);
