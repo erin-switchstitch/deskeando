@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { Pool } from "pg";
+import { password } from "pg/lib/defaults";
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -18,11 +19,19 @@ const router = Router();
 
 // const { Pool } = require("pg");
 
+let passwordToPass;
+
+if (process.env.REACT_APP_PASSWORD){
+	passwordToPass = process.env.REACT_APP_PASSWORD;
+} else {
+	passwordToPass = "";
+}
+
 const pool = new Pool({
 	user:  process.env.REACT_APP_USERNAME,
 	host: "localhost",
 	database: process.env.REACT_APP_DATABASE_NAME,
-	password: process.env.REACT_APP_PASSWORD,
+	password: passwordToPass,
 	port: 5432,
 });
 
