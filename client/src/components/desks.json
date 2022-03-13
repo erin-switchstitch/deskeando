@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"desk_features": {
+			"accessibility":true,
+			"capacity":2
+		}
+	},	
+		{
+		"id": 2,
+		"desk_features": {
+			"accessibility":false,
+			"capacity":2
+		}
+	},
+		{
+		"id": 3,
+		"desk_features": {
+			"accessibility":true,
+			"capacity":4
+		}
+	},
+		{
+		"id": 4,
+		"desk_features": {
+			"accessibility":false,
+			"capacity":6
+		}
+	},
+		{
+		"id": 5,
+		"desk_features": {
+			"accessibility":false,
+			"capacity":6
+		}
+	}
+   
+]

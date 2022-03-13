@@ -1,11 +1,7 @@
-.logo {
-	width: 100px;
+.headerContainer{
+	border-bottom: 2px solid black;
 }
 
-.message {
+.HeaderTitle{
 	color: blue;
-}
-
-.message:hover {
-	background-color: yellow;
 }

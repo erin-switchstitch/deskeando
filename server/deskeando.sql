@@ -1,3 +1,7 @@
+-- DROP DATABASE IF EXISTS deskeando;
+-- Create database deskeando;
+-- \c deskeando;
+
 -- If the table "desks" exists delete it
 drop table if exists desks;
 
