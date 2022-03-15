@@ -42,7 +42,7 @@ router.get("/desks", (req, res) => {
 		});
 });
 
-//Get all bookings;
+//Get all bookings and query by dates;
 router.get("/bookings", (req, res) => {
 	const date = req.query.date;
 	console.log(date);
