@@ -21,17 +21,17 @@ export default function DeskList(props){
         // console.log(passedDate);
 
     
-        useEffect(() => {
-    // GET request using fetch inside useEffect React hook
-        fetch('http://localhost:3100/api/bookings')
-            .then(response => response.json())
-            .then(data => {
-                updateVideoData(data);
-                // orderVideos();
-                updateCurrentVideo(data[0]);
-            })
-        // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    }, []);
+    //     useEffect(() => {
+    // // GET request using fetch inside useEffect React hook
+    //     fetch('http://localhost:3100/api/bookings')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             updateVideoData(data);
+    //             // orderVideos();
+    //             updateCurrentVideo(data[0]);
+    //         })
+    //     // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    // }, []);
 
 
 
