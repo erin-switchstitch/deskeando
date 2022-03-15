@@ -49,7 +49,7 @@ router.get("/desks", (req, res) => {
 		});
 });
 
-//Get all bookings;
+//Get all bookings by dates;
 router.get("/bookings", (req, res) => {
 	const date = req.query.date;
 	// console.log(date);
@@ -60,7 +60,7 @@ router.get("/bookings", (req, res) => {
 	// YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL 
 
 	pool
-		.query(`SELECT * FROM bookings WHERE date_booked=13/03/2022;`)
+		.query(`SELECT * FROM bookings WHERE date_booked='${date}';`)
 		.then((result) => {
 			res.json(result.rows);
 		})
@@ -70,7 +70,20 @@ router.get("/bookings", (req, res) => {
 		});
 });
 
+//Get all bookings;
+router.get("/all-bookings", (req, res) => {
 
+
+	pool
+		.query(`SELECT * FROM bookings;`)
+		.then((result) => {
+			res.json(result.rows);
+		})
+		.catch((error) => {
+			console.log(error);
+			res.status(500).json(error);
+		});
+});
 
 // router.get("/wheelchair", (_, res) => {
 // 	const desksWheelchairUsers = desks.filter((desk) => desk.desk_features.includes("wheelchair"));
