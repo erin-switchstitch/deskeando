@@ -52,9 +52,15 @@ router.get("/desks", (req, res) => {
 //Get all bookings;
 router.get("/bookings", (req, res) => {
 	const date = req.query.date;
-	console.log(date);
+	// console.log(date);
+
+	// We are having issues getting the date serach api working. I believe it is an issue with how we are storing
+	// the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
+	// but this did not work. I believe we may need to change the way that we store the date so that it is 
+	// YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL 
+
 	pool
-		.query("SELECT * FROM bookings WHERE date_booked=11/03/2022")
+		.query(`SELECT * FROM bookings WHERE date_booked=13/03/2022;`)
 		.then((result) => {
 			res.json(result.rows);
 		})

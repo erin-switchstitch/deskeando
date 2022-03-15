@@ -15,6 +15,16 @@ CREATE TABLE desks (id INT PRIMARY KEY,
 -- Creating a table called "bookings"
 create TABLE bookings (id INT PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 
+
+
+-- We are having issues getting the date serach api working. I believe it is an issue with how we are storing
+-- the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
+-- but this did not work. I believe we may need to change the way that we store the date so that it is 
+-- YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL 
+
+-- create TABLE bookings (id INT PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked VARCHAR(10) NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
+
+
 -- Adding rows of data to the "desks" table
 INSERT INTO desks (id, desk_features)
 VALUES (1,

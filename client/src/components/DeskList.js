@@ -2,7 +2,7 @@ import DeskListBooker from "./DeskListBooker";
 import bookingsData from "./bookings.json";
 import deskData from "./desks.json";
 import "./../stylings/DeskList.css";
-import { useState } from "react";
+import { useState , useEffect } from "react";
 
 // all bookings
 // bookings by date 
@@ -19,6 +19,19 @@ export default function DeskList(props){
         // const passedData = props.date;
         // const [passedDate, setPassedDate] = useState(passedData);
         // console.log(passedDate);
+
+    
+        useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+        fetch('http://localhost:3100/api/bookings')
+            .then(response => response.json())
+            .then(data => {
+                updateVideoData(data);
+                // orderVideos();
+                updateCurrentVideo(data[0]);
+            })
+        // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []);
 
 
 
