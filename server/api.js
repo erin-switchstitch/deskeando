@@ -56,8 +56,8 @@ router.get("/bookings", (req, res) => {
 
 	// We are having issues getting the date serach api working. I believe it is an issue with how we are storing
 	// the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
-	// but this did not work. I believe we may need to change the way that we store the date so that it is 
-	// YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL 
+	// but this did not work. I believe we may need to change the way that we store the date so that it is
+	// YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL
 
 	pool
 		.query(`SELECT * FROM bookings WHERE date_booked='${date}';`)
@@ -75,7 +75,7 @@ router.get("/all-bookings", (req, res) => {
 
 
 	pool
-		.query(`SELECT * FROM bookings;`)
+		.query("SELECT * FROM bookings;")
 		.then((result) => {
 			res.json(result.rows);
 		})
@@ -84,6 +84,25 @@ router.get("/all-bookings", (req, res) => {
 			res.status(500).json(error);
 		});
 });
+
+router.put("/all-bookings", (req, res) => {
+	const bookingId = req.body.id;
+	const name = req.body.name_of_staff;
+	const deskNumber = req.body.desk_id;
+	const dateBooked = req.body.date_booked;
+	const morning = req.body.am;
+	const afternoon = req.body.pm;
+	const query = `INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm) VALUES (${bookingId}, '${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+
+	pool
+		.query(query)
+		.then(() => res.send("Booking created"))
+		.catch((error) => {
+			console.error(error);
+			res.status(500).json(error);
+		});
+});
+
 
 // router.get("/wheelchair", (_, res) => {
 // 	const desksWheelchairUsers = desks.filter((desk) => desk.desk_features.includes("wheelchair"));
