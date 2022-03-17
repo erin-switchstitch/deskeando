@@ -2,25 +2,20 @@ import DeskListBooker from "./DeskListBooker";
 import bookingsData from "./bookings.json";
 import deskData from "./desks.json";
 import "./../stylings/DeskList.css";
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // all bookings
-// bookings by date 
+// bookings by date
 
 
 export default function DeskList(props){
-    
-    console.log(props.date)
-
-    // We will need a fetch request to the API which will pull all of the bookings for the date 
-    // passed in the props from the calender component. I don't know whether we will need to use a 
+    console.log(props.date);
+    // We will need a fetch request to the API which will pull all of the bookings for the date
+    // passed in the props from the calender component. I don't know whether we will need to use a
     // state hook for the date to update the list ...?? :
-
         // const passedData = props.date;
         // const [passedDate, setPassedDate] = useState(passedData);
         // console.log(passedDate);
-
-    
     //     useEffect(() => {
     // // GET request using fetch inside useEffect React hook
     //     fetch('http://localhost:3100/api/bookings')
@@ -39,35 +34,34 @@ export default function DeskList(props){
     // list of bookings, and if the desk is booked then it updates list to reflect this. We are
     // using a state hook so it updates if the bookings data is updated  ----------------------
 
-    const [ bookingsDataState, setBookingsDataState] = useState(bookingsData);
+    const [bookingsDataState, setBookingsDataState] = useState (bookingsData);
     let deskAndBookingList = [];
 
     deskData.map(element => {
         deskAndBookingList.push(
             {
-		        "id": element.id,
-		        "desk_booked": false,
+                "id": element.id,
+                "desk_booked": false,
             }
-        )
-        
+        );
     });
 
     bookingsDataState.map(element => {
         // console.log(element)
-        if ((element.am) || (element.pm)){
-            deskAndBookingList[element.id -1].desk_booked = true;
-        } 
-    })
+        if ((element.am) || (element.pm)) {
+            deskAndBookingList[element.id - 1].desk_booked = true;
+        }
+    });
 
 
-    // ----------- This code stops all of the rows opening the dropdown component, and 
+    // ----------- This code stops all of the rows opening the dropdown component, and
     // forces it only to open the row for the desk selected --------------------------
 
     const [toOpen , setToOpen] = useState({ number:"", open: false });
 
 
 
-    // ----------- This will iterate through our list, and display the desk and whether its been booked 
+    // ----------- This will iterate through our list, and display the desk and whether its been booked
 
     return (
         <div className="DeskListContainer">
