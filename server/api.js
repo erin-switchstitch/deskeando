@@ -86,13 +86,12 @@ router.get("/all-bookings", (req, res) => {
 });
 
 router.put("/all-bookings", (req, res) => {
-	const bookingId = req.body.id;
 	const name = req.body.name_of_staff;
 	const deskNumber = req.body.desk_id;
 	const dateBooked = req.body.date_booked;
 	const morning = req.body.am;
 	const afternoon = req.body.pm;
-	const query = `INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm) VALUES (${bookingId}, '${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+	const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
 
 	pool
 		.query(query)
