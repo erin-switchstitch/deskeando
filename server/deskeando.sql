@@ -81,3 +81,75 @@ VALUES (4,
          '2022-03-16',
         FALSE,
         TRUE);
+        
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (5,
+        'Paul',
+        4,
+        '2022-03-12',
+        TRUE,
+        FALSE);
+
+-----
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (6,
+        'Sean',
+        2,
+        '2022-03-18',
+        TRUE,
+        FALSE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (7,
+        'Sadaf',
+        1,
+         '2022-03-19',
+        FALSE,
+        TRUE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (8,
+        'Peju',
+        3,
+         '2022-03-20',
+        TRUE,
+        FALSE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (9,
+        'Chris',
+        3,
+         '2022-03-21',
+        FALSE,
+        TRUE);
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (10,
+        'Candy',
+        2,
+        '2022-03-22',
+        TRUE,
+        FALSE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (11,
+        'Alicia',
+        1,
+         '2022-03-23',
+        FALSE,
+        TRUE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (12,
+        'Mya',
+        3,
+         '2022-03-24',
+        TRUE,
+        FALSE);
+
+INSERT INTO bookings(id, name_of_staff, desk_id, date_booked, am, pm)
+VALUES (13,
+        'David',
+        3,
+         '2022-03-25',
+        FALSE,
+        TRUE);
