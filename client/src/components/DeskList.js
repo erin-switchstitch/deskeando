@@ -37,7 +37,7 @@ export default function DeskList(props){
     const [bookingsDataState, setBookingsDataState] = useState (bookingsData);
     let deskAndBookingList = [];
 
-    deskData.map(element => {
+    deskData.map((element) => {
         deskAndBookingList.push(
             {
                 "id": element.id,
@@ -46,7 +46,7 @@ export default function DeskList(props){
         );
     });
 
-    bookingsDataState.map(element => {
+    bookingsDataState.map((element) => {
         // console.log(element)
         if ((element.am) || (element.pm)) {
             deskAndBookingList[element.id - 1].desk_booked = true;
