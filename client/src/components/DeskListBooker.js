@@ -6,7 +6,6 @@ export default function DeskListBooker(props) {
 
     const [bookingDetails, setBookingDetails] = useState({ name_of_staff:"", desk_id: props.deskNumber, date_booked:props.bookingDate, am:false, pm:false});
 
-
     async function fetchData(inputData) {
         console.log("UseEffect Run:")
         console.log(bookingDetails);

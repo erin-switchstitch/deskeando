@@ -86,8 +86,9 @@ router.put("/all-bookings", (req, res) => {
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-	const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
-	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`
+	  const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+	  const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`
+
 
 	pool
 		.query(query)
