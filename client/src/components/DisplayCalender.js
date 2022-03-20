@@ -12,14 +12,14 @@ export default function DisplayCalendar(){
     const [dateValue, setDateValue] = useState(new Date());
 
     //  We are using the "moment" plugin to format the date into our preferred format
-    let [selectedDate, setSelectedDate] = useState(moment().format('D/MM/YYYY'));
+    let [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-D'));
 
     function changeFunction(e){
         // e.preventDefault();
         console.log("change function run ...")
         setDateValue(e);
 
-        setSelectedDate(moment(e).format('D/MM/YYYY'));
+        setSelectedDate(moment(e).format('YYYY-MM-D'));
         console.log(selectedDate)
     }
 
