@@ -10,34 +10,46 @@ import { useState, useEffect } from "react";
 
 export default function DeskList(props){
     console.log(props.date);
-    // We will need a fetch request to the API which will pull all of the bookings for the date
-    // passed in the props from the calender component. I don't know whether we will need to use a
-    // state hook for the date to update the list ...?? :
-        // const passedData = props.date;
-        // const [passedDate, setPassedDate] = useState(passedData);
-        // console.log(passedDate);
-    //     useEffect(() => {
-    // // GET request using fetch inside useEffect React hook
-    //     fetch('http://localhost:3100/api/bookings')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             updateVideoData(data);
-    //             // orderVideos();
-    //             updateCurrentVideo(data[0]);
-    //         })
-    //     // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    // }, []);
 
+
+    const [ bookingsDataState, setBookingsDataState] = useState(bookingsData);
+    const [ desksDataState, setDesksDataState] = useState(deskData);
+
+
+    // FETCH FOR BOOKINGS:
+    useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+        fetch(`http://localhost:3100/api/bookings?date=${props.date}`, {mode: 'cors'})
+            .then(response => response.json())
+            .then(data => {
+                console.log("Bookings Data from API :")
+                console.log(data);
+                setBookingsDataState(data);
+            })
+    }, [props.date]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+
+
+    // FETCH FOR DESKS:
+    useEffect(() => {
+    // GET request using fetch inside useEffect React hook
+        fetch(`http://localhost:3100/api/desks`, {mode: 'cors'})
+            .then(response => response.json())
+            .then(data => {
+                console.log("Desks Data from API :")
+                console.log(data);
+                setDesksDataState(data);
+            })
+    }, [bookingsDataState]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
     // ------- Code to sort through desks data and create list of desks. Then goes through
     // list of bookings, and if the desk is booked then it updates list to reflect this. We are
     // using a state hook so it updates if the bookings data is updated  ----------------------
 
-    const [bookingsDataState, setBookingsDataState] = useState (bookingsData);
+
     let deskAndBookingList = [];
 
-    deskData.map(element => {
+    desksDataState.map(element => {
         deskAndBookingList.push(
             {
                 "id": element.id,
@@ -46,10 +58,10 @@ export default function DeskList(props){
         );
     });
 
-    bookingsDataState.map(element => {
-        // console.log(element)
+    bookingsDataState.map((element,  index) => {
         if ((element.am) || (element.pm)) {
-            deskAndBookingList[element.id - 1].desk_booked = true;
+            deskAndBookingList[element.desk_id-1].desk_booked = true;
+            deskAndBookingList[element.desk_id-1].id = element.desk_id;
         }
     });
 
@@ -93,7 +105,7 @@ export default function DeskList(props){
                                         </tr>
                                         <div>
                                                 {toOpen.open && (toOpen.number === element.id) ? (
-                                                        <DeskListBooker deskNumber={element.id} />
+                                                        <DeskListBooker deskNumber={element.id} bookingDate={props.date} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)}/>
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )
