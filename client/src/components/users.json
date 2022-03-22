@@ -1,0 +1,112 @@
+[
+    {
+        "userUniqueID":1,
+        "email":"example1@gmail.com",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "password":"password1234",
+        "accessability":true,
+        "bookings" : [
+            {
+                "date": "13/03/2022",
+                "desk_id": 3,
+                "am":true,
+                "pm":false
+            }, 
+            {
+                "date": "14/03/2022",
+                "desk_id": 1,
+                "am":true,
+                "pm":false
+            }
+        ]
+    },
+    {
+        "userUniqueID":2,
+        "email":"example2@gmail.com",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "password":"password1234",
+        "accessability":true,
+        "bookings" : [
+            {
+                "date": "15/03/2022",
+                "desk_id": 3,
+                "am":true,
+                "pm":false
+            }, 
+            {
+                "date": "16/03/2022",
+                "desk_id": 1,
+                "am":true,
+                "pm":false
+            }
+        ]
+    },
+    {
+        "userUniqueID":3,
+        "email":"example3@gmail.com",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "password":"password1234",
+        "accessability":true,
+        "bookings" : [
+            {
+                "date": "16/03/2022",
+                "desk_id": 3,
+                "am":true,
+                "pm":false
+            }, 
+            {
+                "date": "17/03/2022",
+                "desk_id": 1,
+                "am":true,
+                "pm":false
+            }
+        ]
+    },
+    {
+        "userUniqueID":4,
+        "email":"example4@gmail.com",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "password":"password1234",
+        "accessability":true,
+        "bookings" : [
+            {
+                "date": "17/03/2022",
+                "desk_id": 3,
+                "am":true,
+                "pm":false
+            }, 
+            {
+                "date": "18/03/2022",
+                "desk_id": 1,
+                "am":true,
+                "pm":false
+            }
+        ]
+    },
+    {
+        "userUniqueID":5,
+        "email":"example5@gmail.com",
+        "firstName":"Jane",
+        "lastName":"Doe",
+        "user_password":"password1234",
+        "accessability":true,
+        "bookings" : [
+            {
+                "date": "19/03/2022",
+                "desk_id": 3,
+                "am":true,
+                "pm":false
+            }, 
+            {
+                "date": "20/03/2022",
+                "desk_id": 1,
+                "am":true,
+                "pm":false
+            }
+        ]
+    }
+]

@@ -1,16 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import SignUp from "./components/SignUp";
-import SignInUp from "./components/SignUp";
 
-// import About from "./pages/About";
-// import DeskList from "./components/DeskList";
+import Dashboard from "./pages/Dashboard";
+import SignInUp from "./pages/SignInUp";
+
 const App = () => (
 	<Routes>
 		<Route path="/" element={<Home />} />
-		{/* <Route path="/dashboard" element={<Dashboard />} /> */}
+		<Route path="/dashboard" element={<Dashboard />} />
 		<Route path="/SignInUp" element={<SignInUp />} />
-		<Route path="/SignUp" element={<SignUp />} />
 	</Routes>
 );
 
