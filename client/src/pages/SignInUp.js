@@ -1,8 +1,14 @@
-import React, { useState } from "react";
-// import "../stylings/SignInUp.css";
+
+import React from "react";
+import "../stylings/SignUp.css";
+import SignUp from "../components/SignUp";
+
+export function SignInUp(){
+
 
 
 function SignInUp(){
+
 
 
     return(
@@ -14,6 +20,10 @@ function SignInUp(){
             {/* Add the form for registration here */}
             <div className="signUP">
                 <h1>Sign Up</h1>
+
+                <SignUp />
+
+
             </div>
         </div>
     );
