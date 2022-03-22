@@ -4,7 +4,12 @@ import { Checkbox } from '@mui/material';
 
 export default function DeskListBooker(props) {
 
-    const [bookingDetails, setBookingDetails] = useState({ name_of_staff:"", desk_id: props.deskNumber, date_booked:props.bookingDate, am:false, pm:false});
+    // We should have a user_id that is unique for every user passed down from the registration / login 
+    // page. Can be routed trough the DeskList component to this component. This should then be passed to the 
+    // API and on to the database
+    // const user_id = props.....
+
+    const [bookingDetails, setBookingDetails] = useState({ user_id:10, name_of_staff:"", desk_id: props.deskNumber, date_booked:props.bookingDate, am:false, pm:false});
 
     async function fetchData(inputData) {
         console.log("UseEffect Run:")

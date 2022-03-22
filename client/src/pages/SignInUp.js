@@ -1,21 +1,14 @@
+
 import React from "react";
 import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
+import "../stylings/SignUp.css";
 
-
-function SignInUp(){
-
+export deafult function SignInUp(){
 
     return(
-        <div>
-            {/* Add the form for login here */}
-            <div  className="SignIn">
-            </div>
-            {/* Add the form for registration here */}
-            <div className="signUP">
-                <SignIn />
-            </div>
-        </div>
+      <SignIn />
+      <SignUp />
     );
 }
 
-export default SignInUp;
