@@ -18,6 +18,8 @@ CREATE TABLE desks (id INT PRIMARY KEY,
 
 create TABLE bookings (id SERIAL PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 
+-- create TABLE users (id SERIAL PRIMARY KEY, first_name VARCHAR(30) NOT NULL, last_name VARCHAR(30) NOT NULL, user_password VARCHAR(30) NOT NULL, accessibilty BOOLEAN NOT NULL);
+
 -- We are having issues getting the date serach api working. I believe it is an issue with how we are storing
 -- the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
 -- but this did not work. I believe we may need to change the way that we store the date so that it is

@@ -81,13 +81,28 @@ router.get("/all-bookings", (req, res) => {
 });
 
 router.put("/all-bookings", (req, res) => {
+
+    // {
+    //         "id":1,
+    //         "date":"15/03/2022",
+    //         "am":true,
+    //         "pm":false,
+    //         "desk_id":1
+    // }
+
+    // I think we may be best to take a unique ID for each user that is created / initiliased at the point of registartion - or is 
+    // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
+    // a new table booking :
+    
+    // const unique_id = req.body.unique_id;
     const name = req.body.name_of_staff;
     const deskNumber = req.body.desk_id;
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-	  const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
-	  const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`
+	
+    const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`
 
 
 	pool
@@ -101,8 +116,54 @@ router.put("/all-bookings", (req, res) => {
 			console.error(error);
 			res.status(500).json(error);
 		});
+});
+
+
+
+// ------------ Route to allow front-end to check if user exists and if not then create a new user account ----------------------
+
+router.put("/register", (req, res) => {
+    // Where would be best to put the validation for registering an account ?
+    // Perhaps it would be best to have the registartion component do a seperate 
+    // API call to check if the email address is already registered
+    
+    const email = req.body.email;
+    const first_name = req.body.first_name;
+    const last_name = req.body.first_name;
+    const password = req.body.password;
+    const accessability = req.body.date_booked;
+    
+	const newRegQuery = `INSERT INTO users(email, first_name, last_name, password, accessability) VALUES ('${email}','${first_name}','${last_name}','${password}','${accessability}'`;
+	
+    const emailQuery = `SELECT * FROM users WHERE email='${email}';`
+
+    const templateQuery = `SELECT * FROM bookings WHERE id='10';`
+
+	pool
+		.query(templateQuery)
+        .then((result) => {
+            if (result.rows.length > 0){
+                res.status(500).send("error - email already exists");
+            } else {
+                pool.query(newRegQuery).then((data)=>{
+				    res.status(200).json(data.rows);
+			    })
+                
+            }
+        })
+		// .then(() => {
+		// 	pool.query(returnQuery).then((data)=>{
+		// 		res.send(data.rows)
+		// 	})
+		// })
+		.catch((error) => {
+			console.error(error);
+			res.status(500).json(error);
+		});
 
 });
+
+
 
 			
 
