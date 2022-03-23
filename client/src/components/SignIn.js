@@ -2,7 +2,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
 
-export default function SignIn() {
+export default function SignIn(props) {
+
+	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    let globalUserDetails = props.globalUserDetails;
+    let setGlobalUserDetails = props.setGlobalUserDetails;
+    console.log(globalUserDetails);
+
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
 			alert(JSON.stringify(data));

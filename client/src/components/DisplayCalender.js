@@ -4,7 +4,20 @@ import moment from 'moment';
 import Calendar from 'react-calendar';
 import DeskList from "./DeskList";
 
-export default function DisplayCalendar(){
+export default function DisplayCalendar(props){
+
+    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    let globalUserDetails = props.globalUserDetails;
+    let setGlobalUserDetails = props.setGlobalUserDetails;
+    console.log(globalUserDetails);
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+    //  ↓↓↓ Parent component useState and setState for currently selected date ↓↓↓ 
+    let selectedDateParent = props.selectedDateParent;
+    let setSelectedDateParent = props.setSelectedDateParent;
+    console.log(selectedDateParent);
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
 
     //  This value date is required for the Calender plugin component, it will not accept a date
     //  in a different format. We pass and update this dateValue only in the calender component,
@@ -18,15 +31,17 @@ export default function DisplayCalendar(){
         // e.preventDefault();
         console.log("change function run ...")
         setDateValue(e);
+        
+        // setSelectedDate(moment(e).format('YYYY-MM-D'));
+        // console.log(selectedDate)
 
-        setSelectedDate(moment(e).format('YYYY-MM-D'));
-        console.log(selectedDate)
+        setSelectedDateParent(moment(e).format('YYYY-MM-D'))
     }
 
     return (
         <>
             <Calendar onChange={changeFunction} value={dateValue} />
-            <DeskList date={selectedDate} />
+            {/* <DeskList date={selectedDate} /> */}
         </>
     );
 }
