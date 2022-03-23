@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const Header = ()=> {
+const Header = (props)=> {
     return (
         <div className="headerContainer">
             <h1 className="headerTitle" >Deskendo</h1>

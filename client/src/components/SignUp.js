@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-export default function SignUp(){
+export default function SignUp(props){
+
+    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    let globalUserDetails = props.globalUserDetails;
+    let setGlobalUserDetails = props.setGlobalUserDetails;
+    console.log(globalUserDetails);
+
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+    
+    
     const [errorMsg, setErrorMsg] = useState("");
     console.log(errorMsg);
     const [state, setState] = useState({

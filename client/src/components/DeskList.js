@@ -6,7 +6,19 @@ import { useState, useEffect } from "react";
 
 
 export default function DeskList(props){
-    console.log(props.date);
+    
+    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    let globalUserDetails = props.globalUserDetails;
+    let setGlobalUserDetails = props.setGlobalUserDetails;
+    console.log(globalUserDetails);
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+    //  ↓↓↓ Parent component useState and setState for currently selected date ↓↓↓ 
+    let selectedDateParent = props.selectedDateParent;
+    let setSelectedDateParent = props.setSelectedDateParent;
+    console.log(selectedDateParent);
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+    
 
     const [ bookingsDataState, setBookingsDataState] = useState(bookingsData);
     const [ desksDataState, setDesksDataState] = useState(deskData);
@@ -15,14 +27,14 @@ export default function DeskList(props){
     // FETCH FOR BOOKINGS:
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-        fetch(`http://localhost:3100/api/bookings?date=${props.date}`, {mode: 'cors'})
+        fetch(`http://localhost:3100/api/bookings?date=${selectedDateParent}`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("Bookings Data from API :")
                 console.log(data);
                 setBookingsDataState(data);
             })
-    }, [props.date]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [selectedDateParent]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
     // FETCH FOR DESKS:
@@ -75,7 +87,9 @@ export default function DeskList(props){
     return (
         <div className="DeskListContainer">
             <h1>Current Date selected in calender: </h1>
-            <h2>{props.date}</h2>
+            <h2>{selectedDateParent}</h2>
+            {/* <h3>Current User: </h3>
+            <h3>{setGlobalUserDetails.first_name} {setGlobalUserDetails.last_name}</h3> */}
             <table>
                 <thead>
                     <tr>
@@ -102,7 +116,7 @@ export default function DeskList(props){
                                         </tr>
                                         <div>
                                                 {toOpen.open && (toOpen.number === element.id) ? (
-                                                        <DeskListBooker deskNumber={element.id} bookingDate={props.date} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)}/>
+                                                        <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)}/>
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )
