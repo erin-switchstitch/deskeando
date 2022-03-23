@@ -3,6 +3,7 @@ import Moment from 'react-moment';
 import moment from 'moment';
 import Calendar from 'react-calendar';
 import DeskList from "./DeskList";
+import "./../stylings/Booking.css";
 
 export default function DisplayCalendar(props){
 
@@ -39,9 +40,9 @@ export default function DisplayCalendar(props){
     }
 
     return (
-        <>
+        <div className="BookingCalenderBannerWrapper">
+            <h2>2. When would you like to go into the office?</h2>
             <Calendar onChange={changeFunction} value={dateValue} />
-            {/* <DeskList date={selectedDate} /> */}
-        </>
+        </div>
     );
 }

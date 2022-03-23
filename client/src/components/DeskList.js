@@ -86,10 +86,9 @@ export default function DeskList(props){
 
     return (
         <div className="DeskListContainer">
-            <h1>Current Date selected in calender: </h1>
-            <h2>{selectedDateParent}</h2>
-            {/* <h3>Current User: </h3>
-            <h3>{setGlobalUserDetails.first_name} {setGlobalUserDetails.last_name}</h3> */}
+            <h2>3. Choose your desk</h2>
+            <h3>Current Date selected in calender: {selectedDateParent}</h3>
+
             <table>
                 <thead>
                     <tr>
