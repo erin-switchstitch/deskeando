@@ -50,20 +50,25 @@ export default function SignUp(){
         event.preventDefault();
         const testSymbols = /[!#$%.*&]/.test(password);
         const testNumbers= /[0-9]/.test(password);
-        const testUpperCase = /[A-Z]/.test(password);
+        // const testUpperCase = /[A-Z]/.test(password);
+         const testUpperCase = true;
+
 console.log(state);
         const { firstName,lastName, email, password ,confirmPassword, accessibility } = state;
           console.log("gggg",state);
-          if (firstName === "" || lastName === ""  || email === ""|| password === "" || confirmPassword === "" || accessibility) {
+          if (firstName === "" || lastName === ""  || email === ""|| password === "" || confirmPassword === "" ) {
 
             setErrorMsg("please fill all fields");
 
           } else if(!email.includes("@")){
               setErrorMsg("Please enter a valid email");
-            } else if(!testSymbols || !testNumbers ||!testUpperCase){
-           setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
+            // } else if(!testSymbols || !testNumbers ||!testUpperCase){
+        //    setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
             } else if (password !== confirmPassword ) {
             setErrorMsg("Your passwords do not match!");
+          }else{
+            setErrorMsg("Everthing is correct");
+
           }
     };
 

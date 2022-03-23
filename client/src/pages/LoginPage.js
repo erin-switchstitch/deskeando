@@ -4,13 +4,11 @@ import SignUp from "../components/SignUp";
 import "../stylings/SignUp.css";
 
 export default function LoginPage(){
-
     return(
         <div>
             <SignIn />
             <SignUp />
         </div>
-
     );
 }
 
