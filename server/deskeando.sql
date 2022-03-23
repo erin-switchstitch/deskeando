@@ -1,32 +1,37 @@
--- DROP DATABASE IF EXISTS deskeando;
--- Create database deskeando;
--- \c deskeando;
--- If the table "desks" exists delete it
+-- This extension will be used to encrypt a user's password. First DROP the extension if it exists then CREATE it again.
+DROP EXTENSION if exists pgcrypto;
 
-drop table if exists desks;
+CREATE EXTENSION pgcrypto;
 
--- If the table "bookings" exists delete it
+-- If the table "bookings" exists delete it.
+DROP TABLE if exists bookings CASCADE;
 
-drop table if exists bookings;
+-- If the table "desks" exists delete it.
+DROP TABLE if exists desks;
+
+-- If the table "users" exists delete it.
+DROP TABLE if exists users;
+
+
 
 -- Creating a table called "desks"
-
 CREATE TABLE desks (id INT PRIMARY KEY,
                                    desk_features JSONB);
 
+-- Creating a table called "users"
+CREATE TABLE users(id SERIAL PRIMARY KEY,
+                                     first_name VARCHAR(30) NOT NULL,
+                                                            last_name VARCHAR(30) NOT NULL,
+                                                                                  email VARCHAR(254) NOT NULL,
+                                                                                                     password VARCHAR(100) NOT NULL,
+                                                                                                                           accessibility BOOLEAN); -- Creating a table called "bookings"
+
 -- Creating a table called "bookings"
+CREATE TABLE bookings (id SERIAL PRIMARY KEY, staff_id INT REFERENCES users(id), desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 
-create TABLE bookings (id SERIAL PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
-
--- We are having issues getting the date serach api working. I believe it is an issue with how we are storing
--- the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
--- but this did not work. I believe we may need to change the way that we store the date so that it is
--- YYYY-MM-DD rather than DD/MM/YYYY as this seems to be the standard that is used in SQL
--- create TABLE bookings (id INT PRIMARY KEY, name_of_staff VARCHAR(30) NOT NULL, desk_id INT REFERENCES desks(id), date_booked VARCHAR(10) NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 -- Adding rows of data to the "desks" table
-
 INSERT INTO desks (id, desk_features)
-VALUES (1, 
+VALUES (1,
         '{"accessibilty":true, "capacity":2}');
 
 
@@ -274,121 +279,136 @@ INSERT INTO desks (id, desk_features)
 VALUES (50,
         '{"accessibilty":true, "capacity":2}');
 
--- Adding rows of data to the "bookings" table
+-- Adding rows of data to the "users" table
+INSERT INTO users(first_name, last_name, email, password, accessibility)
+VALUES ('Amanda',
+        'Nwadukwe',
+        'amandanwadukwe@gmail.com',
+        crypt('AmandaNwadukwe1%', gen_salt('bf')),
+        True);
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Amanda',
+INSERT INTO users(first_name, last_name, email, password, accessibility)
+VALUES ('Sharmaine',
+        'Sharmaine',
+        'sharmaine@gmail.com',
+        crypt('Sharmaine1%', gen_salt('bf')),
+        True);
+
+INSERT INTO users(first_name, last_name, email, password, accessibility)
+VALUES ('Erin',
+        'Dyson',
+        'erindyson@gmail.com',
+        crypt('ErinDyson1%', gen_salt('bf')),
+        True);
+
+INSERT INTO users(first_name, last_name, email, password, accessibility)
+VALUES ('Bimbola',
+        'Lasisi',
+        'bimbolalasisi@gmail.com',
+        crypt('BimbolaLasisi1%', gen_salt('bf')),
+        True);
+
+-- Adding rows of data to the "bookings" table
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         2,
         '2022-03-13',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Sharmaine',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         1,
         '2022-03-14',
         FALSE,
         TRUE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Bimbola',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-15',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Erin',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-16',
         FALSE,
         TRUE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Paul',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         4,
         '2022-03-12',
         TRUE,
         FALSE);
 
------
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Sean',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         2,
         '2022-03-18',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Sadaf',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         1,
         '2022-03-19',
         FALSE,
         TRUE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Peju',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-20',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Chris',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-21',
         FALSE,
         TRUE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Candy',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         2,
         '2022-03-22',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Alicia',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         1,
         '2022-03-23',
         FALSE,
         TRUE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'Mya',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-24',
         TRUE,
         FALSE);
 
 
-INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm)
-VALUES (
-        'David',
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
         3,
         '2022-03-25',
         FALSE,
         TRUE);
+
