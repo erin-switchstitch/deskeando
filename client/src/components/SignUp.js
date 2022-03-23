@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 export default function SignUp(props){
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -60,24 +61,34 @@ export default function SignUp(props){
         const testSymbols = /[!#$%.*&]/.test(password);
         const testNumbers= /[0-9]/.test(password);
         // const testUpperCase = /[A-Z]/.test(password);
-         const testUpperCase = true;
+        const testUpperCase = true;
 
-console.log(state);
+        console.log(state);
         const { firstName,lastName, email, password ,confirmPassword, accessibility } = state;
-          console.log("gggg",state);
-          if (firstName === "" || lastName === ""  || email === ""|| password === "" || confirmPassword === "" ) {
+        console.log("gggg",state);
 
+        if (firstName === "" || lastName === ""  || email === ""|| password === "" || confirmPassword === "" ) {
             setErrorMsg("please fill all fields");
 
-          } else if(!email.includes("@")){
-              setErrorMsg("Please enter a valid email");
-            // } else if(!testSymbols || !testNumbers ||!testUpperCase){
-        //    setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
-            } else if (password !== confirmPassword ) {
-            setErrorMsg("Your passwords do not match!");
-          }else{
-            setErrorMsg("Everthing is correct");
+        } else if(!email.includes("@")){
+            setErrorMsg("Please enter a valid email");
 
+        // } else if(!testSymbols || !testNumbers ||!testUpperCase){
+        //    setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
+
+        } else if (password !== confirmPassword ) {
+            setErrorMsg("Your passwords do not match!");
+
+        }else{
+            setErrorMsg("Everything is correct");
+            // Here we would send our fetch request to the API to check these details against existing user accounts, and if
+            // everything is okay, then create a new user profile in the database. After that the API would send back a successful
+            // code as well as the unique_ID (and potentially all of the user details) 
+
+            // Note for Amanda :
+            // Within the fetch request (PUT) we will send all of these user details
+            // Then if there is a successful response from the API, then we will run setGlobalUserDetails(...) with the user details 
+            // from this component formatted into the correct formatting for globalUserDetails
           }
     };
 
@@ -148,73 +159,3 @@ console.log(state);
         </form>
     );
 }
-
-
-// import React, { useState } from "react";
-// import "../stylings/SignInUp.css";
-
-
-// // function SignInUp(){
-//     const [name, setName] = useState("");
-//     const [email, setEmail] = useState("");
-//  const [password, setPassword] = useState("");
-//  const [confirmPassword, setconfirmPassword] = useState("");
-// const [emailErr, setEmailErr] = useState(false);
-// const [pwdError, setPwdError] = useState(false);
-
-//     const validate =() => {
-//         const regex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
-
-//         // const emailRegex = /\S+@\S+\.\S+/;
-
-//         if (!values.name ){
-//         errors.username = Name is required!;//full name must be 5 character long
-//         }
-//         if (!values.email){
-//         errors.username =“Email is required!”;//emaill is not valid
-//         }
-//         if (!values.password){
-//         errors.username =Password is required!”;//password must be 8 characters long
-//         }
-
-//     return(
-//         // <div>
-//         //     {/* Add the form for login here */}
-//         //     <div  className="SignIn">
-//         //         <h1>Sign In</h1>
-//         //     </div>
-//         //     {/* Add the form for registration here */}
-//       <div>
-//             <form>
-//                 <h2>Register-Create Account </h2>
-//         <form onSubmit={} noValidate >
-//                 <input
-//             type="FullName"
-//             placeholder="FullName"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//          />
-// <input
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//          />
-//          <input
-//             type="password"
-//             placeholder="Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//          />
-//          <div className="info">
-//               <small>Password must be eight characters in length.</small>
-//             </div>
-//          <button onClick={validate} className="btn" type="submit">
-//               Submit
-//               </button>
-//               </form>
-// </div>
-// </div>
-//     );
-
-// export default SignInUp;
