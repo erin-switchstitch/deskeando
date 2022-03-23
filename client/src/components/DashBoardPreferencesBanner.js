@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 
-export default function SetPreferencesBannerLink(props) {
+export default function DashBoardPreferencesBanner(props) {
 
     return (
         <div className="DashboardComponentWrappers">

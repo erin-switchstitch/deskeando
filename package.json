@@ -81,6 +81,7 @@
 		"morgan": "^1.10.0",
 		"pg": "^8.7.3",
 		"react-calendar": "^3.7.0",
+		"react-hook-form": "^7.28.1",
 		"react-moment": "^1.1.1"
 	},
 	"engines": {
