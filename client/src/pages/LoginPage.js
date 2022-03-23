@@ -1,14 +1,16 @@
-
 import React from "react";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import "../stylings/SignUp.css";
 
-export deafult function SignInUp(){
+export default function LoginPage(){
 
     return(
-      <SignIn />
-      <SignUp />
+        <div>
+            <SignIn />
+            <SignUp />
+        </div>
+
     );
 }
 

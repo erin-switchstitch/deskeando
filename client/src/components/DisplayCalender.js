@@ -24,9 +24,9 @@ export default function DisplayCalendar(){
     }
 
     return (
-        <div>
-        <Calendar onChange={changeFunction} value={dateValue} />
-        <DeskList date={selectedDate} />
-        </div>
+        <>
+            <Calendar onChange={changeFunction} value={dateValue} />
+            <DeskList date={selectedDate} />
+        </>
     );
 }

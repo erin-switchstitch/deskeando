@@ -1,16 +1,12 @@
 import DeskListBooker from "./DeskListBooker";
-import bookingsData from "./bookings.json";
-import deskData from "./desks.json";
+import bookingsData from "./../data/bookings.json";
+import deskData from "./../data/desks.json";
 import "./../stylings/DeskList.css";
 import { useState, useEffect } from "react";
-
-// all bookings
-// bookings by date
 
 
 export default function DeskList(props){
     console.log(props.date);
-
 
     const [ bookingsDataState, setBookingsDataState] = useState(bookingsData);
     const [ desksDataState, setDesksDataState] = useState(deskData);
@@ -42,10 +38,10 @@ export default function DeskList(props){
     }, [bookingsDataState]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
+
     // ------- Code to sort through desks data and create list of desks. Then goes through
     // list of bookings, and if the desk is booked then it updates list to reflect this. We are
     // using a state hook so it updates if the bookings data is updated  ----------------------
-
 
     let deskAndBookingList = [];
 
@@ -64,6 +60,7 @@ export default function DeskList(props){
             deskAndBookingList[element.desk_id-1].id = element.desk_id;
         }
     });
+
 
 
     // ----------- This code stops all of the rows opening the dropdown component, and

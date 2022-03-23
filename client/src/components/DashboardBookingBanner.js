@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 
-export default function BookDeskBannerLink(props) {
+export default function DashboardBookingBanner(props) {
 
 
     return (

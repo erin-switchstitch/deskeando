@@ -1,8 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import templateData from "./bookings.json";
+import templateData from "./../data/bookings.json";
 
-export default function UpcomingBookings(props) {
+
+export default function DashboardUpcomingBookings(props) {
 
 
     let bookingArray = templateData;
