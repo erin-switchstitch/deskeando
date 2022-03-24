@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import "../stylings/SignInUp.css";
+
 
 export default function SignUp(props){
-
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
-    let setGlobalUserDetails = props.setGlobalUserDetails;
+    //let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
-
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-    
-    
+
     const [errorMsg, setErrorMsg] = useState("");
     console.log(errorMsg);
     const [state, setState] = useState({
@@ -20,6 +19,8 @@ export default function SignUp(props){
         confirmPassword: "",
         accessibility: "",
     });
+
+
     const handleFirstNameChange = (e) => {
         setState({
             ...state,
@@ -56,16 +57,30 @@ export default function SignUp(props){
             accessibility: e.target.checked,
         });
     };
-    const handleOnSubmit =  (event) => {
+    const handleOnSubmit =  async (event) => {
         event.preventDefault();
-        const testSymbols = /[!#$%.*&]/.test(password);
-        const testNumbers= /[0-9]/.test(password);
-        // const testUpperCase = /[A-Z]/.test(password);
-        const testUpperCase = true;
+
+        // const testSymbols = /[!#$%.*&]/.test(password);
+        // const testNumbers= /[0-9]/.test(password);
+        // // const testUpperCase = /[A-Z]/.test(password);
+        //  const testUpperCase = true;
+
+        const requestOptions = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "email":state.email, "last_name":state.lastName, "first_name":state.firstName, "password":state.password, "accessibility":state.accessibility }),
+        };
+
+        fetch("http://localhost:3000/api/register", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        });
 
         console.log(state);
-        const { firstName,lastName, email, password ,confirmPassword, accessibility } = state;
-        console.log("gggg",state);
+        const { firstName, lastName, email, password , confirmPassword } = state;
+        
+
 
         if (firstName === "" || lastName === ""  || email === ""|| password === "" || confirmPassword === "" ) {
             setErrorMsg("please fill all fields");
@@ -76,11 +91,10 @@ export default function SignUp(props){
         // } else if(!testSymbols || !testNumbers ||!testUpperCase){
         //    setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
 
-        } else if (password !== confirmPassword ) {
-            setErrorMsg("Your passwords do not match!");
-
-        }else{
-            setErrorMsg("Everything is correct");
+          } else if (password !== confirmPassword ) {
+                setErrorMsg("Your passwords do not match!");
+          }else{
+             setErrorMsg("Everthing is correct");
             // Here we would send our fetch request to the API to check these details against existing user accounts, and if
             // everything is okay, then create a new user profile in the database. After that the API would send back a successful
             // code as well as the unique_ID (and potentially all of the user details) 
@@ -91,11 +105,8 @@ export default function SignUp(props){
             // from this component formatted into the correct formatting for globalUserDetails
           }
     };
-
-
-    return (
-
-        <form onSubmit={handleOnSubmit}>
+    return(
+        <form className={props.display ? "no-display" : ""} onSubmit={handleOnSubmit}>
             <h3>Sign Up</h3>
             <span>{errorMsg}</span>
                 <label>First Name
@@ -153,9 +164,9 @@ export default function SignUp(props){
 
             </label>
             <button onClick={handleOnSubmit} type="submit" className="">Sign Up</button>
-            <p className="forgot-password text-right">
+            {/* <p className="forgot-password text-right">
                 Already registered <a href="signIn">sign in?</a>
-            </p>
+            </p> */}
         </form>
     );
 }
