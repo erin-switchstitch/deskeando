@@ -11,21 +11,24 @@ const router = Router();
 app.use(json());
 router.use(cors());
 
-//const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
+const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
 
-// let passwordToPass;
-// console.log(process.env.REACT_APP_PASSWORD);
-// if (process.env.REACT_APP_PASSWORD){
-//     passwordToPass = process.env.REACT_APP_PASSWORD;
-// } else {
-//     passwordToPass = "";
-// }
+let passwordToPass;
+
+console.log(process.env.REACT_APP_PASSWORD);
+
+if (process.env.REACT_APP_PASSWORD){
+    passwordToPass = process.env.REACT_APP_PASSWORD;
+} else {
+    passwordToPass = "";
+}
+
 const pool = new Pool({
-    user:  "postgres",
-    host: "localhost",
-    database: "deskeando",
-    password: "amanda",
-    port: 5432,
+	user:  process.env.REACT_APP_USERNAME,
+	host: "localhost",
+	database: process.env.REACT_APP_DATABASE_NAME,
+	password: passwordToPass,
+	port: 5432,
 });
 
 
@@ -45,7 +48,7 @@ router.get("/desks", (req, res) => {
 //Get all bookings by dates;
 router.get("/bookings", (req, res) => {
     const date = req.query.date;
-    // console.log(date);
+    console.log(date);
 
     // We are having issues getting the date serach api working. I believe it is an issue with how we are storing
     // the date within SQL. I've tried changing how the date structure is setup in the SQL file (from DATE NOT NULL to VARCHAR(30) NOT NULL)
@@ -103,13 +106,12 @@ router.put("/all-bookings", (req, res) => {
     // I think we may be best to take a unique ID for each user that is created / initiliased at the point of registartion - or is
     // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
     // a new table booking :
-    // const unique_id = req.body.unique_id;
-    const name = req.body.name_of_staff;
+    const user_id = req.body.user_id;
     const deskNumber = req.body.desk_id;
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-    const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+    const query = `INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm) VALUES ('${user_id}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
 	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`;
 
 
@@ -167,15 +169,25 @@ router.put("/register", (req, res) => {
     const accessibility = req.body.accessibility;
 	const newRegQuery = `INSERT INTO users(first_name, last_name, email, password, accessibility) VALUES ('${first_name}','${last_name}','${email}', crypt('${password}', gen_salt('bf')),'${accessibility}');`;
     const emailQuery = `SELECT * FROM users WHERE email='${email}';`;
+    const returnQuery = `SELECT id FROM users WHERE email='${email}';`;
+
 	pool
 		.query(emailQuery)
         .then((result) => {
             console.log(result.rows.length);
             if (result.rows.length > 0){
+                console.log("Registartion log, results.rows:")
+                console.log(result.rows)
                 res.status(500).json({ "error":"email already exists" });
             } else {
-                pool.query(newRegQuery).then((data)=>{
-                    res.status(200).json(data.rows);
+                pool.query(newRegQuery).then((response)=>{
+                    console.log("I am in base 1");
+                    console.log(response);
+                    pool.query(returnQuery).then((data)=>{
+                        console.log("I am in base 2");
+                        res.status(200).json(data.rows);
+                        console.log("I am in base 3");
+                    });
                 });
 
             }

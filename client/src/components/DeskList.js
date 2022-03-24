@@ -32,7 +32,12 @@ export default function DeskList(props){
             .then(data => {
                 console.log("Bookings Data from API :")
                 console.log(data);
-                setBookingsDataState(data);
+
+                if (data.name != "error"){
+                    setBookingsDataState(data);
+                } else {
+                    setBookingsDataState(bookingsData)
+                }
             })
     }, [selectedDateParent]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
@@ -45,7 +50,13 @@ export default function DeskList(props){
             .then(data => {
                 console.log("Desks Data from API :")
                 console.log(data);
-                setDesksDataState(data);
+                // setDesksDataState(data);
+                
+                if (data.name != "error"){
+                    setDesksDataState(data);
+                } else {
+                    setDesksDataState(deskData);
+                }
             })
     }, [bookingsDataState]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
@@ -115,7 +126,7 @@ export default function DeskList(props){
                                         </tr>
                                         <div>
                                                 {toOpen.open && (toOpen.number === element.id) ? (
-                                                        <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)}/>
+                                                        <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )

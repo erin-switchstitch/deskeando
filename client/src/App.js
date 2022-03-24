@@ -12,7 +12,7 @@ export default function App(){
 
 	//  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : 10, first_name : "Erin", last_name : "Dyson", email : "", accessability : false});
+	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : 1, first_name : "Default", last_name : "Username", email : "defaultUser@gmail.com", accessability : false});
 	console.log(globalUserDetails);
 
 	/* 

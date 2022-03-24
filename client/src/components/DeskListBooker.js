@@ -11,7 +11,7 @@ export default function DeskListBooker(props) {
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    const [bookingDetails, setBookingDetails] = useState({ user_id:10, name_of_staff:"", desk_id: props.deskNumber, date_booked:props.bookingDate, am:false, pm:false});
+    const [bookingDetails, setBookingDetails] = useState({ user_id: globalUserDetails.user_id , name_of_staff: globalUserDetails.first_name, desk_id: props.deskNumber, date_booked:props.bookingDate, am:false, pm:false});
 
     async function fetchData(inputData) {
         console.log("UseEffect Run:")
@@ -35,7 +35,7 @@ export default function DeskListBooker(props) {
     function submitHandler(e){
         console.log("Submit handler run")
         e.preventDefault();
-        alert(`Desk ${props.deskNumber} has been booking by ${bookingDetails.name_of_staff}. AM : ${bookingDetails.am}. PM : ${bookingDetails.pm}`);
+        // alert(`Desk ${props.deskNumber} has been booking by ${bookingDetails.name_of_staff}. AM : ${bookingDetails.am}. PM : ${bookingDetails.pm}`);
         fetchData(bookingDetails);
     }
 
@@ -61,7 +61,7 @@ export default function DeskListBooker(props) {
     return (
         <div className="bookingDropdown">
             <form onSubmit={submitHandler}>
-                <label htmlFor="name">
+                {/* <label htmlFor="name">
                     Your name:
                     <input 
                         type="text" name="name" id="name" 
@@ -69,7 +69,7 @@ export default function DeskListBooker(props) {
                         value={bookingDetails.name_of_staff}
                         required>
                     </input>
-                </label>
+                </label> */}
 
                 <label htmlFor="am">
                     AM :

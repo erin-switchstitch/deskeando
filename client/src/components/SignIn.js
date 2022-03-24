@@ -13,9 +13,13 @@ export default function SignIn(props) {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+
     const onSubmit = async (data) => {
 			alert(JSON.stringify(data));
+			// setGlobalUserDetails
 		};
+
+
     return (
 		<div className={props.display ? "" : "no-display"}>
 				<h1>Sign In</h1>
