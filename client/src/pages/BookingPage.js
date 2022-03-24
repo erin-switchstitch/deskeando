@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import moment from 'moment';
-import "./../stylings/Home.css";
+import "./../stylings/Booking.css";
 import Header from "../components/Header";
 import DeskList from "../components/DeskList";
 import DisplayCalendar from "../components/DisplayCalender";
+import BookingsAccessabilityBanner from "../components/BookingsAccessabilityBanner";
 
 
 export default function BookingPage(props) {
@@ -25,6 +26,7 @@ export default function BookingPage(props) {
 	return (
 		<div>
 			<Header />
+			<BookingsAccessabilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DisplayCalendar selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DeskList selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
