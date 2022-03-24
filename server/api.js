@@ -1,6 +1,9 @@
 import { Router } from "express";
 import { Pool } from "pg";
-//import { password } from "pg/lib/defaults";
+
+import { password } from "pg/lib/defaults";
+import users from "./users.json";
+
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -79,6 +82,24 @@ router.get("/all-bookings", (req, res) => {
         });
 });
 
+
+router.post("/login", (req, res) => {
+    const data = req.body.credentials;
+    const findUser = users.filter((user) => {
+         console.log(user, "One user");
+        if (user.email === data.email && user.password === data.password) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    if (findUser.length === 0) {
+        res.status(401).send({ Msg: "Your email and password is not vaild" });
+    } else {
+        res.status(200).send({ Msg: "User is found" });
+    }
+    console.log(findUser);
+
 //This endpoint deletes bookings by id
 router.delete("/all-bookings/:id", (req, res) => {
     const bookingsId = req.params.id;
@@ -91,6 +112,7 @@ router.delete("/all-bookings/:id", (req, res) => {
             console.log(error);
             res.status(500).json(error);
         });
+
 });
 
 router.put("/all-bookings", (req, res) => {
