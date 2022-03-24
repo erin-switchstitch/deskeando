@@ -1,9 +1,20 @@
+import { ClassNames } from "@emotion/react";
 import React from "react";
 import { useState } from "react";
 // import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
 
+
 export default function SignIn() {
+  
+  	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    let globalUserDetails = props.globalUserDetails;
+    let setGlobalUserDetails = props.setGlobalUserDetails;
+    console.log(globalUserDetails);
+
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+  
+  
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const handleNameChange = (e) => {
@@ -27,6 +38,7 @@ export default function SignIn() {
 			.then((res) => res.json())
 			.then((data) => console.log(data));
 	};
+
 
 	console.log(email, password);
 	return (

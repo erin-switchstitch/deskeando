@@ -1,33 +1,33 @@
 import { Router } from "express";
 import { Pool } from "pg";
+
 import { password } from "pg/lib/defaults";
 import users from "./users.json";
+
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const { json } = require("body-parser");
-const axios = require("axios");
 const app = express();
 const router = Router();
 
 app.use(json());
 router.use(cors());
 
-const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
+//const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
 
-let passwordToPass;
-
-if (process.env.REACT_APP_PASSWORD){
-    passwordToPass = process.env.REACT_APP_PASSWORD;
-} else {
-    passwordToPass = "";
-}
-
+// let passwordToPass;
+// console.log(process.env.REACT_APP_PASSWORD);
+// if (process.env.REACT_APP_PASSWORD){
+//     passwordToPass = process.env.REACT_APP_PASSWORD;
+// } else {
+//     passwordToPass = "";
+// }
 const pool = new Pool({
-    user:  process.env.REACT_APP_USERNAME,
+    user:  "postgres",
     host: "localhost",
-    database: process.env.REACT_APP_DATABASE_NAME,
-    password: passwordToPass,
+    database: "deskeando",
+    password: "amanda",
     port: 5432,
 });
 
@@ -68,8 +68,6 @@ router.get("/bookings", (req, res) => {
 
 //Get all bookings;
 router.get("/all-bookings", (req, res) => {
-
-
     pool
         .query("SELECT * FROM bookings;")
         .then((result) => {
@@ -80,6 +78,7 @@ router.get("/all-bookings", (req, res) => {
             res.status(500).json(error);
         });
 });
+
 
 router.post("/login", (req, res) => {
     const data = req.body.credentials;
@@ -97,6 +96,20 @@ router.post("/login", (req, res) => {
         res.status(200).send({ Msg: "User is found" });
     }
     console.log(findUser);
+
+//This endpoint deletes bookings by id
+router.delete("/all-bookings/:id", (req, res) => {
+    const bookingsId = req.params.id;
+    pool
+        .query(`DELETE FROM bookings where id=${bookingsId};`)
+        .then((result) => {
+            res.json(result.rows);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+
 });
 
 router.put("/all-bookings", (req, res) => {
@@ -109,27 +122,25 @@ router.put("/all-bookings", (req, res) => {
     //         "desk_id":1
     // }
 
-    // I think we may be best to take a unique ID for each user that is created / initiliased at the point of registartion - or is 
+    // I think we may be best to take a unique ID for each user that is created / initiliased at the point of registartion - or is
     // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
     // a new table booking :
-    
     // const unique_id = req.body.unique_id;
     const name = req.body.name_of_staff;
     const deskNumber = req.body.desk_id;
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-	
     const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
-	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`
+	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`;
 
 
 	pool
 		.query(query)
 		.then(() => {
 			pool.query(returnQuery).then((data)=>{
-				res.send(data.rows)
-			})
+				res.send(data.rows);
+			});
 		})
 		.catch((error) => {
 			console.error(error);
@@ -140,41 +151,57 @@ router.put("/all-bookings", (req, res) => {
 
 
 // ------------ Route to allow front-end to check if user exists and if not then create a new user account ----------------------
+router.get("/users", (req, res) => {
+    pool
+        .query("SELECT * FROM users")
+        .then((result) => {
+            res.json(result.rows);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+});
 
+//This endpoint gets all a user's bookings
+router.get("/user-bookings/:id", (req, res) => {
+    const userId = req.params.id;
+    pool
+        .query(`SELECT * FROM bookings where staff_id=${userId};`)
+        .then((result) => {
+            res.json(result.rows);
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+});
+
+//This route creates a user
 router.put("/register", (req, res) => {
     // Where would be best to put the validation for registering an account ?
-    // Perhaps it would be best to have the registartion component do a seperate 
+    // Perhaps it would be best to have the registartion component do a seperate
     // API call to check if the email address is already registered
-    
     const email = req.body.email;
     const first_name = req.body.first_name;
-    const last_name = req.body.first_name;
+    const last_name = req.body.last_name;
     const password = req.body.password;
-    const accessability = req.body.date_booked;
-    
-	const newRegQuery = `INSERT INTO users(email, first_name, last_name, password, accessability) VALUES ('${email}','${first_name}','${last_name}','${password}','${accessability}'`;
-	
-    const emailQuery = `SELECT * FROM users WHERE email='${email}';`
-
-    const templateQuery = `SELECT * FROM bookings WHERE id='10';`
-
+    const accessibility = req.body.accessibility;
+	const newRegQuery = `INSERT INTO users(first_name, last_name, email, password, accessibility) VALUES ('${first_name}','${last_name}','${email}', crypt('${password}', gen_salt('bf')),'${accessibility}');`;
+    const emailQuery = `SELECT * FROM users WHERE email='${email}';`;
 	pool
-		.query(templateQuery)
+		.query(emailQuery)
         .then((result) => {
+            console.log(result.rows.length);
             if (result.rows.length > 0){
-                res.status(500).send("error - email already exists");
+                res.status(500).json({ "error":"email already exists" });
             } else {
                 pool.query(newRegQuery).then((data)=>{
-				    res.status(200).json(data.rows);
-			    })
-                
+                    res.status(200).json(data.rows);
+                });
+
             }
         })
-		// .then(() => {
-		// 	pool.query(returnQuery).then((data)=>{
-		// 		res.send(data.rows)
-		// 	})
-		// })
 		.catch((error) => {
 			console.error(error);
 			res.status(500).json(error);
@@ -183,8 +210,17 @@ router.put("/register", (req, res) => {
 });
 
 
-
-			
+//This route removes a user
+router.delete("/users/:id", function (req, res) {
+  const userId = req.params.id;
+  pool
+    .query(`DELETE FROM users WHERE id=${userId}`)
+    .then(() => res.send(`Customer ${userId} deleted!`))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json(error);
+    });
+});
 
 // router.get("/wheelchair", (_, res) => {
 //  const desksWheelchairUsers = desks.filter((desk) => desk.desk_features.includes("wheelchair"));

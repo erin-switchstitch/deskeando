@@ -1,25 +1,23 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import UserPreferencesPage from "../pages/UserPreferencesPage";
 
-export default function DashBoardPreferencesBanner(props) {
+export default function UserPreferencesPage(props){
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
-
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    return (
-        <div className="DashboardComponentWrappers">
-            <h2>Desk booking preferences</h2>
-            <h3>Let us know if you have any accessability needs and we'll make sure you get the right desk.</h3>
+    return(
+        <div>
+            <h1>This page will contain options to change the user preferences</h1>
             <h2>Current Accessability Settings : {globalUserDetails.accessability.toString()}</h2>
-            
-            <Link to={'/preferences'}>
-                <button>Set your preferences</button>
+            <button onClick={()=>setGlobalUserDetails({...globalUserDetails, accessability : true})}> Accessability = true</button>
+            <button onClick={()=>setGlobalUserDetails({...globalUserDetails, accessability : false})}>Accessability = false</button>
+
+            <Link to={'/dashboard'}>
+                <button>Back to dashboard</button>
             </Link>
         </div>
     );
