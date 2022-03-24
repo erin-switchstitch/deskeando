@@ -1,3 +1,4 @@
+import { ClassNames } from "@emotion/react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
@@ -16,7 +17,7 @@ export default function SignIn(props) {
 			alert(JSON.stringify(data));
 		};
     return (
-			<>
+		<div className={props.display ? "" : "no-display"}>
 				<h1>Sign In</h1>
 				<form onSubmit={(e) => e.preventDefault()}>
 					<label>
@@ -62,7 +63,7 @@ export default function SignIn(props) {
 						Submit
 					</button>
 				</form>
-			</>
+			</div>
 		);
 }
 
