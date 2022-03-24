@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import moment from 'moment';
 import Calendar from 'react-calendar';
 import DeskList from "./DeskList";
-
+import ListCalender from "../pages/ListCalender";
 export default function DisplayCalendar(){
 
     //  This value date is required for the Calender plugin component, it will not accept a date
@@ -26,6 +26,7 @@ export default function DisplayCalendar(){
     return (
         <>
             <Calendar onChange={changeFunction} value={dateValue} />
+            <ListCalender />
             <DeskList date={selectedDate} />
         </>
     );

@@ -67,7 +67,7 @@ console.log(state);
             } else if (password !== confirmPassword ) {
             setErrorMsg("Your passwords do not match!");
           }else{
-            setErrorMsg("Everthing is correct");
+            setErrorMsg("");
 
           }
     };
