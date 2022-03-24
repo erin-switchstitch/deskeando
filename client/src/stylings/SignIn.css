@@ -41,6 +41,9 @@ button:hover{
     background-color: #fff;
     color:rgb(114, 111, 111);
 }
+.no-display {
+    display: none !important;
+}
 
 
 
