@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
+import AdminSignIn from "../components/AdminSignIn";
 import "../stylings/SignUp.css";
 
 export default function LoginPage(props){
@@ -19,6 +20,7 @@ export default function LoginPage(props){
 
     return(
         <div>
+            <AdminSignIn globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
             <SignIn display={login} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
             <SignUp display={login} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
             <div>

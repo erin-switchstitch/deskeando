@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import Header from "../components/Header";
 
 export default function UserPreferencesPage(props){
 
@@ -11,6 +12,7 @@ export default function UserPreferencesPage(props){
 
     return(
         <div>
+            <Header />
             <h1>This page will contain options to change the user preferences</h1>
             <h2>Current Accessability Settings : {globalUserDetails.accessability.toString()}</h2>
             <button onClick={()=>setGlobalUserDetails({...globalUserDetails, accessability : true})}> Accessability = true</button>

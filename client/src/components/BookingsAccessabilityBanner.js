@@ -18,40 +18,42 @@ export default function BookingsAccessabilityBanner(props) {
     console.log(globalUserDetails);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    const [hideAndDisplay, setHideAndDisplay] = useState(false);
+    const [displayToggle, setDisplayToggle] = useState(false);
     const [displayValue, setDisplayValue] = useState("none");
 
-	function hideComponent(){
+	function displayComponent(){
 
-        console.log(hideAndDisplay);
+        console.log(displayToggle);
 
-        if (hideAndDisplay){
-            setHideAndDisplay(false);
-            setDisplayValue("none");
-        } else {
-            setHideAndDisplay(true);
+        if (displayToggle == false){
+            setDisplayToggle(true);
             setDisplayValue("inline");
+        } else {
+            setDisplayToggle(false);
+            setDisplayValue("none");
         }
     }
     
-    const [toggle, setToggle] = useState(false);
+    const [sliderToggle, setSliderToggle] = useState(globalUserDetails.accessability);
 
-    function onChange(e){
-        setToggle(!toggle)
+    function sliderChange(e){
+        setSliderToggle(!sliderToggle)
         console.log("Look below....")
         console.log(e.target)
-        setGlobalUserDetails({...globalUserDetails, accessability : toggle})
+        setGlobalUserDetails({...globalUserDetails, accessability : !sliderToggle})
     }
     
     return (
 		<div className="BookingAccessabilityBannerWrapper">
+
             <div className="BookingAccessabilityPreClick">
-                <h2>1. Accessability preferences</h2>
-                <button onClick={()=>hideComponent()}>Show More...</button>
+                <h2>1. Accessability preferences</h2>                                
+                <button onClick={()=>displayComponent()}>Show More...</button>
             </div>
+            
             <div className="BookingAccessabilityPostClick">
                 <FormGroup style={{display : displayValue}}>
-                    <FormControlLabel onChange={(e)=>onChange(e)} control={<Switch defaultChecked />} label="No requirements | Yes requirements" labelPlacement="top"/>
+                    <FormControlLabel onChange={(e)=>sliderChange(e)} control={<Switch checked={sliderToggle} />} label="Accessability Requirements" labelPlacement="start"/>
                     <h4>Current global accessability : {globalUserDetails.accessability.toString()}</h4>
                 </FormGroup>
                 

@@ -17,6 +17,7 @@ export default function DashboardPage(props) {
 	return (
 		<div>
 			<Header />
+			<h1>Welcome Back, {globalUserDetails.first_name}</h1>
 			<DashboardUpcomingBookings globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DashboardBookingBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DashBoardPreferencesBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>

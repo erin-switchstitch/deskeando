@@ -13,6 +13,7 @@ export default function SignIn() {
     console.log(globalUserDetails);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
   
   
 	const [email, setEmail] = useState("");
@@ -44,6 +45,7 @@ export default function SignIn() {
 	return (
 		<>
 			<h1>Sign In</h1>
+
 
 			<form onSubmit={submitHandle}>
 				<label>
