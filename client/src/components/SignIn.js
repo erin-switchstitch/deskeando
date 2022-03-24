@@ -1,69 +1,77 @@
 import { ClassNames } from "@emotion/react";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+// import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
 
-export default function SignIn(props) {
 
-	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+export default function SignIn() {
+  
+  	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = async (data) => {
-			alert(JSON.stringify(data));
+  
+  
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const handleNameChange = (e) => {
+		setEmail(e.target.value);
+	};
+	const handlePasswordChange = (e) => {
+		setPassword(e.target.value);
+	};
+	const submitHandle = (e) => {
+		e.preventDefault();
+		const credentials = {
+			email: email,
+			password: password,
 		};
-    return (
-		<div className={props.display ? "" : "no-display"}>
-				<h1>Sign In</h1>
-				<form onSubmit={(e) => e.preventDefault()}>
-					<label>
-						<div>Email:</div>
-						<input
-							{...register("email", {
-								required: true,
-								maxLength: 30,
-								minLength: 10,
-								pattern:
-									/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-							})}
-						/>
-						{errors?.email?.type === "required" && (
-							<p>This field is required</p>
-						)}
-						{errors?.email?.type === "maxLength" && (
-							<p>Please enter a vaild email address</p>
-						)}
-						{errors?.email?.type === "minLength" && (
-							<p>Please enter a vaild email address</p>
-						)}
-						{errors?.email?.type === "pattern" && (
-							<p>Please enter a vaild email address</p>
-						)}
-					</label>
-					<label>
-						<div>Password:</div>
-						<input
-							{...register("password", {
-								required: true,
-								minLength: 8,
-							})}
-						/>
-						{errors?.password?.type === "required" && (
-							<p>This field is required</p>
-						)}
-						{errors?.password?.type === "minLength" && (
-							<p>Please enter a vaild password</p>
-						)}
-					</label>
-					<button type="submit" onClick={handleSubmit(onSubmit)}>
-						Submit
-					</button>
-				</form>
-			</div>
-		);
-}
+		console.log(credentials, "Form credentials - ");
+		fetch("/api/login", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ credentials: credentials }),
+		})
+			.then((res) => res.json())
+			.then((data) => console.log(data));
+	};
 
+
+	console.log(email, password);
+	return (
+		<>
+			<h1>Sign In</h1>
+
+			<form onSubmit={submitHandle}>
+				<label>
+					<p>Email</p>
+					<input
+						type="text"
+						required
+						value={email}
+						onChange={handleNameChange}
+						placeholder="Enter email address"
+						maxLength="20"
+						minLength="6"
+					/>
+				</label>
+				<label>
+					<p>Password</p>
+					<input
+						type="text"
+						required
+						value={password}
+						onChange={handlePasswordChange}
+						placeholder="Enter password"
+						maxLength="10"
+						minLength="6"
+					/>
+				</label>
+				<button type="submit">Sign In</button>
+			</form>
+		</>
+	);
+}
