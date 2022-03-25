@@ -27,7 +27,7 @@ CREATE TABLE users(id SERIAL PRIMARY KEY,
                                                                                                                            accessibility BOOLEAN); -- Creating a table called "bookings"
 
 -- Creating a table called "bookings"
-CREATE TABLE bookings (id SERIAL PRIMARY KEY, staff_id INT REFERENCES users(id), desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
+CREATE TABLE bookings (booking_id SERIAL PRIMARY KEY, staff_id INT REFERENCES users(id), desk_id INT REFERENCES desks(id), date_booked DATE NOT NULL, am BOOLEAN NOT NULL, pm BOOLEAN NOT NULL);
 
 -- Adding rows of data to the "desks" table
 INSERT INTO desks (id, desk_features)
