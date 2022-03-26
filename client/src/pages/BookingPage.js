@@ -7,8 +7,8 @@ import Header from "../components/Header";
 import DeskList from "../components/DeskList";
 import DisplayCalendar from "../components/DisplayCalender";
 import BookingsAccessabilityBanner from "../components/BookingsAccessabilityBanner";
-
-
+import BookingSVG from "../components/BookingSVG";
+import ListCalendar from "../components/ListCalendar";
 export default function BookingPage(props) {
 
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -29,6 +29,8 @@ export default function BookingPage(props) {
 			<BookingsAccessabilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DisplayCalendar selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+			<ListCalendar />
+			<BookingSVG />
 			<DeskList selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 		</div>
