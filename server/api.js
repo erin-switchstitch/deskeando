@@ -11,20 +11,21 @@ const router = Router();
 app.use(json());
 router.use(cors());
 
-//const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
+const { parsed : config } = dotenv.config(); //This ( {parsed : config} ) renames parsed to config
 
-// let passwordToPass;
-// console.log(process.env.REACT_APP_PASSWORD);
-// if (process.env.REACT_APP_PASSWORD){
-//     passwordToPass = process.env.REACT_APP_PASSWORD;
-// } else {
-//     passwordToPass = "";
-// }
+let passwordToPass;
+console.log(process.env.REACT_APP_PASSWORD);
+if (process.env.REACT_APP_PASSWORD){
+    passwordToPass = process.env.REACT_APP_PASSWORD;
+} else {
+    passwordToPass = "";
+}
+
 const pool = new Pool({
-    user:  "postgres",
+    user:  process.env.REACT_APP_USERNAME,
     host: "localhost",
-    database: "deskeando",
-    password: "amanda",
+    database: process.env.REACT_APP_DATABASE_NAME,
+    password: process.env.REACT_APP_PASSWORD,
     port: 5432,
 });
 
@@ -118,12 +119,12 @@ router.put("/all-bookings", (req, res) => {
     // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
     // a new table booking :
     // const unique_id = req.body.unique_id;
-    const name = req.body.name_of_staff;
+    const user_id = req.body.user_id;
     const deskNumber = req.body.desk_id;
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-    const query = `INSERT INTO bookings(name_of_staff, desk_id, date_booked, am, pm) VALUES ('${name}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+    const query = `INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm) VALUES ('${user_id}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
 	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`;
 
 
@@ -131,7 +132,7 @@ router.put("/all-bookings", (req, res) => {
 		.query(query)
 		.then(() => {
 			pool.query(returnQuery).then((data)=>{
-				res.send(data.rows);
+				res.status(200).send(data.rows);
 			});
 		})
 		.catch((error) => {
@@ -191,7 +192,7 @@ router.put("/register", (req, res) => {
                  pool.query(newRegQuery).then((response)=>{
                      console.log("I am in base 1");
                      console.log(response);
-                    pool.query(newRegQuery).then((data)=>{
+                    pool.query(emailQuery).then((data)=>{
                         console.log("I am in base 2");
                         console.log(response);
                         res.status(200).json(data.rows);
@@ -207,6 +208,43 @@ router.put("/register", (req, res) => {
 		});
 
 });
+
+router.put("/all-bookings", (req, res) => {
+
+    // {
+    //         "id":1,
+    //         "date":"15/03/2022",
+    //         "am":true,
+    //         "pm":false,
+    //         "desk_id":1
+    // }
+
+    // I think we may be best to take a unique ID for each user that is created / initiliased at the point of registartion - or is
+    // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
+    // a new table booking :
+    const user_id = req.body.user_id;
+    const deskNumber = req.body.desk_id;
+    const dateBooked = req.body.date_booked;
+    const morning = req.body.am;
+    const afternoon = req.body.pm;
+    const query = `INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm) VALUES ('${user_id}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`;
+
+
+	pool
+		.query(query)
+		.then(() => {
+			pool.query(returnQuery).then((data)=>{
+				res.send(data.rows);
+			});
+		})
+		.catch((error) => {
+			console.error(error);
+			res.status(500).json(error);
+		});
+});
+
+
 
 
 //This route removes a user
