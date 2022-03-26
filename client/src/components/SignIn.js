@@ -5,7 +5,7 @@ import { useState } from "react";
 import "../stylings/SignIn.css";
 
 
-export default function SignIn() {
+export default function SignIn(props) {
   
   	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
