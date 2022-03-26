@@ -125,6 +125,7 @@ export default function SignUp(props){
             // Within the fetch request (PUT) we will send all of these user details
             // Then if there is a successful response from the API, then we will run setGlobalUserDetails(...) with the user details 
             // from this component formatted into the correct formatting for globalUserDetails
+        window.location.href = "http://localhost:3000/dashboard";
         }
     };
     return(
