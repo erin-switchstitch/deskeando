@@ -84,7 +84,7 @@ export default function SignUp(props){
         .then((data) => {
             console.log(data);
             if (200){
-                setGlobalUserDetails({ user_id : data[0].id, first_name : state.firstName, last_name : state.lastName, email : state.email, accessability : state.accessibility})
+                setGlobalUserDetails({ user_id : data[0].id, first_name : state.firstName, last_name : state.lastName, email : state.email, accessibility : state.accessibility})
                 setDashboardLink("inline")
                 setHideSubmitLink("none");
                 // This works to open dashboard but reloads the session as well so we loose user details
@@ -115,7 +115,7 @@ export default function SignUp(props){
 
 
 
-            // setGlobalUserDetails({ user_id : 5, first_name : state.firstName, last_name : state.lastName, email : state.email, accessability : state.accessibility})
+            // setGlobalUserDetails({ user_id : 5, first_name : state.firstName, last_name : state.lastName, email : state.email, accessibility : state.accessibility})
             
             // Here we would send our fetch request to the API to check these details against existing user accounts, and if
             // everything is okay, then create a new user profile in the database. After that the API would send back a successful
@@ -125,7 +125,7 @@ export default function SignUp(props){
             // Within the fetch request (PUT) we will send all of these user details
             // Then if there is a successful response from the API, then we will run setGlobalUserDetails(...) with the user details 
             // from this component formatted into the correct formatting for globalUserDetails
-        window.location.href = "http://localhost:3000/dashboard";
+        // window.location.href = "http://localhost:3000/dashboard";
         }
     };
     return(

@@ -105,6 +105,30 @@ router.delete("/all-bookings/:id", (req, res) => {
         });
 });
 
+
+router.post("/login", (req, res) => {
+
+    const user_email = req.body.credentials.email;
+    const user_password = req.body.credentials.password;
+    console.log(user_email + " " + user_password)
+
+    pool
+        .query(`SELECT id, first_name, last_name, accessibility FROM users WHERE email='${user_email}' AND password=crypt('${user_password}', password)`)
+        .then((result) => {
+            console.log(result.rows)
+            if (result.rows.length <= 0 ){
+                res.status(401).send({ Msg: "Your email OR password is not valid" });
+            } else {
+                res.status(200).json(result.rows);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            res.status(500).json(error);
+        });
+});
+
+
 router.put("/all-bookings", (req, res) => {
 
     // {
