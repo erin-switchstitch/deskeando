@@ -6,7 +6,7 @@ import "./../stylings/Booking.css";
 import Header from "../components/Header";
 import DeskList from "../components/DeskList";
 import DisplayCalendar from "../components/DisplayCalender";
-import BookingsAccessabilityBanner from "../components/BookingsAccessabilityBanner";
+import BookingsAccessibilityBanner from "../components/BookingsAccessibilityBanner";
 import BookingSVG from "../components/BookingSVG";
 import ListCalendar from "../components/ListCalendar";
 import Footer from "../components/Footer";
@@ -27,7 +27,7 @@ export default function BookingPage(props) {
 	return (
 		<div>
 			<Header />
-			<BookingsAccessabilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+			<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<DisplayCalendar selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			<ListCalendar />

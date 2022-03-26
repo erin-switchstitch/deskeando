@@ -297,8 +297,8 @@ VALUES ('Sharmaine',
 INSERT INTO users(first_name, last_name, email, password, accessibility)
 VALUES ('Erin',
         'Dyson',
-        'erindyson@gmail.com',
-        crypt('ErinDyson1%', gen_salt('bf')),
+        'admin@admin.com',
+        crypt('admin12345', gen_salt('bf')),
         True);
 
 INSERT INTO users(first_name, last_name, email, password, accessibility)

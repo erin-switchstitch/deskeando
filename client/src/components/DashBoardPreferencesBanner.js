@@ -15,8 +15,8 @@ export default function DashBoardPreferencesBanner(props) {
     return (
         <div className="DashboardComponentWrappers">
             <h2>Desk booking preferences</h2>
-            <h3>Let us know if you have any accessability needs and we'll make sure you get the right desk.</h3>
-            <h2>Current Accessability Settings : {globalUserDetails.accessability.toString()}</h2>
+            <h3>Let us know if you have any accessibility needs and we'll make sure you get the right desk.</h3>
+            <h2>Current Accessibility Settings : {globalUserDetails.accessibility.toString()}</h2>
             
             <Link to={'/preferences'}>
                 <button>Set your preferences</button>

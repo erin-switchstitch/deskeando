@@ -17,7 +17,7 @@ export default function AdminSignIn(props){
     return(
         <div>
             <Link to={'/dashboard'}>
-                <button onClick={()=>setGlobalUserDetails({ user_id : 1, first_name : "Admin", last_name : "Istrator", email : "admin@administrator.com", accessability : true})}>Admin Auto Sign In</button>    
+                <button onClick={()=>setGlobalUserDetails({user_id: 3, first_name: 'Erin', last_name: 'Dyson', email: 'admin@admin.com', accessibility: true})}>Admin Auto Sign In</button>    
             </Link>
         </div>
 
