@@ -315,7 +315,18 @@ VALUES (1,
         '2022-03-13',
         TRUE,
         FALSE);
-
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
+        2,
+        '2022-04-01',
+        TRUE,
+        FALSE);
+        INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (3,
+        2,
+        '2022-04-01',
+        FALSE,
+        TRUE);
 
 INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
 VALUES (1,
