@@ -58,7 +58,7 @@ export default function SignIn(props) {
 
 	console.log(email, password);
 	return (
-		<>
+		<div style={{display:props.display}}>
 			<h1>Sign In</h1>
 
 
@@ -94,6 +94,6 @@ export default function SignIn(props) {
                 	<button>Go to dashboard</button>
             	</Link>
 			</form>
-		</>
+		</div>
 	);
 }
