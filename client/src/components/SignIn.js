@@ -7,16 +7,15 @@ import "../stylings/SignIn.css";
 
 
 export default function SignIn(props) {
-  
-  	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-  
   	const [errorMsg, setErrorMsg] = useState("");
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [dashboardLink, setDashboardLink] = useState("none");
@@ -58,14 +57,17 @@ export default function SignIn(props) {
 
 	console.log(email, password);
 	return (
-		<div style={{display:props.display}}>
-			<h1>Sign In</h1>
+
+		<div style={{display:props.display}} className="formContainer">
+			<h1 className="formHeader">Sign In</h1>
 
 
-			<form onSubmit={submitHandle}>
-				<label>
-					<p>Email</p>
+			<form onSubmit={submitHandle} className="formSignIn">
+				<label className="formLabelEmail">
+					<p className="formSubHeader">Email</p>
+
 					<input
+						className="formInputField"
 						type="text"
 						required
 						value={email}
@@ -75,9 +77,10 @@ export default function SignIn(props) {
 						minLength="6"
 					/>
 				</label>
-				<label>
-					<p>Password</p>
+				<label className="formLabelPassword">
+					<p className="formSubHeader">Password:</p>
 					<input
+						className="formInputField"
 						type="text"
 						required
 						value={password}
@@ -87,12 +90,14 @@ export default function SignIn(props) {
 						minLength="6"
 					/>
 				</label>
-				<button type="submit" style={{display:hideSubmitLink}}>Sign In</button>
+
+				<button type="submit" className="appButton" style={{display:hideSubmitLink}}>Sign In</button>
 				<span style={{display:hideSubmitLink}}>{errorMsg}</span>
 				
 				<Link to={'/dashboard'} style={{display:dashboardLink}}>
                 	<button>Go to dashboard</button>
             	</Link>
+
 			</form>
 		</div>
 	);
