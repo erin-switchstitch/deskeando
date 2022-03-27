@@ -6,16 +6,12 @@ import "../stylings/SignIn.css";
 
 
 export default function SignIn(props) {
-  
-  	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-
-  
-  
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const handleNameChange = (e) => {
@@ -43,14 +39,13 @@ export default function SignIn(props) {
 
 	console.log(email, password);
 	return (
-		<>
-			<h1>Sign In</h1>
-
-
-			<form onSubmit={submitHandle}>
-				<label>
-					<p>Email</p>
+		<div className="formContainer">
+			<form className="formSignIn" onSubmit={submitHandle}>
+				<h1 className="formHeader">Sign In</h1>
+				<label className="formLabelEmail">
+					<p className="formSubHeader">Email:</p>
 					<input
+						className="formInputField"
 						type="text"
 						required
 						value={email}
@@ -60,9 +55,10 @@ export default function SignIn(props) {
 						minLength="6"
 					/>
 				</label>
-				<label>
-					<p>Password</p>
+				<label className="formLabelPassword">
+					<p className="formSubHeader">Password:</p>
 					<input
+						className="formInputField"
 						type="text"
 						required
 						value={password}
@@ -72,8 +68,8 @@ export default function SignIn(props) {
 						minLength="6"
 					/>
 				</label>
-				<button type="submit">Sign In</button>
+				<button className="appButton" type="submit">Sign In</button>
 			</form>
-		</>
+		</div>
 	);
 }
