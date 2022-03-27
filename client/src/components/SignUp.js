@@ -128,8 +128,10 @@ export default function SignUp(props){
         // window.location.href = "http://localhost:3000/dashboard";
         }
     };
+
+
     return(
-        <form className={props.display ? "no-display" : ""} onSubmit={handleOnSubmit}>
+        <form style={{display:props.display}} onSubmit={handleOnSubmit}>
             <h3>Sign Up</h3>
             <span>{errorMsg}</span>
                 <label>First Name
