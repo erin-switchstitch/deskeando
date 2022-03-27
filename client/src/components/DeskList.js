@@ -15,6 +15,10 @@ export default function DeskList(props){
 
     //  ↓↓↓ Parent component useState and setState for currently selected date ↓↓↓ 
     let selectedDateParent = props.selectedDateParent;
+    // let selectedDateParent="2022-03-13";
+    // if (!selectedDateParent){
+    //     selectedDateParent="2022-03-13";
+    // }
     let setSelectedDateParent = props.setSelectedDateParent;
     console.log(selectedDateParent);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
@@ -78,6 +82,12 @@ export default function DeskList(props){
     });
 
     bookingsDataState.map((element,  index) => {
+        if (index == 0){
+            console.log(deskAndBookingList)
+        }
+        console.log("FAILED HERE")
+        console.log(element)
+        console.log(deskAndBookingList[element.desk_id-1]);
         if ((element.am) || (element.pm)) {
             deskAndBookingList[element.desk_id-1].desk_booked = true;
             deskAndBookingList[element.desk_id-1].id = element.desk_id;

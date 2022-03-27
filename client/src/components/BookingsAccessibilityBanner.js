@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import moment from 'moment';
 import "./../stylings/Booking.css";
-import Header from "../components/Header";
-import DeskList from "../components/DeskList";
-import DisplayCalendar from "../components/DisplayCalender";
+import Header from "./Header";
+import DeskList from "./DeskList";
+import DisplayCalendar from "./DisplayCalender";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
-export default function BookingsAccessabilityBanner(props) {
+export default function BookingsAccessibilityBanner(props) {
 
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
@@ -34,27 +34,27 @@ export default function BookingsAccessabilityBanner(props) {
         }
     }
     
-    const [sliderToggle, setSliderToggle] = useState(globalUserDetails.accessability);
+    const [sliderToggle, setSliderToggle] = useState(globalUserDetails.accessibility);
 
     function sliderChange(e){
         setSliderToggle(!sliderToggle)
         console.log("Look below....")
         console.log(e.target)
-        setGlobalUserDetails({...globalUserDetails, accessability : !sliderToggle})
+        setGlobalUserDetails({...globalUserDetails, accessibility : !sliderToggle})
     }
     
     return (
-		<div className="BookingAccessabilityBannerWrapper">
+		<div className="BookingAccessibilityBannerWrapper">
 
-            <div className="BookingAccessabilityPreClick">
-                <h2>1. Accessability preferences</h2>                                
+            <div className="BookingAccessibilityPreClick">
+                <h2>1. accessibility preferences</h2>                                
                 <button onClick={()=>displayComponent()}>Show More...</button>
             </div>
             
-            <div className="BookingAccessabilityPostClick">
+            <div className="BookingAccessibilityPostClick">
                 <FormGroup style={{display : displayValue}}>
-                    <FormControlLabel onChange={(e)=>sliderChange(e)} control={<Switch checked={sliderToggle} />} label="Accessability Requirements" labelPlacement="start"/>
-                    <h4>Current global accessability : {globalUserDetails.accessability.toString()}</h4>
+                    <FormControlLabel onChange={(e)=>sliderChange(e)} control={<Switch checked={sliderToggle} />} label="Accessibility Requirements" labelPlacement="start"/>
+                    <h4>Current global accessibility : {globalUserDetails.accessibility.toString()}</h4>
                 </FormGroup>
                 
             </div>

@@ -38,6 +38,15 @@ export default function DashboardUpcomingBookings(props) {
     const [loadTo, setLoadTo] = useState(2);
 
     
+    // Bimbola :
+    // Convert date readout from API to user friendly format (Tuesday 15th March - ....)
+    // Create delete button next to each upcoming booking that sends a request to :
+    // router.delete("/all-bookings/:id" ---- this already exists in api.js
+    
+    // with the booking_id (not the user_id) to delete the booking. Then you will need to run the fetch request 
+    // on line 21 again to get the newly updated upcoming booking list - or you can write the code to make the API 
+    // send back an updated list and then rerender the bookings on screen by passing the returned data to setBookingArray()
+
     return (
         <div className="DashboardComponentWrappers">
             <h1>Your Upcoming Bookings</h1>

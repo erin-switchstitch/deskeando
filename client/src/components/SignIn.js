@@ -1,6 +1,7 @@
 import { ClassNames } from "@emotion/react";
 import React from "react";
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 // import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
 
@@ -12,8 +13,14 @@ export default function SignIn(props) {
     console.log(globalUserDetails);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+  	const [errorMsg, setErrorMsg] = useState("");
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [dashboardLink, setDashboardLink] = useState("none");
+    const [hideSubmitLink, setHideSubmitLink] = useState("inline");
+
 	const handleNameChange = (e) => {
 		setEmail(e.target.value);
 	};
@@ -33,17 +40,32 @@ export default function SignIn(props) {
 			body: JSON.stringify({ credentials: credentials }),
 		})
 			.then((res) => res.json())
-			.then((data) => console.log(data));
+			.then((data) => {
+				console.log(data[0]);
+				if (data.length > 0){
+					setGlobalUserDetails({ user_id : data[0].id, first_name : data[0].first_name, last_name : data[0].last_name, email : email, accessibility : data[0].accessibility})
+					setErrorMsg("Sign in successful");
+					setDashboardLink("inline")
+                	setHideSubmitLink("none");
+				} else {
+					setErrorMsg("Your username and/or password is incorrect!");
+				}
+				
+			});
 	};
 
 
 	console.log(email, password);
 	return (
-		<div className="formContainer">
-			<form className="formSignIn" onSubmit={submitHandle}>
-				<h1 className="formHeader">Sign In</h1>
+
+		<div style={{display:props.display}} className="formContainer">
+			<h1 className="formHeader">Sign In</h1>
+
+
+			<form onSubmit={submitHandle} className="formSignIn">
 				<label className="formLabelEmail">
-					<p className="formSubHeader">Email:</p>
+					<p className="formSubHeader">Email</p>
+
 					<input
 						className="formInputField"
 						type="text"
@@ -68,7 +90,14 @@ export default function SignIn(props) {
 						minLength="6"
 					/>
 				</label>
-				<button className="appButton" type="submit">Sign In</button>
+
+				<button type="submit" className="appButton" style={{display:hideSubmitLink}}>Sign In</button>
+				<span style={{display:hideSubmitLink}}>{errorMsg}</span>
+				
+				<Link to={'/dashboard'} style={{display:dashboardLink}}>
+                	<button>Go to dashboard</button>
+            	</Link>
+
 			</form>
 		</div>
 	);

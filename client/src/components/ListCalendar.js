@@ -1,101 +1,106 @@
-import React , { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import BookingPage from "./BookingPage";
 import DisplayCalendar from "../components/DisplayCalender";
-import Moment from 'react-moment';
+import Moment from "react-moment";
 import moment from "moment";
-// import { Calendar } from "react-calendar";
+import axios from "axios";
 
-const  ListCalender = (props)=> {
-const [calendar,setCalendar]= useState("");
-// const date = new Date ();
-// const thisWeek = date.date_booked;
-const today = moment().isoWeekday();
-// console.log('today', today);
-// const startDate = moment().add(0, 'days').date.format('YYYY-MM-DD');
+const ListCalender = (props) => {
+	const [calendar, setCalendar] = useState("");
+	const [nextButtonClickCount, setNextButtonClickCount] = useState(0);
 
-//    const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
-// console.log(startDate);
-// console.log(tomorrow);
-function calculateNextFourWeeks(startDay){
-   let startDayUnit = startDay;
-   let endDayUnit = 7 + startDay;
-   const weeks =[];
-   for(let i = 0; i < 4; i++){
-      const range=[];
-      const startDayOfWeek=moment().add(startDayUnit, 'days').format('YYYY-MM-DD');
-      const endDayOfWeek=moment().add(endDayUnit, 'days').format('YYYY-MM-DD');
-      range.push(startDayOfWeek);
-      range.push(endDayOfWeek);
-      weeks.push(range);
-      startDayUnit += 7;
-      endDayUnit += 7;
-   }
-   return weeks;
+	const today = moment().isoWeekday();
+
+	const [todaysNumber, settodaysNumber] = useState(Number(moment().weekday()));
+
+	useEffect(() => {
+		// GET request using fetch inside useEffect React hook
+		fetch("http://localhost:3100/api/all-bookings", { mode: "cors" })
+			.then((response) => response.json())
+			.then((data) => {
+				setCalendar(data);
+			});
+	}, []);
+
+	let calculateCurrentWeek = (n) => {
+		if(n != 6 + 7*(nextButtonClickCount+1) && n != 7 + 7*(nextButtonClickCount+1)  ){
+			let date = [];
+		for (let i = 0; i < n; i++) {
+			let dayArray = [];
+			const day = moment().add(i, "days");
+			dayArray.push(day);
+			dayArray.push(0);
+			date.push(dayArray);
+		}
+
+		return date;
+	}
+
+	};
+
+ 	const [allDates, setAllDates] = useState(calculateCurrentWeek(todaysNumber));
+	const [spaces, setSpaces] = useState(allDates.length);
+	// const [responses, setResponses] = useState([]);
+	console.log("spaces", spaces);
+   let taken = allDates.map((date) => {
+      return "http://localhost:3000/api/bookings?date=" + String(date[0].format("YYYY-MM-DD"));
+   });
+   let takenRequest = taken.map((dateRequest) =>{
+      return axios.get(dateRequest);
+   });
+   axios.all(takenRequest).then(axios.spread((...responses) => {
+	   let responseArray = responses.map((response) => response.data);
+	//    setResponses(responseArray);
+  console.log(responseArray);
+})).catch((errors) => {
+  console.log(errors);
+});
+
+
+	return (
+		<div className="deskBookingSlot">
+			<h1>Desk Booking</h1>
+			<p>Plan your visit in 2 simple steps. Get started</p>
+
+			<h2>1. When would you like to go to this office</h2>
+			<div className="This-week">
+				<strong>Next Week</strong>
+				{ allDates.map((date,index) => {
+          if(index > allDates.length-7 && index != allDates.length-1){
+           return ( <div key={ index }>
+          <input type="radio" />
+
+           <Moment format="dddd, MMMM Do, YYYY">{date[0]}</Moment>
+           <span> - 50 spaces</span>
+              </div>);
+          }
+        })
+          }
+			</div>
+
+			<button className="btn btn-default" type="submit">
+				Previous
+			</button>
+			<button
+				onClick={()=>{
+					setNextButtonClickCount(nextButtonClickCount+1);
+					console.log(nextButtonClickCount);
+settodaysNumber(todaysNumber+7);
+// console.log(todaysNumber);
+setAllDates(calculateCurrentWeek(todaysNumber));
+console.log(allDates);
+setSpaces(allDates.length);
+
+}}
+				className="btn btn-default"
+				type="submit"
+			>
+				Next
+			</button>
+
+			<h2>2. Choose Your desk</h2>
+		</div>
+	);
 };
-console.log(calculateNextFourWeeks(8 - today));
 
-// console.log(props);
-useEffect(() => {
-  // GET request using fetch inside useEffect React hook
-      fetch("http://localhost:3100/api/all-bookings", { mode: "cors" })
-      .then(response => response.json())
-      .then(data => {
-        // console.log("Bookings Data from API :");
-        // console.log(data);
-        setCalendar(data);
-          });
-  }, []);
-
-
-// console.log(calendar);
-// console.log(calendar.length);
-// const range = moment.range(moment("2018-10-14"), moment("2018-10-20"));
-
-// console.log(Array.from(range.by('day')).map(x => x.format('YYYY-MM-DD')))
-// const today = moment();
-// const day = today.weekday();
-// const startDate = today.add(0, "days");
-// const endDate = today.add(3, "days");
-
-// console.log('startDate', startDate);
-// console.log('endDate', endDate);
-
-    return (
-      <div className="deskBookingSlot">
-  <h1>Desk Booking</h1>
-  <p>Plan your visit in 2 simple steps. Get started</p>
-
-  <h2>1. When would you like to go to this office</h2>
-        <div className="This-week">
-          <strong>Next Week</strong>
-          { calculateNextFourWeeks(8 - today).map((date,index) => (
-        <div key={ index }>
-          <input type="radio" />
-           <Moment format="dddd, MMMM Do, YYYY">{date[0] }</Moment>
-           <span> - </span>
-           <Moment format="dddd, MMMM Do, YYYY">{date[1] }</Moment>
-           <span> - 50 Spaces</span>
-
-              </div>
-            ))
-          }
-          </div>
-          {/* <div className="Next-week">
-        <strong> Next week</strong>
-          { calendar.length > 5 && calendar.map((text,index) => (
-        <div key={ index }>
-          <input type="radio" />
-          <Moment format="dddd, MMMM Do, YYYY">{text.date_booked }</Moment>
-              </div>
-            ))
-          }
-          </div> */}
-          <button className="btn btn-default" type="submit">
-Next
-</button>
-<h2>2. Choose Your desk</h2>
-
-        </div>
-      );
-    };
 export default ListCalender;

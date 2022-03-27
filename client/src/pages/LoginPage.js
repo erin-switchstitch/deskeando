@@ -6,7 +6,10 @@ import NavbarGuest from "../components/NavbarGuest";
 import "../stylings/SignUp.css";
 
 export default function LoginPage(props){
-    const [login, setLogin] = useState(true);
+
+    const [booleanSwitch, setBooleanSwitch] = useState(true)
+    const [signInShow, setSignInShow] = useState("inline");
+    const [signUpShow, setSignUpShow] = useState("none");
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
@@ -15,19 +18,28 @@ export default function LoginPage(props){
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     function loginInSingUpSwitch(){
-        setLogin(!login);
-        console.log(login);
+        console.log(booleanSwitch)
+        if (booleanSwitch) {
+            setBooleanSwitch(false);
+            setSignInShow("none")
+            setSignUpShow("inline")
+        } else {
+            setBooleanSwitch(true);
+            setSignInShow("inline")
+            setSignUpShow("none")
+        }
     }
+
 
     return(
         <div>
             <NavbarGuest />
             <AdminSignIn globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
-            <SignIn display={login} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
-            <SignUp display={login} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+            <SignIn display={signInShow} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+            <SignUp display={signUpShow} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
             <div>
-                <div> <span>{login ? "Do not have an account?" : "Already registered?"}</span>&nbsp;
-                    <button type="button" onClick={loginInSingUpSwitch}>{ login ? "Sign Up" : "Sign In"}</button>
+                <div> <span>{signInShow ? "Do not have an account?" : "Already registered?"}</span>&nbsp;
+                    <button type="button" onClick={loginInSingUpSwitch}>{ booleanSwitch ? "Sign Up" : "Sign In"}</button>
                 </div>
             </div>
         </div>
