@@ -11,7 +11,7 @@ const ListCalender = (props) => {
 
 	const today = moment().isoWeekday();
 
-	const [todaysNumber, settodaysNumber] = useState(Number(moment().weekday()));
+	let todaysNumber = Number(moment().weekday());
 
 	useEffect(() => {
 		// GET request using fetch inside useEffect React hook
@@ -23,8 +23,21 @@ const ListCalender = (props) => {
 	}, []);
 
 	let calculateCurrentWeek = (n) => {
-		if(n != 6 + 7*(nextButtonClickCount+1) && n != 7 + 7*(nextButtonClickCount+1)  ){
+	if(n != 6 + 7*(nextButtonClickCount) && n != 7 + 7*(nextButtonClickCount)  ){
 			let date = [];
+		for (let i = 0; i < n; i++) {
+			let dayArray = [];
+			const day = moment().add(i, "days");
+			dayArray.push(day);
+			dayArray.push(0);
+			date.push(dayArray);
+		}
+
+		return date;
+	} else {
+		n=7;
+			let date = [];
+
 		for (let i = 0; i < n; i++) {
 			let dayArray = [];
 			const day = moment().add(i, "days");
@@ -38,24 +51,24 @@ const ListCalender = (props) => {
 
 	};
 
- 	const [allDates, setAllDates] = useState(calculateCurrentWeek(todaysNumber));
-	const [spaces, setSpaces] = useState(allDates.length);
-	// const [responses, setResponses] = useState([]);
-	console.log("spaces", spaces);
+ 	const [allDates, setAllDates] = useState(calculateCurrentWeek(7));
+	 let [requestResponses, setRequestResponses] = useState("");
+
    let taken = allDates.map((date) => {
       return "http://localhost:3000/api/bookings?date=" + String(date[0].format("YYYY-MM-DD"));
    });
    let takenRequest = taken.map((dateRequest) =>{
       return axios.get(dateRequest);
    });
+
    axios.all(takenRequest).then(axios.spread((...responses) => {
-	   let responseArray = responses.map((response) => response.data);
-	//    setResponses(responseArray);
-  console.log(responseArray);
+	console.log(responses);
+	setRequestResponses("infinte loop");
 })).catch((errors) => {
   console.log(errors);
 });
 
+console.log("second",requestResponses);
 
 	return (
 		<div className="deskBookingSlot">
@@ -66,12 +79,15 @@ const ListCalender = (props) => {
 			<div className="This-week">
 				<strong>Next Week</strong>
 				{ allDates.map((date,index) => {
+					console.log("index", index);
+					console.log("click count", nextButtonClickCount);
+					console.log("arrayIndexLogic", index + 7*(nextButtonClickCount));
           if(index > allDates.length-7 && index != allDates.length-1){
            return ( <div key={ index }>
-          <input type="radio" />
 
-           <Moment format="dddd, MMMM Do, YYYY">{date[0]}</Moment>
-           <span> - 50 spaces</span>
+			<label><input type="radio" /><Moment format="dddd, MMMM Do, YYYY">{date[0]}</Moment><span> - {50}</span></label>
+
+
               </div>);
           }
         })
@@ -85,11 +101,11 @@ const ListCalender = (props) => {
 				onClick={()=>{
 					setNextButtonClickCount(nextButtonClickCount+1);
 					console.log(nextButtonClickCount);
-settodaysNumber(todaysNumber+7);
-// console.log(todaysNumber);
-setAllDates(calculateCurrentWeek(todaysNumber));
+todaysNumber+=7;
+console.log("Todays Number: ",todaysNumber);
+setAllDates(calculateCurrentWeek(14));
 console.log(allDates);
-setSpaces(allDates.length);
+
 
 }}
 				className="btn btn-default"
