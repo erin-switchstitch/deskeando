@@ -59,10 +59,10 @@ export default function SignIn(props) {
 		<div className="container">
 			<div style={{ display: props.display }} className="formContainer">
 				<form onSubmit={submitHandle} className="formSignIn">
-					<h1 className="formHeader">Sign In</h1>
+					<h3 className="formHeader">Sign In</h3>
 					<div className="inputContainer">
 						<label className="formLabelEmail">
-							<p className="formSubHeaderEmail">Email:</p>
+							<p className="formSubHeader">Email:</p>
 
 							<input
 								className="formInputField"
@@ -76,7 +76,7 @@ export default function SignIn(props) {
 							/>
 						</label>
 						<label className="formLabelPassword">
-							<p className="formSubHeaderPassword">Password:</p>
+							<p className="formSubHeader">Password:</p>
 							<input
 								className="formInputField"
 								type="text"
@@ -90,19 +90,20 @@ export default function SignIn(props) {
 						</label>
 					</div>
 					<div className="buttonContainer">
-						<button
-							type="submit"
-							className="signInButton"
-							style={{ display: hideSubmitLink }}
-						>
-							Sign In
-						</button>
-						<span style={{ display: hideSubmitLink }}>{errorMsg}</span>
 
-						<Link to={"/dashboard"} style={{ display: dashboardLink }}>
-							<button>Go to dashboard</button>
+					<button
+						type="submit"
+						className="signInButton"
+						style={{ display: hideSubmitLink }}
+					>
+						Sign In
+					</button>
+					<span style={{ display: hideSubmitLink }}>{errorMsg}</span>
+
+					<Link to={"/dashboard"} style={{ display: dashboardLink }}>
+						<button>Go to dashboard</button>
 						</Link>
-					</div>
+						</div>
 				</form>
 			</div>
 		</div>

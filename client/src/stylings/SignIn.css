@@ -88,14 +88,7 @@
     margin: 5rem;
 }
 
-.formSubHeaderEmail{
-    color: var(--wh-White);
-    font-family: var(--heading-font-family);
-    font-size: 2rem;
-    margin: 4rem 0 2rem 0;
-}
-
-.formSubHeaderPassword{
+.formSubHeader{
     color: var(--wh-White);
     font-family: var(--heading-font-family);
     font-size: 2rem;
