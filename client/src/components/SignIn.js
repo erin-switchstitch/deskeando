@@ -50,55 +50,61 @@ export default function SignIn(props) {
 				} else {
 					setErrorMsg("Your username and/or password is incorrect!");
 				}
-				
 			});
 	};
 
 
 	console.log(email, password);
 	return (
+		<div className="container">
+			<div style={{ display: props.display }} className="formContainer">
+				<form onSubmit={submitHandle} className="formSignIn">
+					<h1 className="formHeader">Sign In</h1>
+					<div className="inputContainer">
+						<label className="formLabelEmail">
+							<p className="formSubHeaderEmail">Email:</p>
 
-		<div style={{display:props.display}} className="formContainer">
-			<h1 className="formHeader">Sign In</h1>
+							<input
+								className="formInputField"
+								type="text"
+								required
+								value={email}
+								onChange={handleNameChange}
+								placeholder="Enter email address"
+								maxLength="20"
+								minLength="6"
+							/>
+						</label>
+						<label className="formLabelPassword">
+							<p className="formSubHeaderPassword">Password:</p>
+							<input
+								className="formInputField"
+								type="text"
+								required
+								value={password}
+								onChange={handlePasswordChange}
+								placeholder="Enter password"
+								maxLength="10"
+								minLength="6"
+							/>
+						</label>
+					</div>
+					<div className="buttonContainer">
+						<button
+							type="submit"
+							className="signInButton"
+							style={{ display: hideSubmitLink }}
+						>
+							Sign In
+						</button>
+						<span style={{ display: hideSubmitLink }}>{errorMsg}</span>
 
-
-			<form onSubmit={submitHandle} className="formSignIn">
-				<label className="formLabelEmail">
-					<p className="formSubHeader">Email</p>
-
-					<input
-						className="formInputField"
-						type="text"
-						required
-						value={email}
-						onChange={handleNameChange}
-						placeholder="Enter email address"
-						maxLength="20"
-						minLength="6"
-					/>
-				</label>
-				<label className="formLabelPassword">
-					<p className="formSubHeader">Password:</p>
-					<input
-						className="formInputField"
-						type="text"
-						required
-						value={password}
-						onChange={handlePasswordChange}
-						placeholder="Enter password"
-						maxLength="10"
-						minLength="6"
-					/>
-				</label>
-
-				<button type="submit" className="appButton" style={{display:hideSubmitLink}}>Sign In</button>
-				<span style={{display:hideSubmitLink}}>{errorMsg}</span>
-				
-				<Link to={'/dashboard'} style={{display:dashboardLink}}>
-                	<button>Go to dashboard</button>
-            	</Link>
-
-			</form>
+						<Link to={"/dashboard"} style={{ display: dashboardLink }}>
+							<button>Go to dashboard</button>
+						</Link>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }
