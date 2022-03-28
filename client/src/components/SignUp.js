@@ -130,69 +130,96 @@ export default function SignUp(props){
     };
 
 
-    return(
-        <form style={{display:props.display}} onSubmit={handleOnSubmit}>
-            <h3>Sign Up</h3>
-            <span>{errorMsg}</span>
-                <label>First Name
-                <input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    value={state.firstName || ""}
-                    placeholder="Name"
-                    onChange={handleFirstNameChange} />
-                    </label>
-                    <label>Last Name
-                <input
-                    type="text"
-                    className="form-control"
-                    name="name"
-                    value={state.lastName || ""}
-                    placeholder="Name"
-                    onChange={handleLastNameChange} />
-                    </label>
-                <label>Email address
-                <input
-                    type="email"
-                    name="email"
-                    className="form-control"
-                    required value={state.email || ""}
-                    placeholder="Enter email"
-                    onChange={handleEmailChange} />
-                 </label>
-                <label>Password
-                <input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    required
-                    value={state.password || ""}
-                    placeholder="Enter password"
-                    onChange={handlePasswordChange} />
-            </label>
-                <label>Confirm-Password
-                <input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    required
-                    value={state.confirmPassword || ""}
-                    placeholder="Enter password"
-                    onChange={handleConfirmPasswordChange} />
-          </label>
-          <label>
-           Do you have any <strong>accessibility </strong> needs?
-            <input
-            type="checkbox"
-            onChange={handleAccessibilyChange} />
+    return (
+			<form
+				className="formSignUp"
+				style={{ display: props.display }}
+				onSubmit={handleOnSubmit}
+			>
+				<h3 className="formHeader">Sign Up</h3>
+				<div className="inputContainer">
+					<span>{errorMsg}</span>
+					<label>
+						<p className="formSubHeader">First Name:</p>
+						<input
+							type="text"
+							className="form-control formInputField"
+							name="name"
+							value={state.firstName || ""}
+							placeholder="Name"
+							onChange={handleFirstNameChange}
+						/>
+					</label>
+					<label className="formSubHeaderLName">
+						<p className="formSubHeader">Last Name:</p>
+						<input
+							type="text"
+							className="form-control formInputField"
+							name="name"
+							value={state.lastName || ""}
+							placeholder="Name"
+							onChange={handleLastNameChange}
+						/>
+					</label>
+					<label>
+						<p className="formSubHeader">Email address:</p>
+						<input
+							type="email"
+							name="email"
+							className="form-control formInputField"
+							required
+							value={state.email || ""}
+							placeholder="Enter email"
+							onChange={handleEmailChange}
+						/>
+					</label>
+					<label>
+						<p className="formSubHeader">Password:</p>
+						<input
+							type="password"
+							name="password"
+							className="form-control formInputField"
+							required
+							value={state.password || ""}
+							placeholder="Enter password"
+							onChange={handlePasswordChange}
+						/>
+					</label>
+					<label>
+						<p className="formSubHeader">Confirm-Password:</p>
+						<input
+							type="password"
+							name="password"
+							className="form-control formInputField"
+							required
+							value={state.confirmPassword || ""}
+							placeholder="Enter password"
+							onChange={handleConfirmPasswordChange}
+						/>
+					</label>
+					<label>
+						<p className="formSubHeader">
+							Do you have any <strong>accessibility </strong> needs?
+						</p>
 
-            </label>
-            <button onClick={handleOnSubmit} type="submit" className="" style={{display:hideSubmitLink}}>Sign Up</button>
-            
-            <Link to={'/dashboard'} style={{display:dashboardLink}}>
-                <button>Go to dashboard</button>
-            </Link>
-        </form>
-    );
+						<input type="checkbox" onChange={handleAccessibilyChange} />
+					</label>
+					<div className="buttonContainer">
+						<button
+							onClick={handleOnSubmit}
+							className="signInButton"
+							type="submit"
+							className=""
+							style={{ display: hideSubmitLink }}
+						>
+							Sign Up
+						</button>
+
+						<Link to={"/dashboard"} style={{ display: dashboardLink }}>
+							<button className="signInButton">Go to dashboard</button>
+						</Link>
+					</div>
+				</div>
+			</form>
+		);
 }
