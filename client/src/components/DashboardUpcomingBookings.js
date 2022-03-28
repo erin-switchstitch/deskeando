@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import templateData from "./../data/bookings.json";
 import Moment from 'react-moment';
 import moment from 'moment';
+import axios from 'axios'
 
 
 export default function DashboardUpcomingBookings(props) {
@@ -15,7 +16,7 @@ export default function DashboardUpcomingBookings(props) {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     const [bookingArray, setBookingArray] = useState([]);
-    
+    const  [deleteBooking, setDeleteBooking] = useState([]);
 
     // FETCH FOR BOOKINGS:
     useEffect(() => {
@@ -33,9 +34,23 @@ export default function DashboardUpcomingBookings(props) {
                 }
             })
     }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
-
-
     const [loadTo, setLoadTo] = useState(2);
+
+    //delete booking request using fetch inside useEffect React hook
+//     fetch(`http://localhost:3000/api/all-bookings/${booking_id"}`, {mode: 'cors'})
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log("Delete successfully:")
+//         console.log(data);
+
+//         if (data.name != "error"){
+//             setBookingArray(setDeleteBooking);
+//         } else {
+//             setBookingArray(templateData)
+//         }
+//     })
+// }, []);
+
 
     
     // Bimbola :
@@ -53,7 +68,7 @@ export default function DashboardUpcomingBookings(props) {
             <div>
                 {bookingArray.map((element, index) =>{
                     console.log(bookingArray);
-
+// console.log(timings);
                     if (bookingArray.length > 1){
 
                         if (index < loadTo){
@@ -69,8 +84,15 @@ export default function DashboardUpcomingBookings(props) {
 
                             return (
                                 <div>
-                                    <h2>{element.date_booked} : {timings}</h2>
+                                    {/* <h2>{element.date_booked} :</h2> */}
+                                    <Moment format="dddd, MMMM Do, YYYY">{element.date_booked.timings}</Moment>
+                                     <button type="submit">Delete</button> 
+
                                 </div>
+                                 /* <button onClick={()=>{
+
+                                    deleteBooking</button> */
+
                             )
                         } else if (index == loadTo){
                             return (
