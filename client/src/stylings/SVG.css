@@ -5,6 +5,17 @@
   margin-left:10vw;
 } */
 /*Floor plan*/
+
+.BookingSvgWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5vw;
+    padding-bottom: 10vh;
+    border-bottom: 2px solid black;
+    height: 100vh;
+}
+
 .floor-plan{
   width:45vw;
   height: 50vw;
@@ -74,6 +85,11 @@
     pointer-events: none;  
     filter: invert(0.8);
 }
+
+.matchingAccessibility{
+  background-color: #0A68B2;
+}
+
 span{
   color:#ffffff;
 }
