@@ -43,7 +43,7 @@ export default function BookingPage(props) {
 
 	return (
 		<div>
-			<Header />
+			<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 
 			<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 			
