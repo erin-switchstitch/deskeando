@@ -12,7 +12,7 @@ export default function AboutPage(props){
 
     return(
         <div>
-            <Header />
+            <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
             <h1>About Page .....</h1>
         </div>
     );

@@ -26,7 +26,7 @@ export default function UserPreferencesPage(props){
 
     return(
         <div>
-            <Header />
+            <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
             <h1>Accessibility Settings</h1>
             <h3>Please adjust the options below to update your accessibility settings for your user profile</h3>
             <h3>Currently your accessibility Requirements are set to "{globalUserDetails.accessibility.toString()}"</h3>
