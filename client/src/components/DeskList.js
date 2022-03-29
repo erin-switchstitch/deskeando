@@ -15,19 +15,31 @@ export default function DeskList(props){
 
     //  ↓↓↓ Parent component useState and setState for currently selected date ↓↓↓ 
     let selectedDateParent = props.selectedDateParent;
+    // let selectedDateParent="2022-03-13";
+    // if (!selectedDateParent){
+    //     selectedDateParent="2022-03-13";
+    // }
     let setSelectedDateParent = props.setSelectedDateParent;
-    console.log(selectedDateParent);
+
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+    //  ↓↓↓↓↓↓↓ Global useState and setState for Current Booking Information ↓↓↓↓↓↓
+	let globalBookingInfo = props.globalBookingInfo;
+   let setGlobalBookingInfo = props.setGlobalBookingInfo;
+   console.log(globalBookingInfo);
+   //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
     
 
     const [ bookingsDataState, setBookingsDataState] = useState(bookingsData);
     const [ desksDataState, setDesksDataState] = useState(deskData);
 
 
-    // FETCH FOR BOOKINGS:
+    // FETCH FOR BOOKINGS for the date selected:
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-        fetch(`http://localhost:3100/api/bookings?date=${selectedDateParent}`, {mode: 'cors'})
+        fetch(`http://localhost:3100/api/bookings?date=${globalBookingInfo.date_booked}`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("Bookings Data from API :")
@@ -39,10 +51,10 @@ export default function DeskList(props){
                     setBookingsDataState(bookingsData)
                 }
             })
-    }, [selectedDateParent]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [globalBookingInfo.date_booked]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
-    // FETCH FOR DESKS:
+    // FETCH FOR DESKS (all info on the desks):
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
         fetch(`http://localhost:3100/api/desks`, {mode: 'cors'})
@@ -78,6 +90,12 @@ export default function DeskList(props){
     });
 
     bookingsDataState.map((element,  index) => {
+        if (index == 0){
+            console.log(deskAndBookingList)
+        }
+        console.log("FAILED HERE")
+        console.log(element)
+        console.log(deskAndBookingList[element.desk_id-1]);
         if ((element.am) || (element.pm)) {
             deskAndBookingList[element.desk_id-1].desk_booked = true;
             deskAndBookingList[element.desk_id-1].id = element.desk_id;
@@ -98,7 +116,7 @@ export default function DeskList(props){
     return (
         <div className="DeskListContainer">
             <h2>3. Choose your desk</h2>
-            <h3>Current Date selected in calender: {selectedDateParent}</h3>
+            <h3>Current Date selected in calender: {globalBookingInfo.date_booked}</h3>
 
             <table>
                 <thead>
@@ -126,7 +144,7 @@ export default function DeskList(props){
                                         </tr>
                                         <div>
                                                 {toOpen.open && (toOpen.number === element.id) ? (
-                                                        <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+                                                        <DeskListBooker deskNumber={element.id} bookingDate={globalBookingInfo.date_booked} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )

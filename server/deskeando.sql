@@ -297,8 +297,8 @@ VALUES ('Sharmaine',
 INSERT INTO users(first_name, last_name, email, password, accessibility)
 VALUES ('Erin',
         'Dyson',
-        'erindyson@gmail.com',
-        crypt('ErinDyson1%', gen_salt('bf')),
+        'admin@admin.com',
+        crypt('admin12345', gen_salt('bf')),
         True);
 
 INSERT INTO users(first_name, last_name, email, password, accessibility)
@@ -315,7 +315,18 @@ VALUES (1,
         '2022-03-13',
         TRUE,
         FALSE);
-
+INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (1,
+        2,
+        '2022-04-01',
+        TRUE,
+        FALSE);
+        INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
+VALUES (3,
+        2,
+        '2022-04-01',
+        FALSE,
+        TRUE);
 
 INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm)
 VALUES (1,

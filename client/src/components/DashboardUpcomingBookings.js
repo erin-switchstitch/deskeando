@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import templateData from "./../data/bookings.json";
 import Moment from 'react-moment';
 import moment from 'moment';
-
-
+import axios from 'axios'
+import DeleteBookings from "./DeleteBookings";
 export default function DashboardUpcomingBookings(props) {
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -15,7 +15,7 @@ export default function DashboardUpcomingBookings(props) {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     const [bookingArray, setBookingArray] = useState([]);
-    
+    const  [deleteBooking, setDeleteBooking] = useState([]);
 
     // FETCH FOR BOOKINGS:
     useEffect(() => {
@@ -33,18 +33,37 @@ export default function DashboardUpcomingBookings(props) {
                 }
             })
     }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
-
-
     const [loadTo, setLoadTo] = useState(2);
+    
+
+        console.log(bookingArray);
+    //delete booking request using fetch inside useEffect React hook
+    // const deleteUserBooking =() =>{
+    // fetch(`http://localhost:3100/api/all-bookings/${bookingArray.booking_id}`, { mode: 'cors', method: "DELETE" })
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log("Delete successfully: ")
+    //     console.log(data)
+    // })
+    // }
+
 
     
+    function deleteBookingLocally(index){
+        console.log(index)
+        console.log(bookingArray);
+        // setBookingArray(bookingArray.splice(index, 1));
+    }
+
+
     return (
         <div className="DashboardComponentWrappers">
             <h1>Your Upcoming Bookings</h1>
             <div>
                 {bookingArray.map((element, index) =>{
-                    console.log(bookingArray);
-
+                    // console.log(bookingArray);
+                    console.log(element.date_booked);
+                    
                     if (bookingArray.length > 1){
 
                         if (index < loadTo){
@@ -57,12 +76,15 @@ export default function DashboardUpcomingBookings(props) {
                             } else {
                                 timings = "13.00pm - 17.00pm";
                             }
-
-                            return (
+                            return(
                                 <div>
-                                    <h2>{element.date_booked} : {timings}</h2>
-                                </div>
-                            )
+                                    <h3>
+                                        <Moment format="dddd, MMMM Do, YYYY">{element.date_booked}</Moment> 
+                                        : {timings}
+                                        <DeleteBookings element={element} onClick={(index)=>deleteBookingLocally(index)}/>
+                                    </h3>
+                                </div>                             
+                                );
                         } else if (index == loadTo){
                             return (
                                 <button onClick={()=>setLoadTo(loadTo + 2)}>Load More Booking</button>
@@ -82,4 +104,5 @@ export default function DashboardUpcomingBookings(props) {
         </div>
     );
 }
+
 

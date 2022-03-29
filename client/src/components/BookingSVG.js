@@ -24,9 +24,11 @@ function BookingSVG(props){
    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
    function handleSVGClick(event){
+
       console.log("CLICK WORKING !!!!!!!!!!!!!!!!!");
       console.log(event.target.innerText);
       setGlobalBookingInfo({ ...globalBookingInfo, desk_id : parseInt(event.target.innerText) });
+
    }
 
 
@@ -37,37 +39,45 @@ function BookingSVG(props){
    // FETCH FOR BOOKINGS for the date selected:
    useEffect(() => {
    // GET request using fetch inside useEffect React hook
-       fetch(`http://localhost:3100/api/bookings?date=${globalBookingInfo.date_booked}`, { mode: "cors" })
-           .then((response) => response.json())
-           .then((data) => {
-               console.log("Bookings Data from API :");
+
+       fetch(`http://localhost:3100/api/bookings?date=${globalBookingInfo.date_booked}`, {mode: 'cors'})
+           .then(response => response.json())
+           .then(data => {
+               console.log("Bookings Data from API :")
+
                console.log(data);
 
                if (data.name != "error"){
                    setBookingsDataState(data);
                } else {
-                   setBookingsDataState(bookingsData);
+
+                   setBookingsDataState(bookingsData)
                }
-           });
+           })
+
    }, [globalBookingInfo.date_booked]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
    // FETCH FOR DESKS (all info on the desks):
    useEffect(() => {
    // GET request using fetch inside useEffect React hook
-       fetch("http://localhost:3100/api/desks", { mode: "cors" })
-           .then((response) => response.json())
-           .then((data) => {
+
+       fetch(`http://localhost:3100/api/desks`, {mode: 'cors'})
+           .then(response => response.json())
+           .then(data => {
                // console.log("Desks Data from API :")
                // console.log(data);
                // setDesksDataState(data);
+               
 
                if (data.name != "error"){
                    setDesksDataState(data);
                } else {
                    setDesksDataState(deskData);
                }
-           });
+
+           })
+
    }, [bookingsDataState]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
@@ -80,16 +90,20 @@ function BookingSVG(props){
 
 
    let shortArray = bookingsDataState.map((element,  index) => {
-
-      if (index == 0){
-           console.log(deskAndBookingList);
-      }
+      console.log("SHORT ARRAY RUN .................")
       console.log(element);
-
-      return element.desk_id;
+      
+      if (element.am == true && element.pm == true){
+         return element.desk_id;
+      } else if (element.am == true && globalBookingInfo.am == true){
+         return element.desk_id;
+      } else if (element.pm == true && globalBookingInfo.pm == true){
+         return element.desk_id;   
+      }
    });
 
-   console.log(shortArray);
+   console.log(shortArray)
+
 
 
    const svgFormatting = [
@@ -135,6 +149,7 @@ function BookingSVG(props){
           "forward":false,
           "individual_desks" :[],
       },
+
    ];
 
 
@@ -161,16 +176,20 @@ function BookingSVG(props){
             if (currentGroup.forward){
                tabIndex = relativeDeskIndex;
             } else {
-               tabIndex = currentGroup.end -1 - outer50index;
-            }
+
+               tabIndex = currentGroup.end -1 - outer50index
+            }            
+
 
             let finalNumber;
 
             if (relativeDeskIndex % 2 == 0){
 
+               
                leftOrRight = leftDesk;
 
                let startingPosition = (groupingLength / 2) + 1;
+         
 
                finalNumber = (currentGroup.start-1) + (startingPosition + (relativeDeskIndex/2));
 
@@ -178,9 +197,11 @@ function BookingSVG(props){
 
                leftOrRight = rightDesk;
 
+               
                let startingPosition = (groupingLength / 2) + (currentGroup.start-1);
-
+         
                finalNumber = startingPosition - ((relativeDeskIndex-1)/2);
+            
 
             }
 
@@ -197,6 +218,8 @@ function BookingSVG(props){
                passAccessibilityClass = "matchingAccessibility";
             }
 
+
+
             svgFormatting[currentGroup.groupNumber -1].individual_desks.push(
                {
                   "desk_id": finalNumber,
@@ -208,11 +231,13 @@ function BookingSVG(props){
                   "start":currentGroup.start,
                   "end":currentGroup.end,
                   "desk_accessibility": passAccessibilityClass,
-                  "desk_booked": desk_booked,
+
+                  "desk_booked": desk_booked
                }
             );
          }
-      });
+      })
+
    });
 
 
@@ -228,21 +253,26 @@ function BookingSVG(props){
 
    deskAndBookingList.sort( compare );
 
+
    console.log(svgFormatting);
+
 
 
 
    return (
       <div className="BookingSvgWrapper">
-         <h2>2. Choose Your desk</h2>
+
+         <h2>3. Choose Your desk</h2>
          <div className="floor-plan" >
-            {svgFormatting.map((elem,index) =>{
+            {svgFormatting.map(elem =>{
+
 
                let extraClasses;
 
                if (elem.groupNumber == 4){
                   extraClasses = "tablist";
                }
+
 
                console.log(elem);
                return (
@@ -259,6 +289,7 @@ function BookingSVG(props){
                      <div className="common-table"></div>
                   </div>
                );
+
             })}
          </div>
 

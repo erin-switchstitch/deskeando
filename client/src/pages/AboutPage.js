@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { Link } from 'react-router-dom';
 import Header from "../components/Header";
-import "./../stylings/Home.css";
 
-export default function ConfirmationPage(props) {
+export default function AboutPage(props){
 
-	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
     console.log(globalUserDetails);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-	
-	return (
-		<div>
-			<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
-		</div>
-	);
+
+    return(
+        <div>
+            <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+            <h1>About Page .....</h1>
+        </div>
+    );
 }
+

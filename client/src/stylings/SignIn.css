@@ -1,49 +1,160 @@
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    background-color: rgb(203, 202, 202);
-    padding: 3rem 0;
+@import "../stylings/root.css";
+
+/* .formSignIn {
+    background-color: var(--bl-Black);
+    opacity: 70%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30%;
+    height: 15%;
+    border-radius: 40px;
+}
+
+.formHeader{
+    color: var(--wh-White);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--heading-font-family);
+    font-weight: lighter;
+    font-size: 3.5rem;
+}
+
+.formSubHeader{
+    font-size: 2.5rem;
+    font-family: var(--heading-font-family);
+    font-weight: lighter;
+    color: var(--wh-White);
+    margin-bottom: 1rem;
+}
+
+.formLabelEmail{
+    position: absolute;
+    left: 10%;
+}
+
+.formLabelPassword{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+
+.formInputField{
     width: 300px;
+    padding: 15px 5px;
+    font-size:1.8rem;
+    border-radius: 40px;
+}
+
+
+.appButton{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    font-size: 2.5rem;
+    padding:20px;
+    background-color: var(--dk-Green);
+    color:var(--wh-White);
+} */
+
+
+
+.formSignIn{
+    position: absolute;
+    background-color: var(--form-backgroud);
+    height: 50rem;
+    width: 40rem;
     margin: auto;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 15px;
 }
 
-input {
-    width: 200px;
-    margin: 20px 0;
-    margin-right:15px;
-    background-color: #fff;
-    border: none;
-    border-radius: 9px;
-    padding: 5px;
-}
-
-h1 {
+.formHeader{
+    color: var(--wh-White);
     text-align: center;
-    margin-top: 9rem;
+    font-size: 3rem;
+    font-family: var(--heading-font-family);
+    margin-top: 3rem;
 }
 
-div{
-    text-align: center;
+.inputContainer{
+    margin: 5rem;
 }
 
-button {
-    padding: 10px;
-    border:none;
-    border-radius: 10px;
-    background-color: rgb(114, 111, 111);
-    color:#fff;
+.formSubHeader{
+    color: var(--wh-White);
+    font-family: var(--heading-font-family);
+    font-size: 2rem;
+    margin: 4rem 0 2rem 0;
 }
 
-button:hover{
-    background-color: #fff;
-    color:rgb(114, 111, 111);
+.formInputField{
+    width: 20rem;
+    padding: 0.7rem 0;
+    border-radius: 1rem;
+    font-size: 1.1rem;
 }
-.no-display {
-    display: none !important;
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
 }
+
+.signInButton{
+    padding: 1rem;
+    font-size: 2.5rem;
+    border-radius: 2rem;
+    background-color: var(--lg-Green);
+    color: var(--wh-White);
+}
+
+
+
+
+
+
+
+/* .formSubHeaderEmail{
+    color: var(--wh-White);
+    font-size: 2rem;  
+}
+
+.formLabelPassword{
+    color: var(--wh-White);
+    font-size: 2rem; 
+    margin-top: 16rem; 
+}
+
+.formSubHeader{
+    font-size: 2.4rem;
+    margin-top: 2rem;
+    font-family: var(--paragraph-font-family);
+}
+
+.formInputField{
+    padding: 0.3rem 0;
+    width: 20rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.formInputFieldPassword{
+    padding: 0.5rem 0;
+    width: 20rem;
+    margin-top: 4rem;
+    font-size: 2rem; */
+/* } */
+
+
+
+
 
 
 
