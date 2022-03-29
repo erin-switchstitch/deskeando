@@ -69,9 +69,10 @@ export default function DeskListBooker(props) {
 
     return (
         <div className="bookingDropdown">
+            <h2>4.Submit Your Booking</h2>
             <form onSubmit={submitHandler}>
 
-                <label htmlFor="am">
+                {/* <label htmlFor="am">
                     AM :
                     <Checkbox
                         label="am"
@@ -89,8 +90,9 @@ export default function DeskListBooker(props) {
                         onChange={handleChangeTwo}
                         required={checkedTwo}  
                     />
-                </label>
+                </label> */}
                 
+                <h3>You have chosen seat {globalBookingInfo.desk_id}</h3>
                 <input
                     type="submit"
                     value="Submit Booking"
