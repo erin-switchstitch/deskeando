@@ -101,10 +101,10 @@ const ListCalender = (props) => {
 	return (
 		<div className="ListCalenderBannerWrapper">
 			<div>
-				<h1>Desk Booking</h1>
+				<h2>2. Desk Booking</h2>
 				<p>Plan your visit in 2 simple steps. Get started</p>
 
-				<h2>1. When would you like to go to this office</h2>
+				<h3>1. When would you like to go to this office</h3>
 				<div className="This-week">
 					<strong>This Week</strong>
 					{allDates.map((date,index) => {

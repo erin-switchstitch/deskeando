@@ -105,6 +105,25 @@ router.delete("/all-bookings/:id", (req, res) => {
         });
 });
 
+// //This endpoint deletes bookings by id
+// router.delete("/all-bookings/:id", (req, res) => {
+//     const bookingsId = req.params.id;
+//     pool
+//         .query(`DELETE FROM bookings where booking_id=${bookingsId};`)
+//         .then(() => {
+// 			pool.query(`SELECT * FROM bookings where staff_id=${userId};`).then((data)=>{
+// 				res.status(200).send(data.rows);
+// 			});
+// 		})
+// 		.catch((error) => {
+// 			console.error(error);
+// 			res.status(500).json(error);
+// 		});
+// });
+
+
+
+
 
 router.post("/login", (req, res) => {
 
@@ -282,6 +301,8 @@ router.delete("/users/:id", function (req, res) {
       res.status(500).json(error);
     });
 });
+
+
 
 // router.get("/wheelchair", (_, res) => {
 //  const desksWheelchairUsers = desks.filter((desk) => desk.desk_features.includes("wheelchair"));

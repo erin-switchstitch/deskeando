@@ -7,6 +7,7 @@ const Header = (props)=> {
             <h1 className="headerTitle" >Deskendo</h1>
             <h2 className="headerSubtitle"> Flexible desk booking, with Deskendo you can manage your hybrid workspace </h2>
 
+            
         
             <Link to={'/'}>
                 <button>(login)</button>

@@ -17,28 +17,10 @@ export default function DashboardUpcomingBookings(props) {
     const [bookingArray, setBookingArray] = useState([]);
     const  [deleteBooking, setDeleteBooking] = useState([]);
 
-    // // FETCH FOR BOOKINGS:
-    // useEffect(() => {
-    // // GET request using fetch inside useEffect React hook
-    //     fetch(`http://localhost:3100/api/user-bookings/${globalUserDetails.user_id}`, {mode: 'cors'})
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             console.log("User bookings from API :")
-    //             console.log(data);
-
-    //             if (data.name != "error"){
-    //                 setBookingArray(data);
-    //             } else {
-    //                 setBookingArray(templateData)
-    //             }
-    //         })
-    // }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
-    // const [loadTo, setLoadTo] = useState(2);
- // FETCH FOR BOOKINGS:
+    // FETCH FOR BOOKINGS:
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-    // getUsers()
-    fetch(`http://localhost:3100/api/user-bookings/${globalUserDetails.user_id}`, {mode: 'cors'})
+        fetch(`http://localhost:3100/api/user-bookings/${globalUserDetails.user_id}`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("User bookings from API :")
@@ -50,11 +32,10 @@ export default function DashboardUpcomingBookings(props) {
                     setBookingArray(templateData)
                 }
             })
-    }, [bookingArray]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
     const [loadTo, setLoadTo] = useState(2);
-    // const getUsers =() =>{
+    
 
-// }
         console.log(bookingArray);
     //delete booking request using fetch inside useEffect React hook
     // const deleteUserBooking =() =>{
@@ -68,22 +49,21 @@ export default function DashboardUpcomingBookings(props) {
 
 
     
-    // Bimbola :
-    // Convert date readout from API to user friendly format (Tuesday 15th March - ....)
-    // Create delete button next to each upcoming booking that sends a request to :
-    // router.delete("/all-bookings/:id" ---- this already exists in api.js
-    
-    // with the booking_id (not the user_id) to delete the booking. Then you will need to run the fetch request 
-    // on line 21 again to get the newly updated upcoming booking list - or you can write the code to make the API 
-    // send back an updated list and then rerender the bookings on screen by passing the returned data to setBookingArray()
+    function deleteBookingLocally(index){
+        console.log(index)
+        console.log(bookingArray);
+        // setBookingArray(bookingArray.splice(index, 1));
+    }
+
 
     return (
         <div className="DashboardComponentWrappers">
             <h1>Your Upcoming Bookings</h1>
             <div>
                 {bookingArray.map((element, index) =>{
-                    console.log(bookingArray);
-// console.log(timings);
+                    // console.log(bookingArray);
+                    console.log(element.date_booked);
+                    
                     if (bookingArray.length > 1){
 
                         if (index < loadTo){
@@ -97,15 +77,14 @@ export default function DashboardUpcomingBookings(props) {
                                 timings = "13.00pm - 17.00pm";
                             }
                             return(
-<DeleteBookings element={element} />);
-                            // return (
-                            //     <div>
-                                   
-                            //         {/* <h2>{element.date_booked} :timings</h2> */}
-                            //         <Moment format="dddd, MMMM Do, YYYY">{element.date_booked.timings}</Moment>
-                            //         <button type="button" onClick={deleteUserBooking} >Delete</button>
-                            //     </div>
-                            // )
+                                <div>
+                                    <h3>
+                                        <Moment format="dddd, MMMM Do, YYYY">{element.date_booked}</Moment> 
+                                        : {timings}
+                                        <DeleteBookings element={element} onClick={(index)=>deleteBookingLocally(index)}/>
+                                    </h3>
+                                </div>                             
+                                );
                         } else if (index == loadTo){
                             return (
                                 <button onClick={()=>setLoadTo(loadTo + 2)}>Load More Booking</button>

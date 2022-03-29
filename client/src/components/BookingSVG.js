@@ -80,13 +80,16 @@ function BookingSVG(props){
 
       
    let shortArray = bookingsDataState.map((element,  index) => {
+      console.log("SHORT ARRAY RUN .................")
+      console.log(element);
       
-      if (index == 0){
-           console.log(deskAndBookingList)
+      if (element.am == true && element.pm == true){
+         return element.desk_id;
+      } else if (element.am == true && globalBookingInfo.am == true){
+         return element.desk_id;
+      } else if (element.pm == true && globalBookingInfo.pm == true){
+         return element.desk_id;   
       }
-      console.log(element)
-
-      return element.desk_id;   
    });
 
    console.log(shortArray)
@@ -228,13 +231,13 @@ function BookingSVG(props){
 
    deskAndBookingList.sort( compare );
 
-   console.log(svgFormatting);
+   // console.log(svgFormatting);
                
 
 
    return (
       <div className="BookingSvgWrapper">
-         <h2>2. Choose Your desk</h2>
+         <h2>3. Choose Your desk</h2>
          <div className="floor-plan" >
             {svgFormatting.map(elem =>{
 
@@ -244,7 +247,7 @@ function BookingSVG(props){
                   extraClasses = "tablist";
                }
 
-               console.log(elem)
+               // console.log(elem)
                return (
                   <div className={`desks-${elem.start}-to-${elem.end} desk-space`} role={extraClasses}>
                      {elem.individual_desks.map(element =>{

@@ -28,8 +28,8 @@ export default function App(){
 	Below is an example of how we have changed a single value within this global useState without deleting the other values :
 	<button onClick={()=>setGlobalUserDetails({...globalUserDetails, accessability : false})}>Accessability = false</button>
 	*/ 
-
-	const [globalBookingInfo, setGlobalBookingInfo] = useState({desk_id: "", date_booked: moment().format('YYYY-MM-D'), am:false, pm:false})
+	// const [globalBookingInfo, setGlobalBookingInfo] = useState({desk_id: "", date_booked: moment().format('YYYY-MM-D'), am:false, pm:false})
+	const [globalBookingInfo, setGlobalBookingInfo] = useState({desk_id: "", date_booked: "", am:false, pm:false})
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 	
@@ -39,6 +39,7 @@ export default function App(){
 		<div>
 		<Routes>
 			<Route path="/" element={<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />} />
+			
 			<Route path="/dashboard" element={<Dashboard globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 			<Route path="/preferences" element={<UserPreferencesPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 			
@@ -54,13 +55,34 @@ export default function App(){
 }
 
 
-// const App = () => (
-// 	<Routes>
-// 		<Route path="/" element={<LoginPage />} />
-// 		<Route path="/dashboard" element={<Dashboard />} />
-// 		<Route path="/booking" element={<BookingPage/>} />
-// 		<Route path="/confirm" element={<ConfirmationPage/>} />
-// 	</Routes>
-// );
+		// <div>
+		// <Routes>
+		// 	<Route path="/" element={<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />} />
+			
+		// 	{(globalUserDetails.user_id != "") ? (
 
-// export default App;
+		// 		<>
+		// 			<BookingSVG globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+		// 			selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
+		// 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+
+		// 			<Route path="/dashboard" element={<Dashboard globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+		// 			<Route path="/preferences" element={<UserPreferencesPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+			
+		// 			<Route path="/booking" element={<BookingPage globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)} 
+		// 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+			
+		// 			<Route path="/confirm" element={<ConfirmationPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+
+		// 		</>
+               
+        //     ) : (
+        //         <div className="ListCalenderBannerWrapper">
+        //             <Route path="/" element={<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />} />
+        //         </div>
+        //     )}
+			
+			
+		// 	<Route path="/about" element={<AboutPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+		// </Routes>
+		// </div>
