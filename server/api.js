@@ -95,7 +95,7 @@ router.get("/bookings_by_date/:date", (req, res) => {
 router.delete("/all-bookings/:id", (req, res) => {
     const bookingsId = req.params.id;
     pool
-        .query(`DELETE FROM bookings where id=${bookingsId};`)
+        .query(`DELETE FROM bookings where booking_id=${bookingsId};`)
         .then((result) => {
             res.json(result.rows);
         })
