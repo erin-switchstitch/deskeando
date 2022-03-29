@@ -12,7 +12,7 @@ export default function ConfirmationPage(props) {
 	
 	return (
 		<div>
-			<Header />
+			<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 		</div>
 	);
 }
