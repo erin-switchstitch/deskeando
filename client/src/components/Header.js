@@ -29,7 +29,7 @@ const Header = (props)=> {
                             </li>
 
                             <li className="navList">
-                                <Link to={'/contact'}>
+                                <Link to={'/ContactUs'}>
                                     <a className="navLink">Contact</a>
                                 </Link>  
                             </li>
