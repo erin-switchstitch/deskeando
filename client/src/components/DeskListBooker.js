@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Checkbox } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function DeskListBooker(props) {
 
@@ -20,6 +21,7 @@ export default function DeskListBooker(props) {
 
     // <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 
+    const [bookingIdState, setBookingIdState] = useState(false);
 
     async function fetchData() {
         console.log("UseEffect Run:")
@@ -36,17 +38,27 @@ export default function DeskListBooker(props) {
         fetch(`http://localhost:3100/api/all-bookings`, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                // props.parentPassBackSetStateFunction(data);
+                console.log(data, "<------ booking id");
+                console.log(data.booking_id);
+                // setBookingIdState(data.booking_id);
+
+                if (data[0].booking_id > 0){
+                    setBookingIdState(true);
+                }
+                // if (data.booking_id)
+                // booking_id {booking_id: 16, staff_id: 4, desk_id: 26, date_booked: '2022-04-03T23:00:00.000Z', am: false}
             });
     }
-    
+
 
     function submitHandler(e){
         console.log("Submit handler run")
         e.preventDefault();
         fetchData();
+
     }
+
+
 
 
     const [checkedOne, setCheckedOne] = useState(true);
@@ -71,32 +83,23 @@ export default function DeskListBooker(props) {
         <div className="bookingDropdown">
             <h2>4.Submit Your Booking</h2>
             <form onSubmit={submitHandler}>
-
-                {/* <label htmlFor="am">
-                    AM :
-                    <Checkbox
-                        label="am"
-                        value={globalBookingInfo.am}
-                        onChange={handleChangeOne}
-                        required={checkedOne} 
-                    />
-                </label>
-
-                <label htmlFor="pm">
-                    PM :
-                    <Checkbox
-                        label="pm"
-                        value={globalBookingInfo.pm}
-                        onChange={handleChangeTwo}
-                        required={checkedTwo}  
-                    />
-                </label> */}
                 
                 <h3>You have chosen seat {globalBookingInfo.desk_id}</h3>
-                <input
-                    type="submit"
-                    value="Submit Booking"
-                ></input>
+
+                {(bookingIdState) ? (
+                    
+                    <Link to={"/confirm"}>
+                        <a className="navLink">Go to confirmation page.</a>
+                    </Link>
+
+                ) : (
+                    <input
+                        type="submit"
+                        value="Submit Booking" 
+                    ></input>
+                )
+                }
+
             </form>
         </div>
     );
