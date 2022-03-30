@@ -9,7 +9,7 @@ import UserPreferencesPage from "./pages/UserPreferencesPage";
 import AboutPage from "./pages/AboutPage";
 import Moment from 'react-moment';
 import moment from 'moment';
-
+import ContactUs from "./components/ContactUs";
 
 export default function App(){
 
@@ -50,6 +50,8 @@ export default function App(){
 			
 			<Route path="/confirm" element={<ConfirmationPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 			<Route path="/about" element={<AboutPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+			<Route path="/ContactUs" element={<ContactUs  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+
 		</Routes>
 		</div>
 
