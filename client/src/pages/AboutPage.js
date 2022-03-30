@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 
 export default function AboutPage(props){
@@ -12,7 +12,7 @@ export default function AboutPage(props){
 
     return(
         <div>
-            <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+            {/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
             <h1>About Page .....</h1>
             <p>Our Team</p>
             <div class="social-container">
