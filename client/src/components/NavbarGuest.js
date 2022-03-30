@@ -22,6 +22,7 @@ export default function NavbarGuest() {
 							<a className="navLink" href="#conact">
 								Contact
 							</a>
+
 						</li>
 					</ul>
 				</nav>
