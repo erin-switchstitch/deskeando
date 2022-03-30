@@ -48,8 +48,11 @@ export default function App(){
 			<Route path="/booking" element={<BookingPage globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)} 
 			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 			
-			<Route path="/confirm" element={<ConfirmationPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
-			<Route path="/about" element={<AboutPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
+			<Route path="/confirm" element={<ConfirmationPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}/>} />
+				<Route path="/about" element={<AboutPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data) => setGlobalUserDetails(data)} />} />
+				<Route path="/about" element={<AboutPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data) => setGlobalUserDetails(data)} />} />
+				
+				<Route path="/about" element={<AboutPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 		</Routes>
 		</div>
 
