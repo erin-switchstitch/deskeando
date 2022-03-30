@@ -162,12 +162,12 @@ router.put("/all-bookings", (req, res) => {
     // pulled when the user logs in ... then this ID is passed to the DeskListBooker component to be sent when the logged in user makes
     // a new table booking :
     // const unique_id = req.body.unique_id;
-    const user_id = req.body.user_id;
+    const staff_id = req.body.user_id;
     const deskNumber = req.body.desk_id;
     const dateBooked = req.body.date_booked;
     const morning = req.body.am;
     const afternoon = req.body.pm;
-    const query = `INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm) VALUES ('${user_id}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
+    const query = `INSERT INTO bookings(staff_id, desk_id, date_booked, am, pm) VALUES ('${staff_id}', ${deskNumber}, '${dateBooked}', ${morning}, ${afternoon});`;
 	const returnQuery = `SELECT * FROM bookings WHERE date_booked='${dateBooked}';`;
 
 
