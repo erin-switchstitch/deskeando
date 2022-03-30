@@ -15,7 +15,27 @@
     border-bottom: 2px solid black;
     height: 100vh;
 }
-
+.svg-wrapper{
+  overflow:scroll;
+  min-height:auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+.kitchen{
+  width:50px;
+  height:50px;
+  background:black;
+}
+.couch{
+  width:50px;
+  height:50px;
+  background:blue;
+}
+.common-table{
+  width:50px;
+  height:50px;
+  background:red;
+}
 .floor-plan{
   width:45vw;
   height: 50vw;
@@ -93,73 +113,4 @@
 span{
   color:#ffffff;
 }
-/*Calendar*/
-.future{
-  background-color: red;
-  width:auto;
-  height:auto;
-}
-.past{
-  background-color: orange;
-  width:auto;
-  height:auto;
-}
 
-.today{
-  background-color: green;
-  width:auto;
-  height:auto;
-}
-
-.day-name{
-  width:3rem;
-  height:auto;
-}
-.blanks{
-  background-color: purple;
-  width:3rem;
-  height:3rem;
-}
-.time{
-  display:flex;
-}
-.calendar{
-  width:50vw;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap:1rem;
-}
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
