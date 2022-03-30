@@ -5,7 +5,9 @@
   margin-left:10vw;
 } */
 /*Floor plan*/
-
+div{
+  text-align:center;
+}
 .BookingSvgWrapper{
     display: flex;
     flex-direction: column;
@@ -20,22 +22,28 @@
   min-height:auto;
   display:grid;
   grid-template-columns: 1fr 1fr;
+  padding:3rem 0;
 }
 .kitchen{
-  width:120px;
-  height:260px;
-  background:black;
+  width: 105px;
+    height: 318px;
+    background: black;
+    margin-left: 219px;
+    margin-top: 63px;
 }
 .couch{
-  width:200px;
-  height:150px;
-  background-repeat: no-repeat;
-
+      width: 260px;
+    height: 197px;
+    margin-left: 93px;
+    margin-top: 40px;
+    background-repeat: no-repeat;
 }
 .common-table{
-  width:50px;
-  height:50px;
-  background:red;
+    width: 250px;
+    height: 48px;
+    margin-top: 165px;
+    margin-left: 99px;
+    background: black;
 }
 .floor-plan{
   width:65vw;
@@ -64,6 +72,7 @@
     /* justify-content: center; */
     height: 100px;
     margin-right: 257px;
+    margin-top:55px;
 }
 .desks-9-to-16{
   height: 124px;
@@ -71,6 +80,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-right: 5px;
+    margin-top:55px;
 }
 .desks-23-to-30{
 grid-area: From23To30;
@@ -86,6 +96,7 @@ grid-area: From23To30;
     display: flex;
     flex-wrap: wrap;
     transform: rotate(90deg);
+    margin-top:65px;
 }
 .desks-41-to-50{
   grid-area: From41To50;
