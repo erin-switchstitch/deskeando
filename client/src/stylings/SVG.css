@@ -5,7 +5,9 @@
   margin-left:10vw;
 } */
 /*Floor plan*/
-
+div{
+  text-align:center;
+}
 .BookingSvgWrapper{
     display: flex;
     flex-direction: column;
@@ -15,9 +17,36 @@
     border-bottom: 2px solid black;
     height: 100vh;
 }
-
+.svg-wrapper{
+  overflow:scroll;
+  min-height:auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  padding:3rem 0;
+}
+.kitchen{
+  width: 105px;
+    height: 318px;
+    background: black;
+    margin-left: 219px;
+    margin-top: 63px;
+}
+.couch{
+      width: 260px;
+    height: 197px;
+    margin-left: 93px;
+    margin-top: 40px;
+    background-repeat: no-repeat;
+}
+.common-table{
+    width: 250px;
+    height: 48px;
+    margin-top: 165px;
+    margin-left: 99px;
+    background: black;
+}
 .floor-plan{
-  width:45vw;
+  width:65vw;
   height: 50vw;
   display:grid;
   gap:0;
@@ -37,40 +66,54 @@
   width:110px;
 }
 .desks-1-to-8{
-  grid-area:From1To8;
-  display: flex;
-  flex-wrap:wrap;
-  /* justify-content: center; */
+  grid-area: From1To8;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    height: 100px;
+    margin-right: 257px;
+    margin-top:55px;
 }
 .desks-9-to-16{
-  grid-area:From9To16;
-  display: flex;
-  flex-wrap:wrap;
+  height: 124px;
+    grid-area: From9To16;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5px;
+    margin-top:55px;
 }
 .desks-23-to-30{
-
-  grid-area:From23To30;
-  display: flex;
-  flex-wrap:wrap;
-  align-self:center;
+grid-area: From23To30;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    height: 124px;
+    margin-top: 31px;
 }
 .desks-17-to-22{
-  grid-area:From17To22;
-  display: flex;
-  flex-wrap:wrap;
-  transform: rotate(90deg);
+  height: 100px;
+    grid-area: From17To22;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(90deg);
+    margin-top:65px;
 }
 .desks-41-to-50{
-  grid-area:From41To50;
-  display: flex;
-  flex-wrap:wrap;
-  transform: rotate(90deg);
+  grid-area: From41To50;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(90deg);
+    height: 260px;
+    margin-left: 94px;
 }
 .desks-31-to-40{
-  grid-area:From31To40;
-  display: flex;
-  flex-wrap:wrap;
-  transform: rotate(90deg);
+ grid-area: From31To40;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(90deg);
+    height: 153px;
+    margin-left: 160px;
+    margin-top: -76px;
 }
 
 /* .right{
@@ -93,73 +136,4 @@
 span{
   color:#ffffff;
 }
-/*Calendar*/
-.future{
-  background-color: red;
-  width:auto;
-  height:auto;
-}
-.past{
-  background-color: orange;
-  width:auto;
-  height:auto;
-}
 
-.today{
-  background-color: green;
-  width:auto;
-  height:auto;
-}
-
-.day-name{
-  width:3rem;
-  height:auto;
-}
-.blanks{
-  background-color: purple;
-  width:3rem;
-  height:3rem;
-}
-.time{
-  display:flex;
-}
-.calendar{
-  width:50vw;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap:1rem;
-}
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

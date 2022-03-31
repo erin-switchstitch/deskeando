@@ -9,6 +9,7 @@ import "./../stylings/Home.css";
 
 export default function ConfirmationPage(props) {
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+
 	let globalUserDetails = props.globalUserDetails;
 	let setGlobalUserDetails = props.setGlobalUserDetails;
 	console.log(globalUserDetails, "<----- user in globalUserDetails ");
@@ -39,6 +40,7 @@ export default function ConfirmationPage(props) {
 			<Link to={"/dashboard"}>
 				<a className="navLink">Go back to dashboard.</a>
 			</Link>
+
 		</div>
 	);
 }

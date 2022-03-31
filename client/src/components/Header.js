@@ -10,6 +10,7 @@ const Header = (props)=> {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
     
     return (
+
 			<>
 				<div className="landingMainContainer">
 					<div className="landingLogoContainer">
@@ -25,6 +26,7 @@ const Header = (props)=> {
 											<a className="navLink">About</a>
 										</Link>
 									</li>
+
 
 									<li className="navList">
 										<Link to={"/contact"}>

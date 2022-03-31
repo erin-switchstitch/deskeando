@@ -9,7 +9,7 @@ import "../stylings/LoginPage.css";
 
 export default function LoginPage(props){
 
-    const [booleanSwitch, setBooleanSwitch] = useState(true)
+    const [booleanSwitch, setBooleanSwitch] = useState(true);
     const [signInShow, setSignInShow] = useState("inline");
     const [signUpShow, setSignUpShow] = useState("none");
 
@@ -20,15 +20,15 @@ export default function LoginPage(props){
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     function loginInSingUpSwitch(){
-        console.log(booleanSwitch)
+        console.log(booleanSwitch);
         if (booleanSwitch) {
             setBooleanSwitch(false);
-            setSignInShow("none")
-            setSignUpShow("inline")
+            setSignInShow("none");
+            setSignUpShow("inline");
         } else {
             setBooleanSwitch(true);
-            setSignInShow("inline")
-            setSignUpShow("none")
+            setSignInShow("inline");
+            setSignUpShow("none");
         }
     }
 
@@ -36,7 +36,7 @@ export default function LoginPage(props){
     return (
 			<div>
 				{/* <NavbarGuest /> */}
-				<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+				{/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
 				<AdminSignIn
 					globalUserDetails={globalUserDetails}
 					setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
