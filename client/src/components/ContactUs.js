@@ -1,9 +1,10 @@
 import React, { Fragment, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
+import emailjs from "emailjs-com";
 
 const ContactUs = () => {
     const form = useRef();
+
     const handleOnSubmit = (e) => {
         e.preventDefault();
         emailjs.sendForm("service_hdwmx9f", "template_w9rsf57", e.target, "jstrAHQnnT70CLM-z")
@@ -14,6 +15,7 @@ const ContactUs = () => {
           });
         e.target.reset();
     };
+    
     return (
         <form ref={form} onSubmit={handleOnSubmit}>
       <label> Name</label>

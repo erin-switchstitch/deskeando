@@ -15,17 +15,17 @@ export default function DashBoardPreferencesBanner(props) {
 
     return (
         <div className="DashboardComponentWrappers DpbOuterWrapper">
-            <div className="DbpInnerWrapperTop">
+            <div className="DbpInnerWrapperLeft">
                 <h4>Desk booking preferences</h4>
                 <h5>Let us know if you have any accessibility needs and we'll make sure you get the right desk.</h5>
                 {/* <h2>Current Accessibility Settings : {globalUserDetails.accessibility.toString()}</h2> */}
-                <img src={AccessibilityLogo}/>
-            </div>
-
-            <div className="DbpInnerWrapperBottom">
                 <Link to={'/preferences'}>
                     <button>Set your preferences</button>
                 </Link>
+            </div>
+
+            <div className="DbpInnerWrapperRight">
+                <img src={AccessibilityLogo}/>
             </div>
 
         </div>
