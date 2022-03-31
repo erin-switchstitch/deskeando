@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
 
+
 const Header = (props)=> {
     
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -73,12 +74,13 @@ const Header = (props)=> {
 										</Link>
 									</li>
 									<li className="navList">
-										<Link to={"/"}>
-											<a className="navLink">LogOut</a>
+										<Link to={"/"}> 
+											<button onClick={() => {window.location.href="http://localhost:3000"}} className="navLink">LogOut</button>
 										</Link>
 									</li>
-								</>
-							)}
+									</>
+									)}
+							)
 						</ul>
 					</nav>
 				</div>
