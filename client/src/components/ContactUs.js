@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useRef} from "react";
-import { Link } from 'react-router-dom';
+import React, { Fragment, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import emailjs from "emailjs-com";
 // import { fab, github } from "@fortawesome/free-brands-svg-icons";
 
@@ -40,11 +40,11 @@ const ContactUs = () => {
     //       <textarea id="message" required />
     //     </div>
     //     <button type="submit">{}</button>
-       
+
     //   </form>
     );
   };
-  
+
 // const ContactUs = ()=> {
 //     return (
 //         <div className="ContactUs">
