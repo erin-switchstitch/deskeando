@@ -1,5 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
+import "../stylings/Header.css";
+import AdminSignIn from "./AdminSignIn";
+import Logo from "../images/logo6.png"
 
 const Header = (props)=> {
     
@@ -9,25 +12,32 @@ const Header = (props)=> {
     console.log(globalUserDetails);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
     
+    // var Logo = require('../images/logo.png');
+    // console.log(Logo)
+
     return (
 		<>
-			<div className="landingMainContainer">
-				<div className="landingLogoContainer">
-					<h1 className="landingTitle">Deskeando</h1>
-					<p className="landingText">The ultimate desk building app</p>
+			<div className="headerOuterWrapper">
+				<div className="headerLogoWrapper">
+					{/* <h1 className="headerTitle">Deskeando</h1> */}
+                    <img className="headerLogo" src={Logo} alt="Deskeando Logo"/>
 				</div>
-				<nav>
+				<nav className="navLinkWrapper">
 					<ul className="navUL">
                         
                     {(globalUserDetails.user_id == "") ? (
 
                         <>
-                            <li className="navList">
+                             <li className="navList">
                                 <Link to={'/about'}>
                                     <a className="navLink">About</a>
+                                    {/* <AdminSignIn
+							            globalUserDetails={globalUserDetails}
+							            setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
+						            /> */}
                                 </Link>  
                             </li>
-
+                        						
                             <li className="navList">
                                 <Link to={'/contact'}>
                                     <a className="navLink">Contact</a>

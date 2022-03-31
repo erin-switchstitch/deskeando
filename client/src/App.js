@@ -9,15 +9,20 @@ import UserPreferencesPage from "./pages/UserPreferencesPage";
 import AboutPage from "./pages/AboutPage";
 import Moment from 'react-moment';
 import moment from 'moment';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import "./stylings/root.css";
 
 
 export default function App(){
 
 	//  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "", first_name : "", last_name : "", email : "", accessibility : true});
+	// const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "", first_name : "", last_name : "", email : "", accessibility : true});
+	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id: 3, first_name: 'Erin', last_name: 'Dyson', email: 'admin@admin.com', accessibility: true});
+	
 	console.log(globalUserDetails);
-
+// setGlobalUserDetails({user_id: 3, first_name: 'Erin', last_name: 'Dyson', email: 'admin@admin.com', accessibility: true})
 	/* 
 	Notes for mutating globalUserDetails:
 
@@ -37,6 +42,7 @@ export default function App(){
 
 	return (
 		<div>
+		<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 		<Routes>
 			<Route path="/" element={<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />} />
 
@@ -51,6 +57,7 @@ export default function App(){
 			<Route path="/confirm" element={<ConfirmationPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 			<Route path="/about" element={<AboutPage  globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>} />
 		</Routes>
+		<Footer />
 		</div>
 
 	)

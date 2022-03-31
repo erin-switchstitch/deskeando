@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import { Link } from 'react-router-dom';
+import "../stylings/Footer.css"
+
 const Footer = ()=> {
     return (
         <div className="footerContainer">
-            <h1 className="FooterTitle" >App By base</h1>
+            <h3 className="FooterTitle" >App by <span>BASE</span></h3>
             </div>
     );
 };

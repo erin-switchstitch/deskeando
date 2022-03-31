@@ -1,9 +1,136 @@
-.DashboardComponentWrappers{
+/* ---------- Dashboard Main Page ----------- */
+
+.DashboardOuterWrapper{
+    padding-top: 15vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.DashboardOuterWrapper h2{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: start;
+    padding-left: 10vw;
+}
+
+/* .DashboardComponentWrappers{
     border: 2px solid black;
-    width: 60vw;
-    margin-left: 15vw;
+    width: 100vw;
     margin-top: 5vh;
+} */
+
+
+/* ---------- Dub (Dashboard upcoming bookings) ----------- */
+
+.DubOuterWrapper{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: var(--button-border-radius);
+    width: 90vw;
+    margin-top: 5vh;
+}
+
+.DubHeaderText{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1vh;
+    
+}
+
+.DubInnerWrapper{
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.DubBookingTile{
+    display: flex;
+    width: 90%;
+    background-color: #d1d1d1;
+    border: 2px solid #d1d1d1;
+    min-height: 5vh;
+    border-radius: var(--button-border-radius);
+    margin-left: 2vw;
+    margin-right: 2vw;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.DubBookingTileInner{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 2vw;
+}
+
+.DubTileText{
+    /* justify-self: flex-start; */
+}
+
+.DubTileDelete{
+    /* justify-self: flex-end; */
+    border-left: 3px solid black;
+        
+}
+
+.svg-inline--fa{
+    height: 1.3em;
+}
+
+.DubButton{
+    /* margin-bottom: 2vh; */
+}
+
+
+
+/* ---------- Dbb (Dashboard booking banner) ----------- */
+
+.DbbOuterWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 20vh;
+    width: 100vw;
+    margin-top: 5vh;
+    background-color: rgba(0, 0, 0, 0.178);
+    /* background: var( --faded-background-reset);
+    background: var( --faded-background-set); */
+}
+
+
+
+/* ---------- Dpb (Dashboard preferences banner) ----------- */
+
+.DpbOuterWrapper{
+    display: flex;
+    /* flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; */
+    height: 20vh;
+    width: 100vw;
+    background-color: rgb(235, 235, 235);
+    margin-top: 5vh;
+}
+
+
+.DbpInnerWrapperTop{
+    flex-direction: column;
+}
+
+.DbpInnerWrapperBottom{
+
 }

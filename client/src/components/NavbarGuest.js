@@ -1,12 +1,12 @@
 import React from "react";
-import "../stylings/NavbarGuest.css";
+import "../stylings/Header.css";
 import Hero from "./Hero";
 
 
 export default function NavbarGuest() {
 	return (
 		<>
-			<div className="landingMainContainer">
+			{/* <div className="landingMainContainer">
 				<div className="landingLogoContainer">
 					<h1 className="landingTitle">Deskeando</h1>
 					<p className="landingText">The ultimate desk building app</p>
@@ -26,7 +26,7 @@ export default function NavbarGuest() {
 					</ul>
 				</nav>
 			</div>
-			<Hero />
+			<Hero /> */}
 		</>
 	);
 }

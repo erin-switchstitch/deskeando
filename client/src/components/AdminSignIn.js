@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import "../stylings/SignUp.css";
+import "../stylings/LoginPage.css"
 
 export default function AdminSignIn(props){
     
@@ -15,7 +16,7 @@ export default function AdminSignIn(props){
     // setGlobalUserDetails({ user_id : 1, first_name : "Admin", last_name : "Istrator", email : "admin@administrator.com", accessability : true})
 
     return(
-        <div>
+        <div className="AdminSignInContainer">
             <Link to={'/dashboard'}>
                 <button onClick={()=>setGlobalUserDetails({user_id: 3, first_name: 'Erin', last_name: 'Dyson', email: 'admin@admin.com', accessibility: true})}>Admin Auto Sign In</button>    
             </Link>

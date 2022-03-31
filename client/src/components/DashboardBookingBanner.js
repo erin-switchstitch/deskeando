@@ -13,9 +13,9 @@ export default function DashboardBookingBanner(props) {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     return (
-        <div className="DashboardComponentWrappers">
-            <h2>Plan your next visit</h2>
-            <h3>Book a desk in 2 easy steps</h3>
+        <div className="DashboardComponentWrappers DbbOuterWrapper">
+            <h4>Plan your next visit</h4>
+            <h5>Book a desk in 2 easy steps</h5>
             <Link to={'/booking'}>
                 <button>Book a desk now</button>
             </Link>

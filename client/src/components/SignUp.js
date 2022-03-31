@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import "../stylings/SignInUp.css";
+import "../stylings/AccessibilitySwitch.css";
 
 
 export default function SignUp(props){
@@ -131,62 +132,63 @@ export default function SignUp(props){
 
 
     return (
-			<form
-				className="formSignUp"
-				style={{ display: props.display }}
+        <div className="SignUpOuterWrapper">
+            <form
+				className="SignUpMainWrapper"
+				// style={{ display: props.display }}
 				onSubmit={handleOnSubmit}
 			>
-				<h3 className="formHeader">Sign Up</h3>
-				<div className="inputContainer">
+				<h1 className="formHeader">Sign Up</h1>
+				<div className="signUpInputContainer">
 					<span>{errorMsg}</span>
 					<label>
-						<p className="formSubHeader">First Name:</p>
+						{/* <p className="formSubHeader">First Name:</p> */}
 						<input
 							type="text"
 							className="form-control formInputField"
 							name="name"
 							value={state.firstName || ""}
-							placeholder="Name"
+							placeholder="First name"
 							onChange={handleFirstNameChange}
 						/>
 					</label>
 					<label className="formSubHeaderLName">
-						<p className="formSubHeader">Last Name:</p>
+						{/* <p className="formSubHeader">Last Name:</p> */}
 						<input
 							type="text"
 							className="form-control formInputField"
 							name="name"
 							value={state.lastName || ""}
-							placeholder="Name"
+							placeholder="Last name"
 							onChange={handleLastNameChange}
 						/>
 					</label>
 					<label>
-						<p className="formSubHeader">Email address:</p>
+						{/* <p className="formSubHeader">Email address:</p> */}
 						<input
 							type="email"
 							name="email"
 							className="form-control formInputField"
 							required
 							value={state.email || ""}
-							placeholder="Enter email"
+							placeholder="Email address"
 							onChange={handleEmailChange}
 						/>
 					</label>
 					<label>
-						<p className="formSubHeader">Password:</p>
+						{/* <p className="formSubHeader">Password:</p> */}
 						<input
 							type="password"
 							name="password"
 							className="form-control formInputField"
 							required
 							value={state.password || ""}
-							placeholder="Enter password"
+							placeholder="Create a password"
 							onChange={handlePasswordChange}
 						/>
 					</label>
 					<label>
-						<p className="formSubHeader">Confirm-Password:</p>
+						<p className="formSubHeader">Confirm Password:</p>
 						<input
 							type="password"
 							name="password"
@@ -197,22 +199,42 @@ export default function SignUp(props){
 							onChange={handleConfirmPasswordChange}
 						/>
 					</label>
-					<label>
-						<p className="formSubHeader">
-							Do you have any <strong>accessibility </strong> needs?
-						</p>
+					
+						
+                    <p className="formSubHeader">Do you have any <strong>accessibility </strong> needs?</p>   
+                    
+                    <label class="switch switch-flat">
+                    	<input class="switch-input" type="checkbox" />
+                    	<span class="switch-label" data-on="Yes" data-off="No"></span> 
+                    	<span class="switch-handle"></span> 
+                    </label>
+                        {/* <label className="switch switch-slide">
+                        	<input className="switch-input" type="checkbox" />
+                        	<span className="switch-label" data-on="Yes" data-off="No"></span> 
+                        	<span className="switch-handle"></span> */}
+                            {/* <input type="checkbox" onChange={handleAccessibilyChange} /> */}
+                        {/* </label> */}
+                    <div className="SignInSwitch">
+						<h3>Already registered?</h3>
+						<h4 className="SignInSwitchLink" onClick={()=>props.setBooleanSwitch(true)}>Sign In Now.</h4>
 
-						<input type="checkbox" onChange={handleAccessibilyChange} />
-					</label>
+					</div>
+
+						
+  
+
+						
+
+
+					
 					<div className="buttonContainer">
 						<button
 							onClick={handleOnSubmit}
 							className="signInButton"
 							type="submit"
-							className=""
 							style={{ display: hideSubmitLink }}
 						>
-							Sign Up
+							<h3>Sign Up</h3>
 						</button>
 
 						<Link to={"/dashboard"} style={{ display: dashboardLink }}>
@@ -221,5 +243,7 @@ export default function SignUp(props){
 					</div>
 				</div>
 			</form>
+        </div>
+			
 		);
 }

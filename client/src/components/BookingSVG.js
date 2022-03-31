@@ -7,6 +7,9 @@ import deskData from "./../data/desks.json";
 import { useState, useEffect } from "react";
 import "../stylings/SVG.css";
 import { Element } from "prop-types";
+
+
+
 function BookingSVG(props){
    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
    let globalUserDetails = props.globalUserDetails;

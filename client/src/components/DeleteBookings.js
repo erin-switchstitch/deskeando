@@ -1,5 +1,8 @@
 import React from "react";
 import Moment from 'react-moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackspace } from '@fortawesome/free-solid-svg-icons'
+import Delete from ".././images/delete-left-solid.svg";
 
 function DeleteBookings ({element}){
 
@@ -13,7 +16,8 @@ function DeleteBookings ({element}){
     }    
     
     return (
-        <button type="button" onClick={deleteUserBooking} >Delete</button>
+        <FontAwesomeIcon icon={faBackspace} />
+        // <button type="button" onClick={deleteUserBooking} ><img url={Delete}/></button>
     )
 }
 
