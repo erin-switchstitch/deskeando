@@ -57,9 +57,9 @@ export default function DashboardUpcomingBookings(props) {
 
 
     return (
-        <div className="DashboardComponentWrappers">
-            <h1>Your Upcoming Bookings</h1>
-            <div>
+        <div className="DashboardComponentWrappers DubOuterWrapper">
+            <h4 className="DubHeaderText">Your Upcoming Bookings</h4>
+            <div className="DubInnerWrapper">
                 {bookingArray.map((element, index) =>{
                     // console.log(bookingArray);
                     console.log(element.date_booked);
@@ -77,17 +77,20 @@ export default function DashboardUpcomingBookings(props) {
                                 timings = "13.00pm - 17.00pm";
                             }
                             return(
-                                <div>
-                                    <h3>
-                                        <Moment format="dddd, MMMM Do, YYYY">{element.date_booked}</Moment> 
-                                        : {timings}
-                                        <DeleteBookings element={element} onClick={(index)=>deleteBookingLocally(index)}/>
-                                    </h3>
+                                <div className="DubBookingTile">
+                                    <div className="DubBookingTileInner">
+                                        <h5 className="DubTileText">
+                                            <Moment format="dddd Do MMMM">{element.date_booked}</Moment> 
+                                            : {timings}
+                                        </h5>
+                                        <DeleteBookings element={element} onClick={(index)=>deleteBookingLocally(index)} className="DubTileDelete"/>
+                                    </div>
+                                    
                                 </div>                             
                                 );
                         } else if (index == loadTo){
                             return (
-                                <button onClick={()=>setLoadTo(loadTo + 2)}>Load More Booking</button>
+                                <button onClick={()=>setLoadTo(loadTo + 2)} className="DubButton">Load More Bookings</button>
                             )
                         } 
                     } else {

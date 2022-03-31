@@ -11,16 +11,20 @@ import UserPreferencesPage from "./pages/UserPreferencesPage";
 import AboutPage from "./pages/AboutPage";
 import Moment from 'react-moment';
 import moment from 'moment';
+import "./stylings/root.css";
 import ContactUs from "./components/ContactUs";
+
 
 export default function App(){
 
 	//  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "", first_name : "", last_name : "", email : "", accessibility : true });
+	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "", first_name : "", last_name : "", email : "", accessibility : true});
+// 	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id: 3, first_name: 'Erin', last_name: 'Dyson', email: 'admin@admin.com', accessibility: true});
 	console.log(globalUserDetails);
 
 	/*
+
 	Notes for mutating globalUserDetails:
 
 	If you want to change a value of the globalUserDetails, then you will need to access setGlobalUserDetails. This has been passed down as a prop to every component.
@@ -40,7 +44,9 @@ export default function App(){
 
 	return (
 		<div>
+
 		<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+
 		<Routes>
 			<Route path="/" element={<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />} />
 

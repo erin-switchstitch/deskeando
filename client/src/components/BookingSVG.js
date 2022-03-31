@@ -9,6 +9,7 @@ import "../stylings/SVG.css";
 import { Element } from "prop-types";
 import couch from "../images/couch.svg";
 
+
 function BookingSVG(props){
    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
    let globalUserDetails = props.globalUserDetails;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 // import { useForm } from "react-hook-form";
 import "../stylings/SignIn.css";
+// import "../stylings/root.css";
 
 
 export default function SignIn(props) {
@@ -56,56 +57,64 @@ export default function SignIn(props) {
 
 	console.log(email, password);
 	return (
-		<div className="container">
-			<div style={{ display: props.display }} className="formContainer">
-				<form onSubmit={submitHandle} className="formSignIn">
-					<h3 className="formHeader">Sign In</h3>
-					<div className="inputContainer">
-						<label className="formLabelEmail">
-							<p className="formSubHeader">Email:</p>
+		<div className="SignInOuterWrapper">
+			{/* <div > */}
+				<form onSubmit={submitHandle} /*style={{ display: props.display }}*/ className="SignInMainWrapper">
+					<div className="SignInContentContainer">				
+						<h1 className="formHeader">Sign In</h1>
+						<div className="inputContainer">
+							<label className="formLabelEmail">
+								{/* <p className="formSubHeader">Email:</p> */}
 
-							<input
-								className="formInputField"
-								type="text"
-								required
-								value={email}
-								onChange={handleNameChange}
-								placeholder="Enter email address"
-								maxLength="20"
-								minLength="6"
-							/>
-						</label>
-						<label className="formLabelPassword">
-							<p className="formSubHeader">Password:</p>
-							<input
-								className="formInputField"
-								type="text"
-								required
-								value={password}
-								onChange={handlePasswordChange}
-								placeholder="Enter password"
-								maxLength="10"
-								minLength="6"
-							/>
-						</label>
-					</div>
-					<div className="buttonContainer">
-
-					<button
-						type="submit"
-						className="signInButton"
-						style={{ display: hideSubmitLink }}
-					>
-						Sign In
-					</button>
-					<span style={{ display: hideSubmitLink }}>{errorMsg}</span>
-
-					<Link to={"/dashboard"} style={{ display: dashboardLink }}>
-						<button>Go to dashboard</button>
-						</Link>
+								<input
+									className="formInputField"
+									type="text"
+									required
+									value={email}
+									onChange={handleNameChange}
+									placeholder="Email Address"
+									maxLength="20"
+									minLength="6"
+								/>
+							</label>
+							<label className="formLabelPassword">
+								{/* <p className="formSubHeader">Password:</p> */}
+								<input
+									className="formInputField"
+									type="text"
+									required
+									value={password}
+									onChange={handlePasswordChange}
+									placeholder="Password"
+									maxLength="10"
+									minLength="6"
+								/>
+							</label>
 						</div>
+						<div className="buttonContainer">
+
+							<button
+								type="submit"
+								className="signInButton"
+								style={{ display: hideSubmitLink }}
+							>
+							<h3>Sign In</h3>
+							</button>
+							<div className="SignInSwitch">
+								<h3>New to Deskeando?</h3>
+								<h4 className="SignInSwitchLink" onClick={()=>props.setBooleanSwitch(false)}>Sign Up Now.</h4>
+
+							</div>
+
+							<span style={{ display: hideSubmitLink }}>{errorMsg}</span>
+
+							<Link to={"/dashboard"} style={{ display: dashboardLink }}>
+							<button>Go to dashboard</button>
+							</Link>
+						</div>
+					</div>
 				</form>
-			</div>
+			{/* </div> */}
 		</div>
 	);
 }
