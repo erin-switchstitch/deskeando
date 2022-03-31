@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-
+// import { AiFillGithub } from 'react-icons/fa';
+import { GithubOutlined } from '@ant-design/icons';
 export default function AboutPage(props){
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -18,19 +19,21 @@ export default function AboutPage(props){
             <div class="social-container">
   <h3>Github </h3>
   <div>
- <a href="https://github.com/blasisi"> Bimbola</a>
- {/* <span>
- <FontAwesomeIcon icon={["fab", "github"]} />
-
- </span> */}
+ <a href="https://github.com/blasisi"> Bimbola</a><GithubOutlined />
 </div>
+
 <div>
  <a href="https://github.com/xtremelibasic"> Amanda</a>
- <i class="fab fa-github-square"></i>
+ <GithubOutlined />
 </div>
+<div>
  <a href="https://github.com/Sharm-Dev"> Sharmine</a>
+ <GithubOutlined />
+ </div>
+ <div>
  <a href="https://github.com/erin-switchstitch"> Erin</a>
-
+ <GithubOutlined />
+</div>
      </div>
             <p></p>
             {/* </div> */}
