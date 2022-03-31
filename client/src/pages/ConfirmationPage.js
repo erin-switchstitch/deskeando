@@ -23,7 +23,15 @@ export default function ConfirmationPage(props) {
 	// const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "4", first_name : "Sharmaine", last_name : "Taylor", email : "Staylor@gmail.com", accessibility : true});
 	// const [globalBookingInfo, setGlobalBookingInfo] = useState({desk_id: "", date_booked: "", am:false, pm:false})
 
+	let timings;
 
+    if ((globalBookingInfo.am) && (globalBookingInfo.pm)){
+        timings = "9.00am - 17.00pm";
+    } else if (globalBookingInfo.am){
+        timings = "9.00am - 13.00pm";
+    } else {
+        timings = "13.00pm - 17.00pm";
+    }
 
 	return (
 		<div>
@@ -35,7 +43,7 @@ export default function ConfirmationPage(props) {
 			<br />
 			<h2>
 				You have booked desk number {globalBookingInfo.desk_id} on the{" "}
-				{globalBookingInfo.date_booked}{" "}
+				{globalBookingInfo.date_booked}{" "} from {timings}
 			</h2>
 			<Link to={"/dashboard"}>
 				<a className="navLink">Go back to dashboard.</a>
