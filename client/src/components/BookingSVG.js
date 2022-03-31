@@ -7,7 +7,7 @@ import deskData from "./../data/desks.json";
 import { useState, useEffect } from "react";
 import "../stylings/SVG.css";
 import { Element } from "prop-types";
-
+import couch from "../images/couch.svg";
 
 
 function BookingSVG(props){
@@ -193,7 +193,7 @@ function BookingSVG(props){
       <div className="BookingSvgWrapper">
          <h2>3. Choose Your desk</h2>
          <div className="svg-wrapper">
-         <div className="kitchen"></div>
+         <div className="kitchen"><span>Kitchen</span></div>
          <div className="floor-plan" >
             {svgFormatting.map((elem, index) =>{
                let extraClasses;
@@ -217,8 +217,8 @@ function BookingSVG(props){
             })}
 
          </div>
-         <div className="couch"></div>
-            <div className="common-table"></div>
+         <div className="couch" style = {{ backgroundImage:`url(${couch})` }}></div>
+            <div className="common-table"><span>Common Table</span></div>
             </div>
       </div>
     );

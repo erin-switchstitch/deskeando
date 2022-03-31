@@ -1,41 +1,15 @@
-import React, { useState, useEffect } from "react";
-// import BookingPage from "./BookingPage";
-import DisplayCalendar from "../components/DisplayCalender";
+import React, { useState } from "react";
 import Moment from "react-moment";
 import moment from "moment";
 import axios from "axios";
-import { Checkbox } from '@mui/material';
-
-const ListCalender = (props) => {
-	
-	//  ↓↓↓↓↓↓↓ Global useState and setState for Current Booking Information ↓↓↓↓↓↓
-	let globalBookingInfo = props.globalBookingInfo;
-    let setGlobalBookingInfo = props.setGlobalBookingInfo;
-    console.log(globalBookingInfo);
-    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+import { Checkbox } from "@mui/material";
 
 
-	const [calendar, setCalendar] = useState("");
-	const [nextButtonClickCount, setNextButtonClickCount] = useState(0);
-
-	const today = moment().isoWeekday();
-
-	let todaysNumber = Number(moment().weekday());
-
-	useEffect(() => {
-		// GET request using fetch inside useEffect React hook
-		fetch("http://localhost:3100/api/all-bookings", { mode: "cors" })
-			.then((response) => response.json())
-			.then((data) => {
-				setCalendar(data);
-			});
-	}, []);
-
-	let calculateCurrentWeek = (n) => {
-		if (n != 6 + 7*(nextButtonClickCount) && n != 7 + 7*(nextButtonClickCount)){
-			
+// Calculates the week currently being viewed by the user and track the position using the next button click count as it's second argument
+let calculateCurrentWeek = (n, calculateCurrentDayWeek) => {
+		if (n != 6 + 7*(calculateCurrentDayWeek) && n != 7 + 7*(calculateCurrentDayWeek) && n != 0 && n > 7){
+			console.log("I am executing block 1");
 			let date = [];
-			
 			for (let i = 0; i < n; i++) {
 				let dayArray = [];
 				const day = moment().add(i, "days");
@@ -46,7 +20,20 @@ const ListCalender = (props) => {
 
 			return date;
 
+		} else if(n <7 && n > 0){
+			n=6-n;
+				let date = [];
+
+			for (let i = 0; i < n; i++) {
+				let dayArray = [];
+				const day = moment().add(i, "days");
+				dayArray.push(day);
+				dayArray.push(0);
+				date.push(dayArray);
+			}
+			return date;
 		} else {
+			console.log("I am executing block 2");
 			n=7;
 				let date = [];
 
@@ -61,43 +48,58 @@ const ListCalender = (props) => {
 		}
 	};
 
- 	const [allDates, setAllDates] = useState(calculateCurrentWeek(7));
+const ListCalender = (props) => {
+	let todaysNumber = Number(moment().weekday());
+	const [nextButtonClickCount, setNextButtonClickCount] = useState(0);
+
+	//Holds the days in the current week being viewed by the user
+	const [allDates, setAllDates] = useState(calculateCurrentWeek(todaysNumber, nextButtonClickCount));
+
+	//Keeps track of all the responses for each day
 	let [requestResponses, setRequestResponses] = useState("");
 
+	const [checkedOne, setCheckedOne] = useState(true);
+    const [checkedTwo, setCheckedTwo] = useState(true);
+
+	//  ↓↓↓↓↓↓↓ Global useState and setState for Current Booking Information ↓↓↓↓↓↓
+	let globalBookingInfo = props.globalBookingInfo;
+    let setGlobalBookingInfo = props.setGlobalBookingInfo;
+    console.log(globalBookingInfo);
+    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+	//Making API calls for every day of the current week
    	let taken = allDates.map((date) => {
       	return "http://localhost:3000/api/bookings?date=" + String(date[0].format("YYYY-MM-DD"));
    	});
-   	
+
 	let takenRequest = taken.map((dateRequest) =>{
       	return axios.get(dateRequest);
    	});
 
    	axios.all(takenRequest).then(axios.spread((...responses) => {
-		// console.log(responses);
-		setRequestResponses("infinte loop");
+		setRequestResponses(responses);
 	})).catch((errors) => {
-  		// console.log(errors);
+		console.log(errors);
 	});
 
-	// console.log("second",requestResponses);
 
-	const [checkedOne, setCheckedOne] = useState(true);
-    const [checkedTwo, setCheckedTwo] = useState(true);
 
-    const handleChangeOne = (e) => {        
+
+    const handleChangeOne = (e) => {
         if (checkedTwo == true){
             setCheckedTwo(false);
         }
-        setGlobalBookingInfo({ ...globalBookingInfo, am:e.target.checked })
+        setGlobalBookingInfo({ ...globalBookingInfo, am:e.target.checked });
     };
 
     const handleChangeTwo = (e) => {
         if (checkedOne == true){
             setCheckedOne(false);
         }
-        setGlobalBookingInfo({ ...globalBookingInfo, pm:e.target.checked })
+        setGlobalBookingInfo({ ...globalBookingInfo, pm:e.target.checked });
     };
-
+ console.log("Responses", requestResponses);
 	return (
 		<div className="ListCalenderBannerWrapper">
 			<div>
@@ -108,37 +110,52 @@ const ListCalender = (props) => {
 				<div className="This-week">
 					<strong>This Week</strong>
 					{allDates.map((date,index) => {
-						// console.log("index", index);
-						// console.log("click count", nextButtonClickCount);
-						// console.log("arrayIndexLogic", index + 7*(nextButtonClickCount));
-					
-						if (index > allDates.length-7 && index != allDates.length-1){
-						
-							return( 
+						//Calculating if the space in question has been booked in the morning, afternoon or both
+						let morningSpacesTaken = 0;
+						let afternoonSpacesTaken = 0;
+						if(requestResponses[index] !== undefined){
+							if(requestResponses[index].data.length > 0){
+								if (requestResponses[index].data[0].am){
+									morningSpacesTaken++;
+								}
+								if (requestResponses[index].data[1].pm){
+									afternoonSpacesTaken++;
+								}
+							}
+						}
+						//A div is created for the days of the current week except for Saturdays and Sundays
+						if (!String(date[0]._d).includes("Sat") && !String(date[0]._d).includes("Sun")){
+							return(
 								<div key={ index }>
 									<label>
-										<input type="radio" name="singleDate" onClick={(e)=>setGlobalBookingInfo({...globalBookingInfo, date_booked : moment(date[0]._d).format('YYYY-MM-D')})} />
+										<input type="radio" name="singleDate" onClick={(e)=>setGlobalBookingInfo({ ...globalBookingInfo, date_booked : moment(date[0]._d).format("YYYY-MM-D") })} />
 										<Moment format="dddd, MMMM Do, YYYY">{date[0]}</Moment>
-										- am : (num) | pm :(num)
+
+										- am : <strong>{50-morningSpacesTaken} spaces available</strong> | pm :<strong>{50-afternoonSpacesTaken} spaces available</strong>
 										<span> - {50}</span>
 									</label>
 								</div>
 							);
-        	  			}
-						// console.log(globalBookingInfo)
-        			})
-        	  		}
+							}
+					})	}
 				</div>
 
-				<button className="btn btn-default" type="submit">Previous</button>
+				<button onClick={()=>{
+						setNextButtonClickCount(nextButtonClickCount-1);
+						todaysNumber -= 7;
+						console.log("Today's number is:", todaysNumber);
+						let allDays = calculateCurrentWeek(todaysNumber);
+						let daysInCurrentWeek = allDays.splice(allDays.length-7,allDays.length);
+						setAllDates(daysInCurrentWeek);
+					}} className="btn btn-default" type="submit">Previous</button>
 				<button
 					onClick={()=>{
 						setNextButtonClickCount(nextButtonClickCount+1);
-						console.log(nextButtonClickCount);
-						todaysNumber+=7;
-						console.log("Todays Number: ",todaysNumber);
-						setAllDates(calculateCurrentWeek(14));
-						console.log(allDates);
+						todaysNumber += 7 * nextButtonClickCount + 7;
+						console.log("Today's number is:", todaysNumber);
+						let allDays = calculateCurrentWeek(todaysNumber);
+						let daysInCurrentWeek = allDays.splice(allDays.length-7,allDays.length);
+						setAllDates(daysInCurrentWeek);
 					}}
 				className="btn btn-default" type="submit">Next</button>
 			</div>
@@ -149,7 +166,7 @@ const ListCalender = (props) => {
                         label="am"
                         value={globalBookingInfo.am}
                         onChange={handleChangeOne}
-                        required={checkedOne} 
+                        required={checkedOne}
                     />
                 </label>
 
@@ -159,7 +176,7 @@ const ListCalender = (props) => {
                         label="pm"
                         value={globalBookingInfo.pm}
                         onChange={handleChangeTwo}
-                        required={checkedTwo}  
+                        required={checkedTwo}
                     />
                 </label>
 			</div>

@@ -19,9 +19,10 @@ export default function NavbarGuest() {
 							</a>
 						</li>
 						<li className="navList">
-							<a className="navLink" href="#conact">
+							<a className="navLink" href="#contactUs">
 								Contact
 							</a>
+
 						</li>
 					</ul>
 				</nav>

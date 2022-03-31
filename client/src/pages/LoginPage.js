@@ -11,6 +11,7 @@ import Hero from "../components/Hero";
 
 export default function LoginPage(props){
 
+
     const [booleanSwitch, setBooleanSwitch] = useState(true)
     const [signInShow, setSignInShow] = useState("flex");
     const [signUpShow, setSignUpShow] = useState("none");
@@ -22,15 +23,17 @@ export default function LoginPage(props){
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
     function loginInSingUpSwitch(){
-        console.log(booleanSwitch)
+        console.log(booleanSwitch);
         if (booleanSwitch) {
             setBooleanSwitch(false);
+
             setSignInShow("none")
             setSignUpShow("flex")
         } else {
             setBooleanSwitch(true);
             setSignInShow("flex")
             setSignUpShow("none")
+
         }
     }
 
@@ -39,6 +42,7 @@ export default function LoginPage(props){
 			<div className="LoginPageOuterWrapper">
 				{/* <NavbarGuest /> */}
 				{/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
+
 
 				<div className="LoginPageInnerWrapper">
 					<Hero />
@@ -95,6 +99,7 @@ export default function LoginPage(props){
 								</button>
 							</div>
 						</div> */}
+
 					</div>
 				</div>
 			</div>
