@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Route, Routes, Link } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Dashboard from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import BookingPage from "./pages/BookingPage";
