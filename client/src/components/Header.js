@@ -19,6 +19,7 @@ const Header = (props)=> {
 
     return (
 
+
 		// <>
 		// 	<div className="headerOuterWrapper">
 		// 		<div className="headerLogoWrapper">
@@ -124,6 +125,7 @@ window.location.href="http://localhost:3000";
 				</div>
 			// </>
 		);
+
 };
 
 export default Header;
