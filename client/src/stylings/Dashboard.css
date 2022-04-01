@@ -1,5 +1,15 @@
 /* ---------- Dashboard Main Page ----------- */
 
+button{
+    font-size: 1rem;
+    border-radius: var(--button-border-radius);
+    background-color: var(--dk-Green);
+    color:var(--wh-White);
+    height: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
 .DashboardOuterWrapper{
     padding-top: 15vh;
     display: flex;
@@ -100,17 +110,29 @@
 
 .DbbOuterWrapper{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; */
     height: 20vh;
     width: 100vw;
     margin-top: 5vh;
     background-color: rgba(0, 0, 0, 0.178);
-    /* background: var( --faded-background-reset);
-    background: var( --faded-background-set); */
+        
 }
 
+.DbbInnerWrapperLeft{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50vw;
+    padding-left: 10vw;
+}
+
+.DbbInnerWrapperRight{
+    justify-content: flex-end;
+    width: 40vw;
+}
 
 
 /* ---------- Dpb (Dashboard preferences banner) ----------- */
@@ -127,10 +149,28 @@
 }
 
 
-.DbpInnerWrapperTop{
+.DbpInnerWrapperLeft{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
     flex-direction: column;
+    width: 50vw;
+    
+    padding-left: 10vw;
 }
 
-.DbpInnerWrapperBottom{
+.DbpInnerWrapperLeft{
+    text-align: start;
+}
 
+.DbpInnerWrapperRight{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
+}
+
+
+.DbpInnerWrapperRight img {
+    height: 60%;
 }
