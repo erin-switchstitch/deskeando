@@ -5,8 +5,8 @@ import Header from "../components/Header";
 // import AdminSignIn from "../components/AdminSignIn";
 import NavbarGuest from "../components/NavbarGuest";
 import Footer from "../components/Footer"
-import "../stylings/SignUp.css";
-import "../stylings/LoginPage.css";
+import ".././stylings/SignUp.css";
+import ".././stylings/LoginPage.css";
 import Hero from "../components/Hero";
 
 export default function LoginPage(props){
