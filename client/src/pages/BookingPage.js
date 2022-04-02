@@ -11,6 +11,8 @@ import BookingSVG from "../components/BookingSVG";
 import ListCalendar from "../components/ListCalendar";
 import DeskListBooker from "../components/DeskListBooker";
 import Footer from "../components/Footer";
+import useWindowDimensions from "../components/useWindowDimensions";
+
 export default function BookingPage(props) {
 
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -40,56 +42,78 @@ export default function BookingPage(props) {
 		}
 	}
 
+	const { height, width } = useWindowDimensions();
+
+	console.log("width" + width)
+
 
 	return (
-		<div>
+		<div className="BookingPageOuterWrapper">
+
+			<div className="BookingPageInnerHeaderWrapper">
+				<h2>Desk booking</h2>
+				<h4>Plan your visit in 2 simple steps. Get started below.</h4>
+			</div>
 
 			
-			<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
-			
-			<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+			<div className="BookingPageInnerMainWrapper">
 
+				<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
 
-			{/* <DisplayCalendar selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
-			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
+				{/* <DisplayCalendar selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
+				globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
 
-			<ListCalendar globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
-			selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
-			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
-
-
-			{(globalBookingInfo.date_booked != "" && (globalBookingInfo.am != false || globalBookingInfo.pm != false)) ? (
-
-                <BookingSVG globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+				<ListCalendar globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
 				selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 				globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
 
-            ) : (
-                <div className="ListCalenderBannerWrapper">
-                    <h2>3. Choose Your desk</h2>
-                </div>
-            )}
+
+				{(globalBookingInfo.date_booked != "" && (globalBookingInfo.am != false || globalBookingInfo.pm != false)) ? (
+
+            	    (width < 800) ? (
+						<DeskList globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+						selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
+						globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}
+						/>
+					):(
+						<BookingSVG globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+						selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
+						globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+					)
+					
+					
+					
+
+            	) : (
+            	    <div className="ListCalenderBannerWrapper">
+            	        <h3>3. Choose Your desk</h3>
+            	    </div>
+            	)}
 
 
-			{(globalBookingInfo.desk_id != "" && globalBookingInfo.date_booked != "" && (globalBookingInfo.am != false || globalBookingInfo.pm != false)) ? (
+				{(globalBookingInfo.desk_id != "" && globalBookingInfo.date_booked != "" && (globalBookingInfo.am != false || globalBookingInfo.pm != false)) ? (
 
-                <DeskListBooker globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+            	    <DeskListBooker globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+					selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
+					globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+
+            	) : (
+            	    <div className="bookingDropdown">
+            	        <h3>4.Submit Your Booking</h3>
+            	    </div>
+            	)}
+
+
+
+
+				{/* <DeskList globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
 				selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
-				globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
+				globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}
+				/> */}
 
-            ) : (
-                <div className="bookingDropdown">
-                    <h2>4.Submit Your Booking</h2>
-                </div>
-            )}
+			</div>
 
-
-
-
-			{/* <DeskList globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
-			selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
-			globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}
-			/> */}
+			
 
 
 

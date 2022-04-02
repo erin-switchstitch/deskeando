@@ -70,7 +70,7 @@ export default function DeskList(props){
                     setDesksDataState(deskData);
                 }
             })
-    }, [bookingsDataState]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    }, [bookingsDataState.date_booked, bookingsDataState.am, bookingsDataState.pm]); // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
 
@@ -115,8 +115,7 @@ export default function DeskList(props){
 
     return (
         <div className="DeskListContainer">
-            <h2>3. Choose your desk</h2>
-            <h3>Current Date selected in calender: {globalBookingInfo.date_booked}</h3>
+            <h3>3. Choose your desk</h3>
 
             <table>
                 <thead>
@@ -126,7 +125,7 @@ export default function DeskList(props){
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody className="DeskListTableBody">
                 {deskAndBookingList.map((element)=>{
                                     return (
                                         <div key={element.id} className="tableRows">
@@ -134,21 +133,37 @@ export default function DeskList(props){
                                             <td className="tableLeftColumn">Desk {element.id}</td>
                                             <td className="tableRightColumn">
                                                 {element.desk_booked ? (
-                                                    <div>Booked</div>
+                                                    <div>
+                                                        <button style={{"user-select": "none", "background-color" : "rgba(0, 0, 0, 0.555)"}}
+                                                        >Booked</button>
+                                                    </div>
                                                 ) : (
                                                     <div>
-                                                        <button onClick={()=>setToOpen({ number: element.id, open: true })}>Book Now</button>
+                                                        {toOpen.open && (toOpen.number === element.id) ? (
+                                                            <button onClick={()=>{
+                                                            setToOpen({ number: element.id, open: false })
+                                                            setGlobalBookingInfo({...globalBookingInfo, desk_id : ""})
+                                                            }} 
+                                                            style={{"background-color" : "#469796"}}
+                                                            >Selected</button>
+                                                        ) : (
+                                                            <button onClick={()=>{
+                                                            setToOpen({ number: element.id, open: true })
+                                                            setGlobalBookingInfo({...globalBookingInfo, desk_id : element.id})
+                                                            }}>Book Now</button>
+                                                        )}
+                                                        
                                                     </div>
                                                 )}
                                             </td>
                                         </tr>
                                         <div>
-                                                {toOpen.open && (toOpen.number === element.id) ? (
-                                                        <DeskListBooker deskNumber={element.id} bookingDate={globalBookingInfo.date_booked} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
+                                                {/* {toOpen.open && (toOpen.number === element.id) ? (
+                                                        <button>Book Now</button>
                                                     ) : (
                                                         <h2 className="noShow">Nothing to display</h2>
                                                     )
-                                                }
+                                                } */}
                                             </div>
                                         </div>
                                     );

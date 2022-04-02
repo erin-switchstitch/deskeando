@@ -1,13 +1,13 @@
-table {
+/* table {
 	border-collapse: collapse;
     font-family: Tahoma, Geneva, sans-serif;
     width: 50vw;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-}
+} */
 
-thead{
+/* thead{
     width: 100%;
     background-color: aquamarine;
 }
@@ -18,9 +18,9 @@ thead tr{
 
 thead tr th{
     width: 100%;
-}
+} */
 
-tbody div tr{
+/* tbody div tr{
     width: 100%;
 }
 
@@ -28,7 +28,7 @@ tbody div tr td{
     width: 100%;
     text-align: center;
     border : 1px solid black;
-}
+} */
 
 /* 
 .tableLeftColumn{
@@ -42,11 +42,11 @@ tbody div tr td{
 }
  */
 
-.noShow{
+/* .noShow{
     display: none;
-}
+} */
 
-.bookingDropdown{
+/* .bookingDropdown{
     width: 100%;
     background-color: #cacaca;
-}
+} */

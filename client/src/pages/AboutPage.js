@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../components/Header";
 // import { AiFillGithub } from 'react-icons/fa';
 import { GithubOutlined } from '@ant-design/icons';
+import Hero from "../components/Hero";
+import ".././stylings/About.css"
 
 export default function AboutPage(props){
 
@@ -14,30 +15,44 @@ export default function AboutPage(props){
 
     return(
         <div>
-            {/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
-            <h1>About Page .....</h1>
+            <Hero />
             <p>Our Team</p>
-            <div class="social-container">
-  <h3>Github </h3>
-  <div>
- <a href="https://github.com/blasisi"> Bimbola</a><GithubOutlined />
-</div>
+            <div className="social-container">
+                <div>
+                    <GithubOutlined className="GithubLogo"/>
+                    <a href="https://github.com/blasisi"><span>B</span>imbola</a>
+                </div>
+                <div>
+                    <GithubOutlined className="GithubLogo"/>
+                    <a href="https://github.com/xtremelibasic"><span>A</span>manda</a>
+                </div>
+                <div>
+                    <GithubOutlined className="GithubLogo"/>
+                    <a href="https://github.com/Sharm-Dev"><span>S</span>harmine</a>
+                </div>
+                <div>
+                    <GithubOutlined className="GithubLogo"/>
+                    <a href="https://github.com/erin-switchstitch"><span>E</span>rin</a>
+                </div>
+            </div>
 
-<div>
- <a href="https://github.com/xtremelibasic"> Amanda</a>
- <GithubOutlined />
-</div>
-<div>
- <a href="https://github.com/Sharm-Dev"> Sharmine</a>
- <GithubOutlined />
- </div>
- <div>
- <a href="https://github.com/erin-switchstitch"> Erin</a>
- <GithubOutlined />
-</div>
-     </div>
-            <p></p>
-            {/* </div> */}
+            <div className="AboutParagraphContainer">
+                <p>
+                    Integer efficitur congue ante non dictum. Nulla facilisi. 
+                    Aliquam feugiat commodo placerat. Aenean ipsum risus, lobortis nec arcu sit amet, 
+                    blandit varius mi. 
+                </p>
+                <br></br>
+                <p>
+                    Praesent accumsan diam sit amet dolor ullamcorper, vitae semper 
+                    enim posuere.
+                </p>
+                <br></br>
+                <p>
+                    Nullam non molestie nibh, quis gravida massa. Etiam cursus felis mollis turpis aliquam tempor. 
+                    Integer porttitor tortor sed ipsum porttitor, in viverra ipsum tincidunt.
+                </p>
+            </div>
         </div>
     );
 }

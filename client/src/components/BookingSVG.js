@@ -1,6 +1,10 @@
 // import { urlencoded } from "body-parser";
 import leftDesk from "../images/left_desk.svg";
 import rightDesk from "../images/right_desk.svg";
+import leftDeskAccessible from "../images/left_desk_blue.svg";
+import rightDeskAccessible from "../images/right_desk_blue.svg";
+import leftDeskInaccessible from "../images/left_desk_inaccessible.svg";
+
 import DeskListBooker from "./DeskListBooker";
 import bookingsData from "./../data/bookings.json";
 import deskData from "./../data/desks.json";
@@ -125,7 +129,7 @@ function BookingSVG(props){
    desksDataState.forEach((element, index) => {
       const outer50index = index;
       const desk_number = element.id;
-      // console.log(element);
+      console.log(element);
       svgFormatting.map((currentGroup , i) =>{
          if (desk_number >= currentGroup.start && desk_number <= currentGroup.end){
             let tabIndex;
@@ -142,17 +146,29 @@ function BookingSVG(props){
             if (relativeDeskIndex % 2 == 0){
 
                leftOrRight = leftDesk;
+
+               if (element.desk_features.accessibilty && globalUserDetails.accessibility){
+                  leftOrRight = leftDeskAccessible;
+               }
+
                let startingPosition = (groupingLength / 2) + 1;
 
                finalNumber = (currentGroup.start-1) + (startingPosition + (relativeDeskIndex/2));
-            } else {
-               leftOrRight = rightDesk;
 
+            } else {
+
+               leftOrRight = rightDesk;
+               
+               if (element.desk_features.accessibilty && globalUserDetails.accessibility){
+                  leftOrRight = rightDeskAccessible;
+               }
+               
                let startingPosition = (groupingLength / 2) + (currentGroup.start-1);
 
                finalNumber = startingPosition - ((relativeDeskIndex-1)/2);
 
             }
+
             let desk_booked = "active";
             if (shortArray.includes(finalNumber)){
                desk_booked = "inactive";
@@ -191,35 +207,46 @@ function BookingSVG(props){
    console.log(svgFormatting);
    return (
       <div className="BookingSvgWrapper">
-         <h2>3. Choose Your desk</h2>
-         <div className="svg-wrapper">
-         <div className="kitchen"><span>Kitchen</span></div>
-         <div className="floor-plan" >
-            {svgFormatting.map((elem, index) =>{
-               let extraClasses;
-               if (elem.groupNumber == 4){
-                  extraClasses = "tablist";
-               }
-               console.log(elem);
-               return (
-                  // <div key={index} className="svg-container">
+         <h3>3. Choose Your desk</h3>
 
-                     <div className={`desks-${elem.start}-to-${elem.end} desk-space`} role={extraClasses}>
-                        {elem.individual_desks.map((element,index) =>{
-                           return (
-                              <div onClick={(e) => handleSVGClick(e)} key={index} onKeyDown={(e)=>handleSVGClick(e)} role="tab" tabIndex={index} style={{ backgroundImage: `url(${element.leftOrRight})` }} className={`desk ${element.leftOrRight} ${element.desk_booked} ${ element.desk_accessibility }`}> <span>{element.desk_id}</span></div>
-                           );
-                        })}
-                     </div>
-
-                  // </div>
-               );
-            })}
-
+         <div className="SvgKeyWrapper">
+            <div className="SvgKey"><h4>Accessible and Available Desk</h4><img src={leftDeskAccessible}/></div>
+            <div className="SvgKey"><h4>Inaccessible but Available Desk</h4><img src={leftDesk}/></div>
+            <div className="SvgKey"><h4>Unavailable Desk</h4><img src={leftDeskInaccessible}/></div>
+            
+            
+            
          </div>
-         <div className="couch" style = {{ backgroundImage:`url(${couch})` }}></div>
-            <div className="common-table"><span>Common Table</span></div>
+
+         <div className="outer-svg-wrapper">
+            
+            <div className="inner-svg-wrapper">
+               <div className="svg-wrapper">
+                  <div className="kitchen"><span>Kitchen</span></div>
+                  <div className="floor-plan" >
+                     {svgFormatting.map((elem, index) =>{
+                        let extraClasses;
+                        if (elem.groupNumber == 4){
+                           extraClasses = "tablist";
+                        }
+                        return (
+                           <div className={`desks-${elem.start}-to-${elem.end} desk-space`} role={extraClasses}>
+                              {elem.individual_desks.map((element,index) =>{
+                                 return (
+                                    <div onClick={(e) => handleSVGClick(e)} key={index} onKeyDown={(e)=>handleSVGClick(e)} role="tab" tabIndex={index} style={{ backgroundImage: `url(${element.leftOrRight})` }} className={`desk ${element.leftOrRight} ${element.desk_booked} ${ element.desk_accessibility }`}> <span>{element.desk_id}</span></div>
+                                 );
+                              })}
+                           </div>
+                        );
+                     })}
+                  </div>
+                  <div className="couch" style = {{ backgroundImage:`url(${couch})` }}></div>
+                  <div className="common-table"><span>Common Table</span></div>
+               </div>
             </div>
+         </div>
+
+         
       </div>
     );
 }

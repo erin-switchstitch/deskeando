@@ -15,6 +15,14 @@
     --faded-background-reset: rgb(0,0,0);
     --faded-background-set:  linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
 }
+
+
+button:hover{
+
+    background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
+    border: var(--dk-Green) 2px solid;
+    color: white;
+}
     
 
 

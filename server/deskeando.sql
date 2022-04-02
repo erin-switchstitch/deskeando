@@ -295,8 +295,8 @@ VALUES ('Sharmaine',
         True);
 
 INSERT INTO users(first_name, last_name, email, password, accessibility)
-VALUES ('Erin',
-        'Dyson',
+VALUES ('Admin',
+        'Istrator',
         'admin@admin.com',
         crypt('admin12345', gen_salt('bf')),
         True);

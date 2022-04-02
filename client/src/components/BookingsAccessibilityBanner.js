@@ -46,9 +46,9 @@ export default function BookingsAccessibilityBanner(props) {
     return (
 		<div className="BookingAccessibilityBannerWrapper">
 
-            <div className="BookingAccessibilityPreClick">
-                <h2>1. Accessibility Preferences</h2>                                
-                <button onClick={()=>displayComponent()}>Show More...</button>
+            <div className="BookingAccessibilityPreClick" onClick={()=>displayComponent()}>
+                <h3>1. Change your accessibility preferences</h3>                                
+                {/* <button onClick={()=>displayComponent()}>Show More...</button> */}
             </div>
             
             <div className="BookingAccessibilityPostClick">

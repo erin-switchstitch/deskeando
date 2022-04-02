@@ -1,0 +1,38 @@
+.ConfirmationPageOuterWrapper{
+    padding-top: 20vh;
+    width: 100vw;
+    /* background-color: rgba(0, 0, 0, 0.178); */
+}
+
+.ConfirmationPageOuterWrapper h1{
+    padding-left: 5vw;
+
+}
+
+
+.ConfirmationPageInnerWrapper{
+    background-color: rgba(0, 0, 0, 0.178);
+    margin-top: 2vh;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ConfirmationPageInnerWrapper h2{
+    font-weight: bolder;
+}
+
+.ConfirmationPageBottomWrapper{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+        align-items: center;
+        padding-top: 5vh;
+}
+
+.ConfirmationPageBottomButton{
+    margin-top: 2vh;
+    width: 40vw;
+}

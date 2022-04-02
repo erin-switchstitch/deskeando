@@ -1,0 +1,106 @@
+.HeroImage{
+    height: 43vh;
+}
+
+.social-container{
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    margin-top: 20vh;
+    justify-content: space-around;
+}
+
+
+
+.social-container div a{
+    font-size: 2.5em;
+    text-decoration: none;
+}
+
+.social-container div a span{
+    font-size: 1.5em;
+}
+
+.GithubLogo{
+    font-size: 3.3em;
+    padding-right: 0.5vw;
+}
+
+
+
+.social-container div:nth-child(1){
+    padding-top: 0vh;
+}
+.social-container div:nth-child(2){
+    padding-top: 10vh;
+}
+.social-container div:nth-child(3){
+    padding-top: 20vh;
+}
+.social-container div:nth-child(4){
+    padding-top: 30vh;
+}
+
+
+
+.social-container div:nth-child(1) a, .social-container div:nth-child(1) span{
+    color: white;
+}
+.social-container div:nth-child(2) a, .social-container div:nth-child(2) span{
+    color: white;
+}
+.social-container div:nth-child(3) a, .social-container div:nth-child(3) span{
+    color: black;
+}
+.social-container div:nth-child(4) a, .social-container div:nth-child(4) span {
+    color: black;
+}
+
+
+.AboutParagraphContainer{
+    width: 80vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    margin-top: 70vh;
+    padding-bottom: 10vh;
+
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width: 0px) {
+  .social-container{
+      display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding-top: 10vh;
+    padding-left: 10vw;
+}
+.social-container div:nth-child(1){
+    padding-top: 11vh;
+}
+.social-container div:nth-child(2){
+    padding-top: 5vh;
+}
+.social-container div:nth-child(3){
+    padding-top: 5vh;
+}
+.social-container div:nth-child(4){
+    padding-top: 5vh;
+}
+  
+    .social-container div a{
+    font-size: 1.5em;
+}
+
+.social-container div a span{
+    font-size: 1.9em;
+}
+
+.GithubLogo{
+    font-size: 2.7em;
+    padding-right: 0.5vw;
+}
+
+}
