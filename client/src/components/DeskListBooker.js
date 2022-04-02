@@ -81,24 +81,28 @@ export default function DeskListBooker(props) {
 
     return (
         <div className="bookingDropdown">
-            <h2>4.Submit Your Booking</h2>
+            {/* <h3>4. Submit Your Booking</h3> */}
             <form onSubmit={submitHandler}>
                 
                 <h3>You have chosen seat {globalBookingInfo.desk_id}</h3>
 
-                {(bookingIdState) ? (
-                    
-                    <Link to={"/confirm"}>
-                        <a className="navLink">Go to confirmation page.</a>
-                    </Link>
+                <div className="BookingDropdownButton">
+                    {(bookingIdState) ? (
+                            
+                        <Link to={"/confirm"}>
+                            <button>Go to confirmation page.</button>
+                        </Link>
 
-                ) : (
-                    <input
-                        type="submit"
-                        value="Submit Booking" 
-                    ></input>
-                )
-                }
+                    ) : (
+                        <button
+                            type="submit"
+                            value="Confirm desk booking" 
+                        >Confirm desk booking</button>
+                    )
+                    }
+                </div>
+
+
 
             </form>
         </div>

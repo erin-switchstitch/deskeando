@@ -1,23 +1,33 @@
 .footerContainer{
-    height: 5vh;
-    background-color: #f0f0f0;
+    width: 100%;
+    height: 5vw;
+    background-color: #c3c3c3c0;
+    border-top: 2px solid #c3c3c3ec;
     margin-top: 5vh;
     position: fixed;
-    width: 100%;
     bottom: 0;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .FooterTitle{
     padding-bottom: 0.5vh;
     padding-right: 0.5vh;
     font-weight: 500;
+    margin:0 2rem;
+
     /* font-size: 2.5em; */
 }
 
 .FooterTitle span{
     color: var(--dk-Green);
     font-weight: 600;
+}
+
+@media screen and (max-width:768px){
+    .footerContainer{
+        padding:1rem;
+    }
+
 }

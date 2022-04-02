@@ -5,8 +5,14 @@ import "../stylings/Footer.css"
 const Footer = ()=> {
     return (
         <div className="footerContainer">
-            <h3 className="FooterTitle" >App by <span>BASE</span></h3>
-            </div>
+            <h3 className="FooterTitle" >
+                App by {" "}
+                <Link to={"/about"} style={{ textDecorationColor: 'black' }}>
+					<span className="FooterTitleSpan">BASE</span>
+				</Link>
+            </h3>
+
+        </div>
     );
 };
 

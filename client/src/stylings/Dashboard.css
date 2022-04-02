@@ -19,10 +19,10 @@ button{
 
 .DashboardOuterWrapper h2{
     display: flex;
-    width: 100vw;
+    width: 90vw;
     flex-direction: column;
     align-items: start;
-    padding-left: 10vw;
+    border-left: 10vw;
 }
 
 /* .DashboardComponentWrappers{
@@ -130,10 +130,15 @@ button{
 }
 
 .DbbInnerWrapperRight{
-    justify-content: flex-end;
     width: 40vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 2vh;
 }
 
+.DbbInnerWrapperRight img{
+    height: 60%;
+}
 
 /* ---------- Dpb (Dashboard preferences banner) ----------- */
 
@@ -146,6 +151,7 @@ button{
     width: 100vw;
     background-color: rgb(235, 235, 235);
     margin-top: 5vh;
+    padding-bottom: 10vh;
 }
 
 

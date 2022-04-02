@@ -5,24 +5,56 @@
   margin-left:10vw;
 } */
 /*Floor plan*/
-div{
+.BookingSvgWrapper div{
   text-align:center;
 }
 .BookingSvgWrapper{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 5vw;
+    margin-top: 2vh;
     padding-bottom: 10vh;
-    border-bottom: 2px solid black;
-    height: 100vh;
+  border-top: 2px solid rgba(0, 0, 0, 0.555);
+    height: 900px;
 }
+
+.SvgKeyWrapper{
+      display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 90vw;
+}
+
+.SvgKey{
+  display: flex;
+  flex-direction: row;
+}
+
+.outer-svg-wrapper{
+  width: 90vw;
+      /* padding-top: 10vh; */
+  display: flex;
+    justify-content: center;
+    /* overflow: hidden; */
+}
+
+.inner-svg-wrapper{
+  width : 90vw;
+  /* background-color: antiquewhite; */
+      width: 90vw;
+    max-width: 1300px;
+    /* overflow: hidden; */
+}
+
+
 .svg-wrapper{
   overflow:scroll;
   min-height:auto;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  padding:3rem 0;
+      grid-column-gap: 4vw;
+    grid-row-gap: 20px;
+    overflow: hidden;
 }
 .kitchen{
   width: 105px;
@@ -45,15 +77,17 @@ div{
     margin-left: 99px;
     background: black;
 }
+
 .floor-plan{
-  width:65vw;
-  height: 50vw;
+  width:650px;
+  height: 500px;
   display:grid;
   gap:0;
   grid-template-areas:'From23To30 From41To50 From41To50 '
 '. From31To40 From31To40 '
 'From17To22 From9To16 From1To8'
 '. From9To16 From1To8';
+    grid-row-gap: 18px;
 
 
 }
@@ -71,7 +105,7 @@ div{
     flex-wrap: wrap;
     /* justify-content: center; */
     height: 100px;
-    margin-right: 257px;
+    margin-right: 100px;
     margin-top:55px;
 }
 .desks-9-to-16{
@@ -89,6 +123,7 @@ grid-area: From23To30;
     align-self: center;
     height: 124px;
     margin-top: 31px;
+
 }
 .desks-17-to-22{
   height: 100px;
@@ -97,15 +132,28 @@ grid-area: From23To30;
     flex-wrap: wrap;
     transform: rotate(90deg);
     margin-top:65px;
+    margin-right: 20px;
 }
+.desks-17-to-22 div span {
+  position: absolute;
+  transform: rotate(270deg);
+    padding-bottom: 14px;
+}
+
 .desks-41-to-50{
   grid-area: From41To50;
     display: flex;
     flex-wrap: wrap;
     transform: rotate(90deg);
     height: 260px;
-    margin-left: 94px;
+    margin-left: 100px;
 }
+.desks-41-to-50 div span {
+  position: absolute;
+  transform: rotate(270deg);
+    padding-bottom: 17px;
+}
+
 .desks-31-to-40{
  grid-area: From31To40;
     display: flex;
@@ -114,6 +162,11 @@ grid-area: From23To30;
     height: 153px;
     margin-left: 160px;
     margin-top: -76px;
+}
+.desks-31-to-40 div span {
+  position: absolute;
+  transform: rotate(270deg);
+    padding-bottom: 17px;
 }
 
 /* .right{
@@ -126,14 +179,41 @@ grid-area: From23To30;
 } */
 .inactive{
     pointer-events: none;  
-    filter: invert(0.8);
+    filter: invert(0.5);
+}
+
+.active{
+    cursor: pointer;  
 }
 
 .matchingAccessibility{
-  background-color: #0A68B2;
+
 }
 
 span{
   color:#ffffff;
 }
 
+@media only screen and (max-width: 800px) and (min-width: 0px) {
+
+  .outer-svg-wrapper {
+    width: 90vw;
+    /* display: none; */
+
+    
+  }
+
+
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 800px) {
+
+  .outer-svg-wrapper {
+    justify-content: end;
+    overflow: hidden;
+  }
+  .inner-svg-wrapper{
+    width: 900px;
+  }
+
+}

@@ -16,6 +16,7 @@
     background-color: #f0f0f0;
     height: var(--header-Height);
     width: 100vw;
+    z-index: 100;
 }
 
 /* Holds h1 and p tag */
@@ -60,11 +61,12 @@
         display: flex;
         /* justify-content: flex-start; */
     width: 70vw;
+    justify-content: space-around;
 }
 
 .navUL {
     display: flex;
-        justify-content: space-around;
+        
     flex-direction: row;
     list-style-type: none;
     /* font-size: 1.5rem; */
@@ -82,10 +84,43 @@
     /* font-size: 1.5em; */
 }
 
-.navLink:active{
+.navLinkLogoutButton{
+    /*Reset's every elements apperance*/
+        background: none repeat scroll 0 0 transparent;
+        border: medium none;
+        border-spacing: 0;
+        color: #26589F;
+        font-family: 'PT Sans Narrow',sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.42rem;
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        text-decoration: none;
+        text-indent: 0;
+    /*Reset's end*/
+
+    color: black;
+    font-size: 1.4rem;
+    padding-bottom: 0.7vh;
+    text-decoration: underline;
+    color: var(--bl-Black);
+    /* margin-right: 4rem; */
+    font-family: var(--paragraph-font-family);
+}
+
+.navLinkLogoutButton:hover{
+    color: var(--dk-Green);
+    /* font-weight: 900; */
+    cursor: pointer;
+}
+
+/* .navLink:active{
     text-decoration: underline;
     border-bottom: 2px var(--dk-Green) solid;
-}
+} */
 .navLink:hover{
     text-decoration: underline;
     border-bottom: 4px var(--dk-Green) solid;

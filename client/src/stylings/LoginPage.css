@@ -142,7 +142,7 @@
     background-color: var(--lg-Green);
     color: var(--wh-White);
     width: 100%;
-    /* height: 7vh; */
+    height: 7vh;
 }
 
 .SignInSwitch{
@@ -153,7 +153,7 @@
     color: #737373;;
 }
 
-.signInSwitch h4 {
+.SignInSwitchLink {
     /* width: 40%; */
     margin-top: 1vh;
     /* font-size: 2.5em; */

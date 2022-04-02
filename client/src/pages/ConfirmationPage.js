@@ -5,6 +5,7 @@ import templateData from "./../data/bookings.json";
 import Header from "../components/Header";
 import Moment from "react-moment";
 import "./../stylings/Home.css";
+import "./../stylings/ConfirmationPage.css";
 
 
 export default function ConfirmationPage(props) {
@@ -34,20 +35,24 @@ export default function ConfirmationPage(props) {
     }
 
 	return (
-		<div>
-			<Header
-				globalUserDetails={globalUserDetails}
-				setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
-			/>
-			<h1>Thank you for your booking {globalUserDetails.first_name}</h1>
-			<br />
-			<h2>
-				You have booked desk number {globalBookingInfo.desk_id} on the{" "}
-				{globalBookingInfo.date_booked}{" "} from {timings}
-			</h2>
-			<Link to={"/dashboard"}>
-				<a className="navLink">Go back to dashboard.</a>
-			</Link>
+		<div className="ConfirmationPageOuterWrapper">
+			<h1>That's booked for you</h1>
+			<div className="ConfirmationPageInnerWrapper">
+				<h2>Your desk booking details</h2>
+				<ul>
+					<li>Name : {globalUserDetails.first_name}{" "}{globalUserDetails.last_name}</li>
+					<li>Date : {globalBookingInfo.date_booked}{" "} from {timings}</li>
+					<li>Desk : {globalBookingInfo.desk_id}</li>
+				</ul>
+				
+			</div>
+			<div className="ConfirmationPageBottomWrapper">
+				<h3>Back to your dashboard</h3>
+				<Link to={"/dashboard"}>
+					<button className="ConfirmationPageBottomButton">View dashboard</button>
+				</Link>
+			</div>
+
 
 		</div>
 	);

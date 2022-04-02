@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 import Header from "../components/Header";
-import AdminSignIn from "../components/AdminSignIn";
+// import AdminSignIn from "../components/AdminSignIn";
 import NavbarGuest from "../components/NavbarGuest";
 import Footer from "../components/Footer"
 import "../stylings/SignUp.css";

@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 import emailjs from "emailjs-com";
+import ".././stylings/contactUs.css";
 
 const ContactUs = () => {
     const form = useRef();
@@ -17,16 +18,33 @@ const ContactUs = () => {
     };
     
     return (
-        <form ref={form} onSubmit={handleOnSubmit}>
-      <label> Name</label>
-      <input type="text" name="user_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
+      <div className="ContactOuterWrapper">
+        <h1>Get in touch</h1>
+        
+        <div className="ContactFirstInnerWrapper">
+          <h4>Please fill out the form and we will be in touch.</h4>
+          <form ref={form} onSubmit={handleOnSubmit}>
+            <label> Name</label>
+            <input type="text" name="user_name" />
+            <label>Email</label>
+            <input type="email" name="user_email" />
+            <label>Message</label>
+            <textarea name="message" />
+            <input type="submit" value="Send" />
+          </form>
+        </div>
 
-    </form>
+        <div className="ContactSecondInnerWrapper">
+                <h3>Back to your dashboard</h3>
+                <Link to={"/dashboard"}>
+                    <button className="ContactDashboardButton">Back to dashboard</button>
+                </Link>
+        </div>
+
+
+
+       </div>
+
 
     );
   };
