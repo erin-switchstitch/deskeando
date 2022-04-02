@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
-import "../stylings/SignUp.css";
+// import "../stylings/SignUp.css";
 import "../stylings/LoginPage.css"
 
 export default function AdminSignIn(props){
