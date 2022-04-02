@@ -4,10 +4,13 @@
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
 	"scripts": {
+		
 		"prebuild": "npm run cleanup",
 		"build": "npm run build:server && npm run build:client",
 		"build:client": "webpack --config client/webpack/prod.config.js",
 		"build:server": "babel server --out-dir dist",
+		"heroku-postbuild": "cd client && npm install && npm run build",
+		"cleanup": "rimraf ./dist/*",
 		"dev": "concurrently -k -n \"client,server\" \"npm run dev:client\" \"npm run dev:server\"",
 		"dev:client": "webpack serve --config client/webpack/dev.config.js",
 		"dev:server": "cross-env PORT=3100 nodemon --exitcrash --inspect --delay 500ms --watch server --exec babel-node server/server.js",
@@ -17,8 +20,7 @@
 		"start": "node dist/server.js",
 		"lint:eslint": "eslint .",
 		"lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier -- --write",
-		"lint:prettier": "prettier .",
-		"heroku-postbuild": "cd client && npm install && npm run build"
+		"lint:prettier": "prettier ."
 	},
 	"repository": {
 		"type": "git",
