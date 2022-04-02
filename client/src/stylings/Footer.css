@@ -4,8 +4,7 @@
     background-color: #c3c3c3c0;
     border-top: 2px solid #c3c3c3ec;
     margin-top: 5vh;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;

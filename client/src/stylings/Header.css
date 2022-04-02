@@ -5,6 +5,25 @@
     margin:0;
     padding: 0;
 }
+a{
+    text-decoration:none;
+}
+.display{
+    transform:translateX(0);
+    transition:transform .5s ease-in-out;
+}
+
+.menu-icon{
+    width:48px;
+    height:48px;
+    margin-right:13vw;
+    display:none;
+}
+
+.menu-icon:active, .menu-icon:hover{
+    background:#367473;
+    border-radius:3px;
+}
 
 /* Holds everything in the navbar */
 .headerOuterWrapper{
@@ -13,6 +32,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding:1.5rem;
     background-color: #f0f0f0;
     height: var(--header-Height);
     width: 100vw;
@@ -75,6 +95,7 @@
 
 
 .navLink{
+    width:50px;
     display: flex;
 
     text-decoration: none;
@@ -126,3 +147,29 @@
     border-bottom: 4px var(--dk-Green) solid;
 }
 /* Holds hero */
+
+
+@media screen and (max-width:768px){
+    .menu-icon{
+        display:block;
+    }
+    nav{
+    position:absolute;
+    top:15vw;
+    left:0;
+    transform: translateX(calc(100vw));
+    transition:transform .5s ease-in-out
+}
+.navLinkWrapper{
+    flex-direction: column;
+}
+.navList{
+    /* padding:5vw 34vw; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:15vw;
+    background-color: #f0f0f0;
+}
+}
