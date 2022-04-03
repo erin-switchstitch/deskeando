@@ -4,9 +4,9 @@
     font-family: var(--deskeando-font-family);
 }
 
-.LoginPageOuterWrapper{
+/* .LoginPageOuterWrapper{
 
-}
+} */
 
 .LoginPageInnerWrapper{
     padding-top: var(--header-Height);
@@ -65,7 +65,7 @@
 .LoginBannerWrapper{
     padding-top: 5vh;
     width: 100vw;
-    background-image: url("./../images/heroImage.jpg");
+    background-image: url("../images/hero_image.jpg");
     /* background-color: gray; */
 }
 
@@ -247,9 +247,9 @@
     text-align: center;
 }
 
-.SignUpAccessibilitySwitch{
+/* .SignUpAccessibilitySwitch{
 
-}
+} */
 
 .buttonSignup{
     position: absolute;

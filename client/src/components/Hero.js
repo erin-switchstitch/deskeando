@@ -1,6 +1,6 @@
 import React from "react";
-import "../../src/stylings/Hero.css";
-import heroImage from "../images/heroImage.jpg";
+import ".././stylings/Hero.css";
+import heroImage from ".././images/hero_image.jpg";
 
 export default function Hero(props) {
     return (
