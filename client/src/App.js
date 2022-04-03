@@ -19,7 +19,7 @@ export default function App(){
 
 	//  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
-	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : "", first_name : "", last_name : "", email : "", accessibility : true});
+	const [globalUserDetails, setGlobalUserDetails] = useState({ user_id : 0, first_name : "", last_name : "", email : "", accessibility : false});
 	// const [globalUserDetails, setGlobalUserDetails] = useState({ user_id: 3, first_name: 'Admin', last_name: 'Istrator', email: 'admin@admin.com', accessibility: true});
 	console.log(globalUserDetails);
 
