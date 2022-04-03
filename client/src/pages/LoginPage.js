@@ -4,7 +4,7 @@ import SignUp from "../components/SignUp";
 import Header from "../components/Header";
 // import AdminSignIn from "../components/AdminSignIn";
 import NavbarGuest from "../components/NavbarGuest";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import ".././stylings/SignUp.css";
 import ".././stylings/LoginPage.css";
 import Hero from "../components/Hero";
@@ -12,7 +12,7 @@ import Hero from "../components/Hero";
 export default function LoginPage(props){
 
 
-    const [booleanSwitch, setBooleanSwitch] = useState(true)
+    const [booleanSwitch, setBooleanSwitch] = useState(true);
     const [signInShow, setSignInShow] = useState("flex");
     const [signUpShow, setSignUpShow] = useState("none");
 
@@ -27,12 +27,12 @@ export default function LoginPage(props){
         if (booleanSwitch) {
             setBooleanSwitch(false);
 
-            setSignInShow("none")
-            setSignUpShow("flex")
+            setSignInShow("none");
+            setSignUpShow("flex");
         } else {
             setBooleanSwitch(true);
-            setSignInShow("flex")
-            setSignUpShow("none")
+            setSignInShow("flex");
+            setSignUpShow("none");
 
         }
     }
@@ -46,11 +46,11 @@ export default function LoginPage(props){
 
 				<div className="LoginPageInnerWrapper">
 					<Hero />
-					<div className="LoginPageTextHeading">
+					{/* <div className="LoginPageTextHeading">
 						<h2>Welcome to Deskeando.</h2>
 						<h3>The easy way to manage your working day.</h3>
-					</div>
-					
+					</div> */}
+
 					<div className="LoginBannerWrapper">
 
 						{(booleanSwitch == true) ? (
@@ -84,9 +84,9 @@ export default function LoginPage(props){
 								{" "}
 								<span>
 									{booleanSwitch ? (
-										"Do not have an account?" 
-										
-									):( 
+										"Do not have an account?"
+
+									):(
 										"Already registered?"
 									)}
 								</span>

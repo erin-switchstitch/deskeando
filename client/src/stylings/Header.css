@@ -10,7 +10,7 @@ a{
 }
 .display{
     transform:translateX(0);
-    transition:transform .5s ease-in-out;
+    /* transition:transform .5s ease-in-out; */
 }
 
 .menu-icon{
@@ -33,7 +33,7 @@ a{
     justify-content: space-between;
     align-items: center;
     padding:1.5rem;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     height: var(--header-Height);
     width: 100vw;
     z-index: 100;
@@ -54,7 +54,10 @@ a{
     color: black;
     z-index: 100;
 }
-
+.slogan{
+    color:#000000;
+    font-weight:lighter;
+}
 .headerLogo{
     background-repeat: no-repeat;
     width: auto; 
@@ -80,7 +83,7 @@ a{
 .navLinkWrapper{
         display: flex;
         /* justify-content: flex-start; */
-    width: 70vw;
+    width: 50vw;
     justify-content: space-around;
 }
 
@@ -172,4 +175,10 @@ a{
     height:15vw;
     background-color: #f0f0f0;
 }
+}
+
+@media screen and (max-width:835px){
+    .slogan{
+        display:none;
+    }
 }

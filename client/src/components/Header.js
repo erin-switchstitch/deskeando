@@ -16,17 +16,18 @@ const Header = (props)=> {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 
-	// AMANDA !!!! 
+	// AMANDA !!!!
 	// You can use the variables below to pull the broswers current height/width ....
 	// May be useful for triggering the hamburger menu button showing if the screen
-	// is too small to accomidate the links 
+	// is too small to accomidate the links
     const { height, width } = useWindowDimensions();
 
     return (
 				<div className="headerOuterWrapper">
 					<div className="headerLogoWrapper">
-		 				{/* <h1 className="headerTitle">Deskeando</h1> */}
-                     	<img className="headerLogo" src={Logo} alt="Deskeando Logo"/>
+		 				<h1 className="headerTitle" >Deskeando</h1>
+						 <span className="slogan">The Ultimate Desk Booking App</span>
+                     	{/* <img className="headerLogo" src={Logo} alt="Deskeando Logo"/> */}
 		 			</div>
 
 					<nav className={display ? "display" : ""}>
