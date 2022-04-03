@@ -63,13 +63,8 @@ export default function SignUp(props) {
 	const [dashboardLink, setDashboardLink] = useState("none");
 	const [hideSubmitLink, setHideSubmitLink] = useState("inline");
 
-	const handleOnSubmit = async (event) => {
+	const handleOnSubmit =  (event) => {
 		event.preventDefault();
-
-		// const testSymbols = /[!#$%.*&]/.test(password);
-		// const testNumbers= /[0-9]/.test(password);
-		// // const testUpperCase = /[A-Z]/.test(password);
-		//  const testUpperCase = true;
 		const actualAccessibilityValue = Boolean(state.accessibility);
 		axios
 			.put("http://localhost:3000/api/register", {
@@ -88,78 +83,14 @@ export default function SignUp(props) {
 					email: response.data[0].email,
 					accessibility: Boolean(response.data[0].accessibility),
 				});
-				console.log("globalusers deatils", globalUserDetails);
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
 
-		// const requestOptions = {
-		//     method: "PUT",
-		//     headers: { "Content-Type": "application/json" },
-		//     body: JSON.stringify({ "email":state.email, "last_name":state.lastName, "first_name":state.firstName, "password":state.password, "accessibility": actualAccessibilityValue }),
-		// };
-
-		//  await fetch("http://localhost:3000/api/register",requestOptions)
-		//              .then((response) => {
-		//                  const responseJ = response.json();
-		//                  console.log("response", response);
-		//                  console.log("responseJ", responseJ);
-		//              })
-		//              .then((data) => {
-		//                  console.log(data);
-		//                  setGlobalUserDetails({
-		//                      user_id: data.user_id,
-		//                      first_name: state.firstName,
-		//                      last_name: state.lastName,
-		//                      email: state.email,
-		//                      accessibility: state.accessibility,
-		//                  });
-		//                  setDashboardLink("inline");
-		//                  setHideSubmitLink("none");
-
-		//                  // This works to open dashboard but reloads the session as well so we loose user details
-		//                  // One possibility is to Make a call to the api for the user id ...
-
-		//                  // props.history.push('/dashboard')
-		//              });
-
-		console.log(state);
-		const { firstName, lastName, email, password, confirmPassword } = state;
-
-		// window.location.href = "/dashboard";
-
-		if (
-			firstName === "" ||
-			lastName === "" ||
-			email === "" ||
-			password === "" ||
-			confirmPassword === ""
-		) {
-			setErrorMsg("please fill all fields");
-		} else if (!email.includes("@")) {
-			setErrorMsg("Please enter a valid email");
-
-			// } else if(!testSymbols || !testNumbers ||!testUpperCase){
-			//    setErrorMsg("Your password should contain at lease a symbol, number and UpperCase letter");
-		} else if (password !== confirmPassword) {
-			setErrorMsg("Your passwords do not match!");
-		} else {
-			setErrorMsg("Everything is correct");
-
-			// setGlobalUserDetails({ user_id : 5, first_name : state.firstName, last_name : state.lastName, email : state.email, accessibility : state.accessibility})
-
-			// Here we would send our fetch request to the API to check these details against existing user accounts, and if
-			// everything is okay, then create a new user profile in the database. After that the API would send back a successful
-			// code as well as the unique_ID (and potentially all of the user details)
-
-			// Note for Amanda :
-			// Within the fetch request (PUT) we will send all of these user details
-			// Then if there is a successful response from the API, then we will run setGlobalUserDetails(...) with the user details
-			// from this component formatted into the correct formatting for globalUserDetails
-			// window.location.href = "http://localhost:3000/dashboard";
-		}
-	};
+		};
+		setHideSubmitLink("none");
+		console.log(hideSubmitLink);
 
 	return (
 		<div className="SignUpOuterWrapper">
@@ -168,11 +99,13 @@ export default function SignUp(props) {
 				// style={{ display: props.display }}
 				onSubmit={handleOnSubmit}
 			>
-				<h1 className="formHeader">Sign Up</h1>
+				<h1 style={{ display:`${hideSubmitLink}` }} className="formHeader">Sign Up</h1>
+
 				<div className="signUpInputContainer">
 					<span>{errorMsg}</span>
-					<label>
+					<label style={{ display:`${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">First Name:</p> */}
+
 						<input
 							type="text"
 							className="form-control formInputField"
@@ -182,7 +115,7 @@ export default function SignUp(props) {
 							onChange={handleFirstNameChange}
 						/>
 					</label>
-					<label className="formSubHeaderLName">
+					<label style={{ display:`${hideSubmitLink}` }} className="formSubHeaderLName">
 						{/* <p className="formSubHeader">Last Name:</p> */}
 						<input
 							type="text"
@@ -193,7 +126,7 @@ export default function SignUp(props) {
 							onChange={handleLastNameChange}
 						/>
 					</label>
-					<label>
+					<label style={{ display:`${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">Email address:</p> */}
 						<input
 							type="email"
@@ -205,7 +138,7 @@ export default function SignUp(props) {
 							onChange={handleEmailChange}
 						/>
 					</label>
-					<label>
+					<label style={{ display:`${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">Password:</p> */}
 						<input
 							type="password"
@@ -217,7 +150,7 @@ export default function SignUp(props) {
 							onChange={handlePasswordChange}
 						/>
 					</label>
-					<label>
+					<label style={{ display:`${hideSubmitLink}` }}>
 						<p className="formSubHeader">Confirm Password:</p>
 						<input
 							type="password"
@@ -230,22 +163,22 @@ export default function SignUp(props) {
 						/>
 					</label>
 
-					<p className="formSubHeader">
+					<p style={{ display:`${hideSubmitLink}` }} className="formSubHeader">
 						Do you have any <strong>accessibility </strong> needs?
 					</p>
 
-					<label class="switch switch-flat">
-						<input class="switch-input" type="checkbox" />
-						<span class="switch-label" data-on="Yes" data-off="No"></span>
-						<span class="switch-handle"></span>
+					<label style={{ display:`${hideSubmitLink}` }} className="switch switch-flat">
+						<input className="switch-input" type="checkbox" />
+						<span className="switch-label" data-on="Yes" data-off="No"></span>
+						<span className="switch-handle"></span>
 					</label>
 					{/* <label className="switch switch-slide">
                             <input className="switch-input" type="checkbox" />
-                            <span className="switch-label" data-on="Yes" data-off="No"></span> 
+                            <span className="switch-label" data-on="Yes" data-off="No"></span>
                             <span className="switch-handle"></span> */}
 					{/* <input type="checkbox" onChange={handleAccessibilyChange} /> */}
 					{/* </label> */}
-					<div className="SignInSwitch">
+					<div style={{ display:`${hideSubmitLink}` }} className="SignInSwitch">
 						<h3>Already registered?</h3>
 						<h4
 							className="SignInSwitchLink"
