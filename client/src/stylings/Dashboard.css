@@ -1,6 +1,6 @@
 /* ---------- Dashboard Main Page ----------- */
 
-button{
+/* button{
     font-size: 1rem;
     border-radius: var(--button-border-radius);
     background-color: var(--dk-Green);
@@ -8,7 +8,7 @@ button{
     height: 5vh;
     padding-left: 2vw;
     padding-right: 2vw;
-}
+} */
 
 .DashboardOuterWrapper{
     padding-top: 15vh;

@@ -16,12 +16,30 @@
     --faded-background-set:  linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
 }
 
-
-button:hover{
+button {
+        padding: 1em;
+    /* font-size: 2.5em; */
+    border-radius: var(--button-border-radius);
+    background-color: var(--lg-Green);
+    border: none;
+    font-weight:bold;
+    color: var(--wh-White);
+    width: 100%;
+    height: auto;
+    margin:0 1rem;
+}
+/* button:hover{
 
     background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
     border: var(--dk-Green) 2px solid;
     color: white;
+} */
+
+button:hover{
+    transform:scale(1.1);
+    background-color: black;
+    color:#ffffff;
+    transition:all .2s linear;
 }
     
 
@@ -30,6 +48,10 @@ button:hover{
 
 body {
   font-size: 18px;
+}
+td{
+    padding: 1rem;
+    padding-right: 3rem;
 }
 
 @media only screen and (max-width: 700px) and (min-width: 0px) {

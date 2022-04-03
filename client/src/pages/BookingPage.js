@@ -44,7 +44,7 @@ export default function BookingPage(props) {
 
 	const { height, width } = useWindowDimensions();
 
-	console.log("width" + width)
+	console.log("width" + width);
 
 
 	return (
@@ -52,10 +52,10 @@ export default function BookingPage(props) {
 
 			<div className="BookingPageInnerHeaderWrapper">
 				<h2>Desk booking</h2>
-				<h4>Plan your visit in 2 simple steps. Get started below.</h4>
+				<h4>Plan your visit in 4 simple steps. Get started below.</h4>
 			</div>
 
-			
+
 			<div className="BookingPageInnerMainWrapper">
 
 				<BookingsAccessibilityBanner globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
@@ -80,9 +80,9 @@ export default function BookingPage(props) {
 						selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 						globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
 					)
-					
-					
-					
+
+
+
 
             	) : (
             	    <div className="ListCalenderBannerWrapper">
@@ -113,11 +113,6 @@ export default function BookingPage(props) {
 
 			</div>
 
-			
-
-
-
-            <Footer />
 		</div>
 	);
 }

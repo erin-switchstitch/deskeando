@@ -1,14 +1,14 @@
-.HeroImage{
+/* .HeroImage{
     height: 43vh;
-}
+} */
 
 .social-container{
     display: flex;
     flex-direction: row;
     position: fixed;
     width: 100vw;
-    z-index: 1;
-    margin-top: 20vh;
+    z-index: -1;
+    margin-top: 22vh;
     justify-content: space-around;
 }
 
@@ -32,15 +32,21 @@
 
 .social-container div:nth-child(1){
     padding-top: 0vh;
+    padding: 1rem;
 }
 .social-container div:nth-child(2){
-    padding-top: 10vh;
+    padding: 10vh 1rem 1rem 1rem;
+    
 }
 .social-container div:nth-child(3){
-    padding-top: 20vh;
+        margin-top: 20vh;
+    padding: 1rem;
+    border-radius: 50px;
 }
 .social-container div:nth-child(4){
     padding-top: 30vh;
+    padding: 30vh 1rem 1rem 1rem;
+    border-radius: 50px;
 }
 
 
@@ -60,24 +66,45 @@
 
 
 .AboutParagraphContainer{
+    display: inline-block;
     width: 80vw;
-    padding-left: 10vw;
-    padding-right: 10vw;
-    margin-top: 70vh;
+    /* padding-left: 10vw; */
+    /* padding-right: 10vw; */
+    padding: 3vw;
+    margin-left: 7vw;
+    border-radius: 50px;
+    margin-top: 80vh;
     padding-bottom: 10vh;
-
+    background: rgb(0,0,0,0.9);
+    color: #ffffff;
 }
 
 
-@media only screen and (max-width: 1000px) and (min-width: 0px) {
+@media only screen and (max-width: 1000px){
   .social-container{
-      display: flex;
-    flex-direction: column;
-    position: fixed;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+      transform:scale(0.8);
+      /* align-items: center; */
+    /* flex-direction: column; */
+    /* position: fixed;
     padding-top: 10vh;
-    padding-left: 10vw;
+    padding-left: 10vw; */
 }
-.social-container div:nth-child(1){
+.social-container div:nth-child(1), .social-container div:nth-child(2){
+    padding-top:0;
+    margin-top:0;
+    background-color: #000000;
+    /* padding:2rem 1rem; */
+    border-radius: 50px;
+}
+.social-container div:nth-child(3),.social-container div:nth-child(4){
+    padding-top:0;
+    margin-top:0;
+    background-color: #ffffff;
+}
+/* .social-container div:nth-child(1){
     padding-top: 11vh;
 }
 .social-container div:nth-child(2){
@@ -88,7 +115,7 @@
 }
 .social-container div:nth-child(4){
     padding-top: 5vh;
-}
+} */
   
     .social-container div a{
     font-size: 1.5em;
@@ -99,8 +126,18 @@
 }
 
 .GithubLogo{
-    font-size: 2.7em;
+    font-size: 2.5em;
     padding-right: 0.5vw;
 }
+.AboutParagraphContainer{
+    padding:2rem;
+}
 
+
+}
+
+@media only screen and (max-width: 500px){
+    .social-container{
+        grid-template-columns: 1fr;
+    }
 }
