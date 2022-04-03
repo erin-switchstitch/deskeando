@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
-import emailjs from "emailjs-com";
+import emailjs from '@emailjs/browser';
 import ".././stylings/contactUs.css";
 
 const ContactUs = () => {
