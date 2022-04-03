@@ -4,7 +4,6 @@
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
 	"scripts": {
-		
 		"prebuild": "npm run cleanup",
 		"build": "npm run build:server && npm run build:client",
 		"build:client": "webpack --config client/webpack/prod.config.js",
@@ -70,6 +69,7 @@
 	"dependencies": {
 		"@ant-design/icons": "^4.7.0",
 		"@babel/runtime": "^7.17.0",
+		"@emailjs/browser": "^3.5.0",
 		"@emotion/react": "^11.8.2",
 		"@emotion/styled": "^11.8.1",
 		"@fortawesome/fontawesome-svg-core": "^6.1.1",
