@@ -26,7 +26,6 @@ export default function DeskListBooker(props) {
 
         let passedData = { user_id: globalUserDetails.user_id , desk_id: globalBookingInfo.desk_id, date_booked:globalBookingInfo.date_booked, am:globalBookingInfo.am, pm:globalBookingInfo.pm };
 
-        console.log("props", props.otherPersonsId);
 
         if(Number(props.otherPersonsId) > 0){
             passedData = { ...passedData, user_id: props.otherPersonsId };
