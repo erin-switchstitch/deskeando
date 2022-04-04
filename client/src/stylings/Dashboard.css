@@ -11,7 +11,8 @@
 } */
 
 .DashboardOuterWrapper{
-    padding-top: 15vh;
+    /* padding-top: 15vh; */
+    padding-top: max(150px, 15vh);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,6 +25,8 @@
     align-items: start;
     border-left: 10vw;
 }
+
+
 
 /* .DashboardComponentWrappers{
     border: 2px solid black;
@@ -52,6 +55,7 @@
     
 }
 
+
 .DubInnerWrapper{
     display: flex;
     flex-direction: column;
@@ -62,6 +66,8 @@
     padding-top: 2vh;
     padding-bottom: 2vh;
 }
+
+
 
 .DubBookingTile{
     display: flex;
@@ -74,7 +80,7 @@
     margin-right: 2vw;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
 }
 
@@ -86,12 +92,9 @@
     padding: 2vw;
 }
 
-.DubTileText{
-    /* justify-self: flex-start; */
-}
 
-.DubTileDelete{
-    /* justify-self: flex-end; */
+.DubTileDeleteWrapper{
+    height: 100%;
     border-left: 3px solid black;
         
 }
@@ -101,7 +104,13 @@
 }
 
 .DubButton{
-    /* margin-bottom: 2vh; */
+    border-left: 2px solid black;
+}
+
+
+#DubNoBookingFoundTileText {
+    display: flex;
+    align-items: center;
 }
 
 
