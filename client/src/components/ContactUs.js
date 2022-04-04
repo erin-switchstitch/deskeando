@@ -1,7 +1,8 @@
 import React, { Fragment, useState, useRef } from "react";
 import { Link } from 'react-router-dom';
-// import emailjs from '@emailjs/browser';
-import emailjs from "emailjs-com";
+import emailjs from "emailjs-com"; // Use this !!!!!!
+// import emailjs from '@emailjs/browser'; // Don't use this !!!
+
 import ".././stylings/contactUs.css";
 
 const ContactUs = () => {
