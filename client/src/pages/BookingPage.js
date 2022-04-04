@@ -12,11 +12,13 @@ import ListCalendar from "../components/ListCalendar";
 import DeskListBooker from "../components/DeskListBooker";
 import Footer from "../components/Footer";
 import useWindowDimensions from "../components/useWindowDimensions";
+import axios from "axios";
 
 export default function BookingPage(props) {
 
 	const [person, setPerson] = useState("Myself");
 	const [otherPersonsEmail, setOtherPersonsEmail] = useState("");
+	const [otherPersonsId, setOtherPersonsId] = useState(0);
 
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
@@ -48,6 +50,10 @@ export default function BookingPage(props) {
 	const { height, width } = useWindowDimensions();
 
 	console.log("width" + width);
+
+	axios.get(`http://localhost:3000/api/user/${otherPersonsEmail.replace("@","%40")}`)
+	.then((response)=> setOtherPersonsId(response.data))
+	.catch((error) => console.log(error));
 
 
 	return (
@@ -102,7 +108,7 @@ setPerson(e.target.value);
 
 				{(globalBookingInfo.desk_id != "" && globalBookingInfo.date_booked != "" && (globalBookingInfo.am != false || globalBookingInfo.pm != false)) ? (
 
-            	    <DeskListBooker globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
+            	    <DeskListBooker otherPersonsId={otherPersonsId} globalBookingInfo={globalBookingInfo} setGlobalBookingInfo={(data)=>setGlobalBookingInfo(data)}
 					selectedDateParent={selectedDateParent} setSelectedDateParent={(data)=>setSelectedDateParent(data)}
 					globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
 
