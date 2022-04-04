@@ -15,6 +15,9 @@ import useWindowDimensions from "../components/useWindowDimensions";
 
 export default function BookingPage(props) {
 
+	const [person, setPerson] = useState("Myself");
+	const [otherPersonsEmail, setOtherPersonsEmail] = useState("");
+
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
@@ -51,8 +54,14 @@ export default function BookingPage(props) {
 		<div className="BookingPageOuterWrapper">
 
 			<div className="BookingPageInnerHeaderWrapper">
-				<h2>Desk booking</h2>
-				<h4>Plan your visit in 4 simple steps. Get started below.</h4>
+				<h2>I am booking for</h2>
+				<input onChange={(e) =>	{
+setPerson(e.target.value);
+}} type="radio" value="Myself" name="person" />Myself
+       			 <input onChange={(e) =>	setPerson(e.target.value) } type="radio" value="Someone else" name="person" />Someone else
+				<label style={{ display: `${person === "Myself" ? "none" :"inline-block"}` }} >Please provide the person's registerd email<input type="text" value={otherPersonsEmail} onChange={(e)=>{
+ setOtherPersonsEmail(e.target.value);console.log(otherPersonsEmail);
+}} required /></label>
 			</div>
 
 
