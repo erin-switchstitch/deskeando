@@ -129,12 +129,12 @@ router.post("/login", (req, res) => {
 
     const user_email = req.body.credentials.email;
     const user_password = req.body.credentials.password;
-    console.log(user_email + " " + user_password)
+    console.log(user_email + " " + user_password);
 
     pool
         .query(`SELECT id, first_name, last_name, accessibility FROM users WHERE email='${user_email}' AND password=crypt('${user_password}', password)`)
         .then((result) => {
-            console.log(result.rows)
+            console.log(result.rows);
             if (result.rows.length <= 0 ){
                 res.status(401).send({ Msg: "Your email OR password is not valid" });
             } else {
@@ -302,7 +302,18 @@ router.delete("/users/:id", function (req, res) {
     });
 });
 
-
+//This routes gets a user ID using the user's email
+router.get("/user/:email", function (req, res) {
+  const userEmail = req.params.email;
+  console.log(userEmail);
+  pool
+    .query(`SELECT * FROM users WHERE email='${userEmail}';`)
+    .then((data) => res.json(data.rows[0].id))
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json(error);
+    });
+});
 
 // router.get("/wheelchair", (_, res) => {
 //  const desksWheelchairUsers = desks.filter((desk) => desk.desk_features.includes("wheelchair"));
