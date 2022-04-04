@@ -10,7 +10,7 @@ export default function DashboardUpcomingBookings(props) {
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
     let setGlobalUserDetails = props.setGlobalUserDetails;
-    console.log(globalUserDetails.user_id);
+    // console.log(globalUserDetails.user_id);
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
@@ -33,26 +33,21 @@ export default function DashboardUpcomingBookings(props) {
                 }
             })
     }, []); // empty dependency array means this effect will only run once (like componentDidMount in classes)
+    
     const [loadTo, setLoadTo] = useState(2);
-    
-
-        console.log(bookingArray);
-    //delete booking request using fetch inside useEffect React hook
-    // const deleteUserBooking =() =>{
-    // fetch(`http://localhost:3100/api/all-bookings/${bookingArray.booking_id}`, { mode: 'cors', method: "DELETE" })
-    // .then(response => response.json())
-    // .then(data => {
-    //     console.log("Delete successfully: ")
-    //     console.log(data)
-    // })
-    // }
+    console.log(bookingArray);
 
 
-    
     function deleteBookingLocally(index){
         console.log(index)
         console.log(bookingArray);
-        // setBookingArray(bookingArray.splice(index, 1));
+        let preSplicedArray = [bookingArray];
+        preSplicedArray.splice(index, 1);
+
+        console.log("LOOK HERE VVVVVVVVVVVVVVVV")
+        console.log(preSplicedArray);
+
+        setBookingArray(preSplicedArray);
     }
 
 
@@ -60,12 +55,20 @@ export default function DashboardUpcomingBookings(props) {
         <div className="DashboardComponentWrappers DubOuterWrapper">
             <h4 className="DubHeaderText">Your Upcoming Bookings</h4>
             <div className="DubInnerWrapper">
-                {bookingArray.map((element, index) =>{
+                {bookingArray.length == 0 ? (
+                   
+                    <div className="DubNoBookingFoundTile">
+                        <h2 id="DubNoBookingFoundTileText">No Bookings Found</h2>
+                    </div>
+                            
+                ):(
+                    bookingArray.map((element, index) =>{
                     // console.log(bookingArray);
                     console.log(element.date_booked);
+                    console.log("Booking Array mapped for display....")
                     
-                    if (bookingArray.length > 1){
-
+                    if (bookingArray.length !== 0){
+                        console.log("Bookings found .....")
                         if (index < loadTo){
                             let timings;
 
@@ -83,7 +86,10 @@ export default function DashboardUpcomingBookings(props) {
                                             <Moment format="dddd Do MMMM">{element.date_booked}</Moment> 
                                             : {timings}
                                         </h5>
-                                        <DeleteBookings element={element} onClick={(index)=>deleteBookingLocally(index)} className="DubTileDelete"/>
+                                        
+                                    </div>
+                                    <div className="DubTileDeleteWrapper">
+                                            <DeleteBookings element={element} currentDisplayIndex={index} passLocal={(index)=>deleteBookingLocally(index)} className="DubTileDelete"/>
                                     </div>
                                     
                                 </div>                             
@@ -94,15 +100,19 @@ export default function DashboardUpcomingBookings(props) {
                             )
                         } 
                     } else {
+                        console.log("No Bookings found .....")
                         return (
                                 <div>
                                     <h2>No Bookings Found</h2>
                                 </div>
                             )
                     }
-
                 })
-                }
+                
+                )}
+                
+
+                
             </div>
         </div>
     );

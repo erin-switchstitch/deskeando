@@ -23,6 +23,7 @@ export default function App(){
 	// const [globalUserDetails, setGlobalUserDetails] = useState({ user_id: 3, first_name: 'Admin', last_name: 'Istrator', email: 'admin@admin.com', accessibility: true});
 	// console.log(globalUserDetails);
 
+
 	/*
 
 	Notes for mutating globalUserDetails:
