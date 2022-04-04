@@ -308,7 +308,7 @@ router.get("/user/:email", function (req, res) {
   console.log(userEmail);
   pool
     .query(`SELECT * FROM users WHERE email='${userEmail}';`)
-    .then((data) => res.json(data.rows[0].id))
+    .then((data) => res.json({ "id":data.rows[0].id, "first_name":data.rows[0].first_name, "last_name":data.rows[0].last_name }))
     .catch((error) => {
       console.error(error);
       res.status(500).json(error);
