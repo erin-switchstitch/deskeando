@@ -5,6 +5,7 @@ import "../stylings/AccessibilitySwitch.css";
 import axios from "axios";
 
 export default function SignUp(props) {
+	console.log("------ SignUp run !!!!!")
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
 	let globalUserDetails = props.globalUserDetails;
 	let setGlobalUserDetails = props.setGlobalUserDetails;
@@ -63,7 +64,7 @@ export default function SignUp(props) {
 	const [dashboardLink, setDashboardLink] = useState("none");
 	const [hideSubmitLink, setHideSubmitLink] = useState("inline");
 
-	const handleOnSubmit =  (event) => {
+	const handleOnSubmit = (event) => {
 		event.preventDefault();
 		const actualAccessibilityValue = Boolean(state.accessibility);
 		axios
@@ -87,17 +88,17 @@ export default function SignUp(props) {
 			.catch(function (error) {
 				console.log(error);
 			});
-
+			setHideSubmitLink("none");
+			console.log(hideSubmitLink);
 		};
-		setHideSubmitLink("none");
-		console.log(hideSubmitLink);
+		
 
 	return (
 		<div className="SignUpOuterWrapper">
 			<form
 				className="SignUpMainWrapper"
 				// style={{ display: props.display }}
-				onSubmit={handleOnSubmit}
+				onSubmit={(e)=>handleOnSubmit(e)}
 			>
 				<h1 style={{ display:`${hideSubmitLink}` }} className="formHeader">Sign Up</h1>
 
@@ -189,7 +190,7 @@ export default function SignUp(props) {
 					</div>
 
 					<div className="buttonContainer">
-						{globalUserDetails.user_id < 1 ? (
+						{(globalUserDetails.user_id <= 0) ? (
 							<>
 								{console.log(true)}
 								<button

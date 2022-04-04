@@ -123,8 +123,6 @@ const ListCalender = (props) => {
 
 
 
-
-
     const handleChangeOne = (e) => {
         if (checkedTwo == true){
             setCheckedTwo(false);
@@ -138,9 +136,13 @@ const ListCalender = (props) => {
         }
         setGlobalBookingInfo({ ...globalBookingInfo, pm:e.target.checked });
     };
- 	console.log("Responses", requestResponses);
-
+ 	console.log("Responses : ");
+	console.log(requestResponses)
+	console.log("..........................................")
+	console.log("alldates Array:")
 	console.log(allDates)
+	// console.log("requestResponses[0] Array:")
+	// console.log(requestResponses[0])
 	
  	return (
 		<div className="ListCalenderOuterWrapper">
@@ -152,16 +154,24 @@ const ListCalender = (props) => {
 					<strong className="This-week-heading">This Week</strong>
 					
 					{allDates.map((date,index) => {
-						console.log(allDates)
+						console.log(".......... Look here ...........")
+						console.log(date)
+
 						//Calculating if the space in question has been booked in the morning, afternoon or both
 						let morningSpacesTaken = 0;
 						let afternoonSpacesTaken = 0;
+
 						if(requestResponses[index] !== undefined){
+
 							if(requestResponses[index].data.length > 0){
+
+								console.log(requestResponses[index].data[0])
+
 								if (requestResponses[index].data[0].am){
 									morningSpacesTaken++;
 								}
-								if (requestResponses[index].data[1].pm){
+
+								if (requestResponses[index].data[0].pm){
 									afternoonSpacesTaken++;
 								}
 							}

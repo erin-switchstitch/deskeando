@@ -41,7 +41,8 @@
     /* background: linear-gradient(180deg, rgba(0,0,0,0.8847514005602241) 0%, rgba(0,0,0,0.6718662464985995) 49%,rgba(0,0,0,0.4718662464985995) 79%, rgba(0,0,0,0) 100%); */
 }
 .LoginPageTextHeading h2{
-    background-color: #ffffff;
+    background-color: #ffffffc0;
+    border-radius: var(--button-border-radius);
     padding:.5rem 1rem;
     margin:.3rem;
     /* position:relative;
@@ -53,7 +54,8 @@
 .LoginPageTextHeading h3{
     /* display:inline-block; */
     /* width:auto; */
-    background-color: #ffffff;
+    background-color: #ffffffc0;
+    border-radius: var(--button-border-radius);
     padding:.5rem 1rem;
     margin:.3rem;
     /* position:relative;
@@ -218,6 +220,7 @@
 .SignUpMainWrapper{  
        width: 45vw;
     max-width: 700px;
+    min-width:  300px;
     height: auto;
     background: rgb(0,0,0,.6);
     /* background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%); */

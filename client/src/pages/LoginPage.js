@@ -22,7 +22,7 @@ export default function LoginPage(props){
     console.log(globalUserDetails);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    function loginInSingUpSwitch(){
+    function loginInSingUpSwitch(passedBoolean){
         console.log(booleanSwitch);
         if (booleanSwitch) {
             setBooleanSwitch(false);
