@@ -5,6 +5,7 @@ import "../stylings/AccessibilitySwitch.css";
 import axios from "axios";
 
 export default function SignUp(props) {
+	
 	console.log("------ SignUp run !!!!!")
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
 	let globalUserDetails = props.globalUserDetails;
@@ -173,12 +174,7 @@ export default function SignUp(props) {
 						<span className="switch-label" data-on="Yes" data-off="No"></span>
 						<span className="switch-handle"></span>
 					</label>
-					{/* <label className="switch switch-slide">
-                            <input className="switch-input" type="checkbox" />
-                            <span className="switch-label" data-on="Yes" data-off="No"></span>
-                            <span className="switch-handle"></span> */}
-					{/* <input type="checkbox" onChange={handleAccessibilyChange} /> */}
-					{/* </label> */}
+
 					<div style={{ display:`${hideSubmitLink}` }} className="SignInSwitch">
 						<h3>Already registered?</h3>
 						<h4
@@ -190,7 +186,7 @@ export default function SignUp(props) {
 					</div>
 
 					<div className="buttonContainer">
-						{(globalUserDetails.user_id <= 0) ? (
+						{(globalUserDetails.user_id == "") ? (
 							<>
 								{console.log(true)}
 								<button

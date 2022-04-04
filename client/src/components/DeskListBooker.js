@@ -17,9 +17,6 @@ export default function DeskListBooker(props) {
     console.log(globalBookingInfo);
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    // const [bookingDetails, setBookingDetails] = useState({ staff_id: globalUserDetails.user_id , desk_id: globalBookingInfo.desk_id, date_booked:globalBookingInfo.date_booked, am:globalBookingInfo.am, pm:globalBookingInfo.pm});
-
-    // <DeskListBooker deskNumber={element.id} bookingDate={selectedDateParent} parentPassBackSetStateFunction={(data)=>setBookingsDataState(data)} globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 
     const [bookingIdState, setBookingIdState] = useState(false);
 
@@ -53,8 +50,7 @@ export default function DeskListBooker(props) {
                 if (data[0].booking_id > 0){
                     setBookingIdState(true);
                 }
-                // if (data.booking_id)
-                // booking_id {booking_id: 16, staff_id: 4, desk_id: 26, date_booked: '2022-04-03T23:00:00.000Z', am: false}
+               
             });
     }
 
