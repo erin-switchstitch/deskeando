@@ -19,6 +19,9 @@ export default function BookingPage(props) {
 	const [person, setPerson] = useState("Myself");
 	const [otherPersonsEmail, setOtherPersonsEmail] = useState("");
 	const [otherPersonsId, setOtherPersonsId] = useState(0);
+	const [thirdPartyFirstName, setThirdPartyFirstName] = useState("");
+	const [thirdPartyLastName, setThirdPartyLastName] = useState("");
+	const [isThirdPartyAUser, setIsThirdPartyAUser] = useState(false);
 
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
     let globalUserDetails = props.globalUserDetails;
@@ -50,11 +53,21 @@ export default function BookingPage(props) {
 	const { height, width } = useWindowDimensions();
 
 	console.log("width" + width);
-
+	function makeAPICall(e){
+		e.preventDefault();
 	axios.get(`http://localhost:3000/api/user/${otherPersonsEmail.replace("@","%40")}`)
-	.then((response)=> setOtherPersonsId(response.data))
+	.then((response)=> {
+		if(response.status == 200){
+			setOtherPersonsId(response.data.id);
+			setThirdPartyFirstName(response.data.first_name);
+			setThirdPartyLastName(response.data.last_name);
+			setIsThirdPartyAUser(true);
+		} else {
+			setIsThirdPartyAUser(false);
+		}
+	})
 	.catch((error) => console.log(error));
-
+	}
 
 	return (
 		<div className="BookingPageOuterWrapper">
@@ -65,9 +78,14 @@ export default function BookingPage(props) {
 setPerson(e.target.value);
 }} type="radio" value="Myself" name="person" />Myself
        			 <input onChange={(e) =>	setPerson(e.target.value) } type="radio" value="Someone else" name="person" />Someone else
-				<label style={{ display: `${person === "Myself" ? "none" :"inline-block"}` }} >Please provide the person's registerd email<input type="text" value={otherPersonsEmail} onChange={(e)=>{
+
+					<div style={{ display: `${person === "Myself" ? "none" :"inline-block"}` }} >
+						<span style={{ color:"#000000" }}>{ isThirdPartyAUser?"User found":"Please enter a valid user" }</span> <br />
+				<label >Please provide the person's registerd email  <input type="text" value={otherPersonsEmail} onChange={(e)=>{
  setOtherPersonsEmail(e.target.value);console.log(otherPersonsEmail);
 }} required /></label>
+			<button type="button" onClick={	makeAPICall}>Submit name</button>
+			</div>
 			</div>
 
 
