@@ -70,7 +70,7 @@ export default function BookingPage(props) {
 		e.preventDefault();
 		axios
 			.get(
-				`http://localhost:3000/api/user/${otherPersonsEmail.replace(
+				`/api/user/${otherPersonsEmail.replace(
 					"@",
 					"%40"
 				)}`

@@ -11,7 +11,7 @@ function DeleteBookings(param) {
 
 	const deleteUserBooking = () => {
 		// console.log("Delete bookings run !!!")
-		fetch(`http://localhost:3100/api/all-bookings/${currentBookingId}`, {
+		fetch(`/api/all-bookings/${currentBookingId}`, {
 			mode: "cors",
 			method: "DELETE",
 		})

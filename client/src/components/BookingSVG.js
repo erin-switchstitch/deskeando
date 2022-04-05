@@ -36,7 +36,7 @@ function BookingSVG(props) {
 	useEffect(() => {
 		// GET request using fetch inside useEffect React hook
 		fetch(
-			`http://localhost:3100/api/bookings?date=${globalBookingInfo.date_booked}`,
+			`/api/bookings?date=${globalBookingInfo.date_booked}`,
 			{ mode: "cors" }
 		)
 			.then((response) => response.json())
@@ -53,7 +53,7 @@ function BookingSVG(props) {
 	// FETCH FOR DESKS (all info on the desks):
 	useEffect(() => {
 		// GET request using fetch inside useEffect React hook
-		fetch("http://localhost:3100/api/desks", { mode: "cors" })
+		fetch("/api/desks", { mode: "cors" })
 			.then((response) => response.json())
 			.then((data) => {
 				// console.log("Desks Data from API :")
