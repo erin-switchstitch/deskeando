@@ -1,8 +1,8 @@
 import React from "react";
-import Moment from "react-moment";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBackspace } from "@fortawesome/free-solid-svg-icons";
-import Delete from ".././images/delete-left-solid.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBackspace } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function DeleteBookings(param) {
 	let currentBookingId = param.element.booking_id;

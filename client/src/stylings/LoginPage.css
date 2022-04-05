@@ -1,268 +1,254 @@
 /* .............. Styling for Login Page .............. */
 
-* {
-	font-family: var(--deskeando-font-family);
+*{
+    font-family: var(--deskeando-font-family);
 }
 
-.HeroContainerAboutPage {
-	display: none;
+.HeroContainerAboutPage{
+    display: none;
 }
 
-.HeroImage {
-	height: 60vh;
+.HeroImage{
+        height: 60vh;
 }
 
-.LoginPageOuterWrapper {
-	margin-bottom: 8vh;
-	overflow: hidden;
+.LoginPageOuterWrapper{
+    margin-bottom: 8vh;
+    overflow: hidden;
 }
 
-.LoginPageInnerWrapper {
-	padding-top: var(--header-Height);
-	display: flex;
-	flex-direction: column;
+.LoginPageInnerWrapper{
+    padding-top: var(--header-Height);
+    display: flex;
+    flex-direction: column;
+    
+
+    
+}
+.LoginBannerWrapper{
+    padding-top: 15vh;
+    width: 100vw;
+    background-image: url("../images/hero_image.jpg");
+    z-index: 10;
 }
 
 .LoginPageTextHeading {
-	display: flex;
-	position: relative;
-	width: 75vw;
-	max-width: 700px;
-	min-width: 300px;
-	top: 5vh;
-	padding-left: 12.5vw;
-	/* display: inline-block; */
-	z-index: 10;
-	margin-bottom: 2vh;
-	color: #000000;
-	height: 15vh;
-	/* background-color: #ffffffd1; */
-	border-radius: var(--button-border-radius);
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
+    display: flex;
+    position: fixed;
+    width: 75vw;
+    max-width: 700px;
+    min-width: 300px;
+    top: 15vh;
+    padding-left: 12.5vw;
+    /* display: inline-block; */
+    z-index: 10;
+    margin-bottom: 2vh;
+    color: #000000;
+    height: 15vh;
+    /* background-color: #ffffffd1; */
+    border-radius: var(--button-border-radius);
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
-.LoginPageTextHeading h2 {
-	background-color: #ffffffd1;
-	border-radius: var(--button-border-radius);
-	padding: 0.5rem 1rem;
-	margin: 0.3rem;
+.LoginPageTextHeading h2{
+        background-color: #ffffffd1;
+    border-radius: var(--button-border-radius);
+    padding:.5rem 1rem;
+    margin:.3rem;
+
 }
 
-.LoginPageTextHeading h3 {
-	background-color: #ffffffd1;
-	border-radius: var(--button-border-radius);
-	padding: 1.5rem 1rem;
-	margin: 0.3rem;
+.LoginPageTextHeading h3{
+    background-color: #ffffffd1;
+    border-radius: var(--button-border-radius);
+        padding: 1.5rem 1rem;
+    margin:.3rem;
 }
 
-.LoginBannerWrapper {
-	padding-top: 1vh;
-	width: 100vw;
-	background-image: url("../images/hero_image.jpg");
-	z-index: 10;
-}
+
+
+
+
+
 
 /* .............. Styling for SignIn Component .............. */
 
-.SignInOuterWrapper {
-	display: flex;
-	justify-content: center;
-	width: 100vw;
-	margin-top: 6vw;
-	/* height: 100vh; */
+.SignInOuterWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+        margin-top: 6vw;
 }
 
-.SignInMainWrapper {
-	width: 75vw;
-	max-width: 700px;
-	min-width: 300px;
-	height: auto;
-	background: rgb(0, 0, 0, 0.6);
-	background: linear-gradient(
-		90deg,
-		rgba(0, 0, 0, 0.6763480392156863) 0%,
-		rgba(0, 0, 0, 0.7463760504201681) 10%,
-		rgba(0, 0, 0, 0.7491771708683473) 90%,
-		rgba(0, 0, 0, 0.68) 100%
-	);
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	border-radius: var(--button-border-radius);
-	z-index: 10;
+.SignInMainWrapper{
+    width: 75vw;
+    max-width: 700px;
+    min-width: 300px;
+    height: auto;
+    background: rgb(0,0,0,.6);
+    background: linear-gradient(90deg, rgba(0,0,0,0.6763480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.68) 100%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--button-border-radius);
+    z-index: 1;
 }
 
-.SignInContentContainer {
-	/* background-color: black; */
-	width: 80%;
-	height: auto;
+
+
+.SignInContentContainer{
+    width: 80%;
+    height: auto;
 }
 
-.formHeader {
-	color: var(--wh-White);
-	text-align: left;
-	/* font-size: 5em; */
-	font-family: var(--heading-font-family);
-	margin-top: 5vh;
+.formHeader{
+    color: var(--wh-White);
+    text-align: left;
+    font-family: var(--heading-font-family);
+    margin-top: 5vh;
 }
 
-.inputContainer {
-	display: flex;
-	flex-direction: column;
-	padding-top: 3.5vh;
-	row-gap: 2vh;
-	width: 100%;
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.5vh;
+    row-gap: 2vh;
+    width: 100%;
 }
 
-.formSubHeader {
-	color: var(--wh-White);
-	font-family: var(--heading-font-family);
-	/* font-size: 2em; */
-	margin: 4rem 0 2rem 0;
+
+.formSubHeader{
+    color: var(--wh-White);
+    font-family: var(--heading-font-family);
+    margin: 4rem 0 2rem 0;
 }
 
-.formInputField {
-	padding-top: 2vh;
-	width: 20em;
-	padding: 0.7rem 0;
-	border-radius: var(--button-border-radius);
-	/* font-size: 2.5em; */
-	width: 100%;
-	height: 4vh;
-	background-color: #333;
-	text-indent: 5vw;
-	border: solid 2px black;
-	color: var(--wh-White);
+.formInputField{
+    padding-top: 2vh;
+    width: 20em;
+    padding: 0.7rem 0;
+    border-radius: var(--button-border-radius);
+    width: 100%;
+    height: 4vh;
+    background-color: #333;
+    text-indent: 5vw;
+    border: solid 2px black;
+    color: var(--wh-White);
 }
 
-.buttonContainer {
-	display: flex;
-	justify-content: start;
-	padding-top: 2vh;
-	width: 100%;
-	flex-direction: column;
-	padding-bottom: 5vh;
+
+
+.buttonContainer{
+    display: flex;
+    justify-content: start;
+    padding-top: 2vh;
+    width: 100%;
+    flex-direction: column;
+        padding-bottom: 5vh;
 }
 
-/* .buttonContainer button {
-        padding: 1em;
+.signInButton{
+    padding: 1em;
     border-radius: var(--button-border-radius);
     background-color: var(--lg-Green);
-    border: none;
     color: var(--wh-White);
     width: 100%;
-    height: auto;
-} */
-
-/* .buttonContainer button:hover{
-    transform:scale(1.1);
-    background-color: #ffffff;
-    transition:all .2s linear;
-} */
-
-.signInButton {
-	padding: 1em;
-	border-radius: var(--button-border-radius);
-	background-color: var(--lg-Green);
-	color: var(--wh-White);
-	width: 100%;
-	height: 7vh;
+    height: 7vh;
 }
 
-.SignInSwitch {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 2vh;
-	margin: 1rem 0;
-	/* font-size: 2em; */
-	color: #ffffff;
+.SignInSwitch{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2vh;
+    margin:1rem 0;
+    color: #ffffff;
 }
 
 .SignInSwitchLink {
-	margin-top: 1vh;
-	text-decoration: underline;
-	color: var(--wh-White);
+    margin-top: 1vh;
+    text-decoration:underline;
+    color: var(--wh-White);
 }
 
-.SignInSwitchLink:hover {
-	color: var(--lg-Green);
+.SignInSwitchLink:hover{
+    color: var(--lg-Green);
 }
 
 /* .............. Styling for SignUp Component .............. */
 
-.SignUpOuterWrapper {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
+.SignUpOuterWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
-.SignUpMainWrapper {
-	width: 75vw;
-	max-width: 700px;
-	min-width: 300px;
-	margin-top: 5vh;
-	height: auto;
-	background: rgb(0, 0, 0, 0.6);
-	background: linear-gradient(
-		90deg,
-		rgba(0, 0, 0, 0.6763480392156863) 0%,
-		rgba(0, 0, 0, 0.7463760504201681) 10%,
-		rgba(0, 0, 0, 0.7491771708683473) 90%,
-		rgba(0, 0, 0, 0.68) 100%
-	);
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	flex-direction: column;
-	border-radius: var(--button-border-radius);
+.SignUpMainWrapper{  
+       width: 75vw;
+    max-width: 700px;
+    min-width:  300px;
+        margin-top: 5vh;
+    height: auto;
+        background: rgb(0,0,0,.6);
+    background: linear-gradient(90deg, rgba(0,0,0,0.6763480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.68) 100%);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    border-radius: var(--button-border-radius);
+    
 }
 
-.signUpInputContainer {
-	display: flex;
-	flex-direction: column;
-	padding-top: 3.5vh;
-	row-gap: 2vh;
-	width: 80%;
+
+.signUpInputContainer{
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.5vh;
+    row-gap: 2vh;
+    width: 80%;
+    
 }
 
-.accountRegisterText {
-	/* font-size: 2.8em; */
-	font-family: var(--paragraph-font-family);
-	display: flex;
-	flex-direction: column;
-	text-align: center;
+
+.accountRegisterText{
+    /* font-size: 2.8em; */
+    font-family: var(--paragraph-font-family);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-.buttonSignup {
-	position: absolute;
-	top: 90%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border-radius: var(--button-border-radius);
-	padding: 20px;
-	background-color: var(--dk-Green);
-	color: var(--wh-White);
+
+.buttonSignup{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--button-border-radius);
+    /* font-size: 2.5em; */
+    padding:20px;
+    background-color: var(--dk-Green);
+    color:var(--wh-White);
 }
 
-@media screen and (max-width: 800px) {
-	.SignInMainWrapper,
-	.SignUpMainWrapper {
-		width: 90vw;
-		margin-top: 10vh;
-	}
-	.LoginPageTextHeading {
-		display: none;
-	}
+@media screen and (max-width:800px){
+    .SignInMainWrapper, .SignUpMainWrapper{
+        width:90vw;
+        margin-top: 10vh;
+    }
+    .LoginPageTextHeading{
+        display:none;
+    }
 }
 
-@media screen and (min-width: 800px) {
-	.LoginPageOuterWrapper {
-		margin-bottom: 20vh;
-		overflow: hidden;
-	}
+@media screen and (min-width:800px){
+    .LoginPageOuterWrapper {
+    margin-bottom: 20vh;
+    overflow: hidden;
+    }
 }
+

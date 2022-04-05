@@ -12,7 +12,8 @@ a{
     transform:translateX(0);
     /* transition:transform .5s ease-in-out; */
      position: fixed;
-    z-index: 120;
+    z-index: 500;
+    /* padding-left: 25vw; */
 }
 
 .menu-icon{
@@ -28,7 +29,13 @@ a{
 }
 
 /* Holds everything in the navbar */
+/* 
+*, *:before, *:after {
+  box-sizing: border-box;
+} */
+
 .headerOuterWrapper{
+    /* box-sizing: border-box; */
     display: flex;
     position: fixed;
     flex-direction: row;
@@ -36,12 +43,12 @@ a{
     align-items: center;
     padding-top:1.5rem;
     padding-bottom:1.5rem;
-        padding-left: 1.5rem;
+    padding-left: 3.5rem;
     overflow: hidden;
     background-color: #ffffff;
     height: var(--header-Height);
     width: 100vw;
-    z-index: 100;
+    z-index: 20;
     border-bottom: 4px solid #c3c3c3a8;
     /* border: 2px dotted red; */
 }
@@ -96,6 +103,8 @@ a{
 }
 
 .navLinkWrapperWide{
+    display: flex;
+    margin-right:3.5vw;
     width: 69vw;
     display: flex;
     justify-content: space-evenly;
@@ -177,7 +186,7 @@ a{
     }
     nav{
         position:absolute;
-        top: 15vh;
+        top: calc(10vh + 3rem);;
         left:0;
         transform: translateX(calc(100vw));
         transition:transform .5s ease-in-out;
@@ -197,7 +206,7 @@ a{
         align-items: center;
         justify-content: center;
         width:100vw;
-        height:15vw;
+            height: 10vh;
         background-color: #f0f0f0;
         border : 4px solid #c3c3c3a8;
     }

@@ -47,6 +47,20 @@ export default function DashboardUpcomingBookings(props) {
 		console.log("LOOK HERE VVVVVVVVVVVVVVVV");
 		console.log(preSplicedArray);
 
+
+    function deleteBookingLocally(index){
+        console.log(index)
+        console.log(bookingArray);
+        let preSplicedArray = [bookingArray];
+
+        // console.log("LOOK HERE VVVVVVVVVVVVVVVV")
+        // console.log(preSplicedArray);
+
+        setBookingArray(preSplicedArray.filter((elem, i) => {
+            return i !== index;
+        }))
+    }
+
 		setBookingArray(preSplicedArray);
 	}
 
@@ -68,6 +82,7 @@ export default function DashboardUpcomingBookings(props) {
 							console.log("Bookings found .....");
 							if (index < loadTo) {
 								let timings;
+
 
 								if (element.am && element.pm) {
 									timings = "9.00am - 17.00pm";
