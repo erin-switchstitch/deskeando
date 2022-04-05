@@ -1,238 +1,225 @@
-.BookingPageOuterWrapper{
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    padding-top: 25vh;
-    align-items: center;
+.BookingPageOuterWrapper {
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	padding-top: 25vh;
+	align-items: center;
 }
 
-.BookingPageInnerHeaderWrapper{
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.555);
-    padding-bottom: 7.5vh;
-    width: 90vw;
+.BookingPageInnerHeaderWrapper {
+	display: flex;
+	flex-direction: column;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.555);
+	padding-bottom: 7.5vh;
+	width: 90vw;
 }
 
-.BookingPageInnerHeaderWrapper h4{
-    padding-top: 4vh;
-    margin-bottom: 2vh;
+.BookingPageInnerHeaderWrapper h4 {
+	padding-top: 4vh;
+	margin-bottom: 2vh;
 }
 
-
-.BookingPageInnerMainWrapper{
-    width: 90vw;
+.BookingPageInnerMainWrapper {
+	width: 90vw;
 }
 
-.BookingForPreClick{
-    border-top: 2px solid rgba(0, 0, 0, 0.555);
+.BookingForPreClick {
+	border-top: 2px solid rgba(0, 0, 0, 0.555);
 }
 
-.BookingForPostClick{
-        width: 80vw;
-    padding-left: 5vw;
+.BookingForPostClick {
+	width: 80vw;
+	padding-left: 5vw;
 }
 
-.BookingForPostClickInnerWrapper{
-        display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
+.BookingForPostClickInnerWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
-.BookingForInputWrapper{
-    flex-direction: column;
-    width: 30vw;
-    min-width: 200px;
+.BookingForInputWrapper {
+	flex-direction: column;
+	width: 30vw;
+	min-width: 200px;
 }
 
-.BookingForInputWrapper span{
-    display: flex;
-    justify-content: center;
-    padding-top: 2vh;
-        font-weight: 800 !important;
+.BookingForInputWrapper span {
+	display: flex;
+	justify-content: center;
+	padding-top: 2vh;
+	font-weight: 800 !important;
 }
 
-.BookingForInputWrapper h4{
-    /* display: flex;
+.BookingForInputWrapper h4 {
+	/* display: flex;
     flex-direction: column; */
-    /* margin-top: 2vh; */
+	/* margin-top: 2vh; */
 }
 
-.BookingForInputWrapper  input{
-    height: 4vh;
-    border: 1px solid black;
-    border-radius: var(--button-border-radius);
+.BookingForInputWrapper input {
+	height: 4vh;
+	border: 1px solid black;
+	border-radius: var(--button-border-radius);
 }
 
-.BookingForInputWrapper  button{
-    margin-top: 1vh;
+.BookingForInputWrapper button {
+	margin-top: 1vh;
 }
 
-.BookingAccessibilityBannerWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* padding-bottom: 5vh; */
-    /* border-bottom: 2px solid black; */
+.BookingAccessibilityBannerWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* padding-bottom: 5vh; */
+	/* border-bottom: 2px solid black; */
 }
 
-.BookingAccessibilityPreClick{
-    display: flex;
-    flex-direction: row;
-    
+.BookingAccessibilityPreClick {
+	display: flex;
+	flex-direction: row;
 }
 
 .BookingAccessibilityPostClick {
-    padding-left: 5vw;
-    margin-top: 2vh;
+	padding-left: 5vw;
+	margin-top: 2vh;
 }
 
-.BookingAccessibilityPostClickLabel{
-    color: black !important;
+.BookingAccessibilityPostClickLabel {
+	color: black !important;
 }
 
-.BookingCalenderBannerWrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-bottom: 10vh;
-    
-    /* border-bottom: 2px solid black; */
+.BookingCalenderBannerWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding-bottom: 10vh;
+
+	/* border-bottom: 2px solid black; */
 }
 
-.ListCalenderBannerWrapper{
-     border-top: 2px solid rgba(0, 0, 0, 0.555);
-     margin-top: 7.5vh;
+.ListCalenderBannerWrapper {
+	border-top: 2px solid rgba(0, 0, 0, 0.555);
+	margin-top: 7.5vh;
 }
 
-.ListCalenderOuterWrapper{
-    display: flex;
-    width: 90vw;
-    flex-direction: column;
-    align-items: flex-start;
-        margin-top: 7.5vh;
-    border-top: 2px solid rgba(0, 0, 0, 0.555);
-    /* border-top: 2px solid black; */
+.ListCalenderOuterWrapper {
+	display: flex;
+	width: 90vw;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 7.5vh;
+	border-top: 2px solid rgba(0, 0, 0, 0.555);
+	/* border-top: 2px solid black; */
 }
 
-.ListCalenderInnerWrapper{
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    padding-left: 5vw;
+.ListCalenderInnerWrapper {
+	display: flex;
+	flex-direction: column;
+	width: 80vw;
+	padding-left: 5vw;
 }
 
-.This-week{
-    display: flex;
-    /* width: 90%; */
-    padding-top: 2vh;
-    flex-direction: column;
+.This-week {
+	display: flex;
+	/* width: 90%; */
+	padding-top: 2vh;
+	flex-direction: column;
 }
 
-.This-week div{
-    padding-top: 1vh;
+.This-week div {
+	padding-top: 1vh;
 }
 
-.This-week div label input{
-    margin-right: 1vh;
+.This-week div label input {
+	margin-right: 1vh;
 }
 
-.This-week-heading{
-    border-bottom: 2px solid rgba(0, 0, 0, 0.555);
+.This-week-heading {
+	border-bottom: 2px solid rgba(0, 0, 0, 0.555);
 }
 
-.listCalenderButtonContainer{
-    display: flex;
-    flex-direction: row;
-    padding-top: 2vh;
+.listCalenderButtonContainer {
+	display: flex;
+	flex-direction: row;
+	padding-top: 2vh;
 }
 
-.ListCalenderTimeSelector{
-    padding-left: 5vw;
-
+.ListCalenderTimeSelector {
+	padding-left: 5vw;
 }
-
-
-
-
-
-
-
 
 /*--------------------- DeskListContainer ----------------------- */
 
-.DeskListContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* margin-left: 5vw; */
+.DeskListContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* margin-left: 5vw; */
 }
 
-.DeskListContainer table{
-    width: 80vw;
-    margin-left: 5vw;
-    margin-top: 2vh;
-    border-collapse: collapse;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
+.DeskListContainer table {
+	width: 80vw;
+	margin-left: 5vw;
+	margin-top: 2vh;
+	border-collapse: collapse;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
 }
 
-.DeskListContainer table thead tr{
-    height: 5vh;
-    border-bottom: 2px solid black;
-    background-color: var(--form-background);
-    color: white;
+.DeskListContainer table thead tr {
+	height: 5vh;
+	border-bottom: 2px solid black;
+	background-color: var(--form-background);
+	color: white;
 }
 
-.DeskListContainer table thead tr th:first-child{
-    border-right: 2px solid black;
-    width: 40vw;
+.DeskListContainer table thead tr th:first-child {
+	border-right: 2px solid black;
+	width: 40vw;
 }
 
-.DeskListContainer table thead tr th:nth-child(2){
-    width: 40vw;
+.DeskListContainer table thead tr th:nth-child(2) {
+	width: 40vw;
 }
 
-.DeskListTableBody div tr td:first-child{
-    width: 40vw;
-    border-right : 2px solid black;
-    border-bottom : 2px solid black;
-    text-align: center;
+.DeskListTableBody div tr td:first-child {
+	width: 40vw;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	text-align: center;
 }
 
-.DeskListTableBody div tr td:nth-child(2){
-    width: 40vw;
-    border-bottom : 2px solid black;
-    text-align: center;
+.DeskListTableBody div tr td:nth-child(2) {
+	width: 40vw;
+	border-bottom: 2px solid black;
+	text-align: center;
 }
 
-.noShow{
-    display: none;
+.noShow {
+	display: none;
 }
 
 /*------------------------ BookingDropdown ----------------------- */
 
 .bookingDropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    /* margin-left: 5vw; */
-    margin-top: 10vh;
-    padding-bottom: 10vh;
-    border-top: 2px solid rgba(0, 0, 0, 0.555);
-
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	/* margin-left: 5vw; */
+	margin-top: 10vh;
+	padding-bottom: 10vh;
+	border-top: 2px solid rgba(0, 0, 0, 0.555);
 }
 
-.bookingDropdown form{
-    padding-top: 2vh;
-    width: 90vw;
+.bookingDropdown form {
+	padding-top: 2vh;
+	width: 90vw;
 }
 
-
-.BookingDropdownButton{
-    padding-top: 2vh;
-    display: flex;
-    justify-content: center;
+.BookingDropdownButton {
+	padding-top: 2vh;
+	display: flex;
+	justify-content: center;
 }

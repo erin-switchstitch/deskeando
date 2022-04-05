@@ -61,17 +61,10 @@
 }
 
 .LoginPageTextHeading h3{
-    /* display:inline-block; */
-    /* width:auto; */
     background-color: #ffffffd1;
     border-radius: var(--button-border-radius);
         padding: 1.5rem 1rem;
     margin:.3rem;
-    /* height: 10vh; */
-    /* position:relative;
-    left:100vw;
-    transform:translateX(-70vw);
-    transition:transform 2s linear; */
 }
 
 
@@ -87,7 +80,6 @@
     justify-content: center;
     width: 100vw;
         margin-top: 6vw;
-    /* height: 100vh; */
 }
 
 .SignInMainWrapper{
@@ -108,16 +100,13 @@
 
 
 .SignInContentContainer{
-    /* background-color: black; */
     width: 80%;
     height: auto;
-    
 }
 
 .formHeader{
     color: var(--wh-White);
     text-align: left;
-    /* font-size: 5em; */
     font-family: var(--heading-font-family);
     margin-top: 5vh;
 }
@@ -128,14 +117,12 @@
     padding-top: 3.5vh;
     row-gap: 2vh;
     width: 100%;
-    
 }
 
 
 .formSubHeader{
     color: var(--wh-White);
     font-family: var(--heading-font-family);
-    /* font-size: 2em; */
     margin: 4rem 0 2rem 0;
 }
 
@@ -144,7 +131,6 @@
     width: 20em;
     padding: 0.7rem 0;
     border-radius: var(--button-border-radius);
-    /* font-size: 2.5em; */
     width: 100%;
     height: 4vh;
     background-color: #333;
@@ -164,22 +150,6 @@
         padding-bottom: 5vh;
 }
 
-/* .buttonContainer button {
-        padding: 1em;
-    border-radius: var(--button-border-radius);
-    background-color: var(--lg-Green);
-    border: none;
-    color: var(--wh-White);
-    width: 100%;
-    height: auto;
-} */
-
-/* .buttonContainer button:hover{
-    transform:scale(1.1);
-    background-color: #ffffff;
-    transition:all .2s linear;
-} */
-
 .signInButton{
     padding: 1em;
     border-radius: var(--button-border-radius);
@@ -195,16 +165,11 @@
     align-items: center;
     padding-top: 2vh;
     margin:1rem 0;
-    /* font-size: 2em; */
     color: #ffffff;
 }
 
 .SignInSwitchLink {
-    /* width: 40%; */
     margin-top: 1vh;
-    /* font-size: 2.5em; */
-    /* border-radius: var(--button-border-radius);
-    background-color: var(--lg-Green); */
     text-decoration:underline;
     color: var(--wh-White);
 }
@@ -257,9 +222,6 @@
     text-align: center;
 }
 
-/* .SignUpAccessibilitySwitch{
-
-} */
 
 .buttonSignup{
     position: absolute;
