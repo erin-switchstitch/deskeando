@@ -19,7 +19,7 @@ export default function DashboardUpcomingBookings(props) {
     // FETCH FOR BOOKINGS:
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-        fetch(`http://localhost:3100/api/user-bookings/${globalUserDetails.user_id}`, {mode: 'cors'})
+        fetch(`/api/user-bookings/${globalUserDetails.user_id}`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("User bookings from API :")

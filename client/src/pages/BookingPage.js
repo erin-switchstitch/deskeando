@@ -65,7 +65,7 @@ export default function BookingPage(props) {
 	console.log("width" + width);
 	function makeAPICall(e){
 		e.preventDefault();
-	axios.get(`http://localhost:3000/api/user/${otherPersonsEmail.replace("@","%40")}`)
+	axios.get(`/api/user/${otherPersonsEmail.replace("@","%40")}`)
 	.then((response)=> {
 		if(response.status == 200){
 			setGlobalBookingInfo({...globalBookingInfo, "other_id" : response.data.id, "other_first_name" : response.data.first_name, "other_last_name" : response.data.last_name});

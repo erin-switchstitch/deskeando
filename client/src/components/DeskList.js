@@ -39,7 +39,7 @@ export default function DeskList(props){
     // FETCH FOR BOOKINGS for the date selected:
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-        fetch(`http://localhost:3100/api/bookings?date=${globalBookingInfo.date_booked}`, {mode: 'cors'})
+        fetch(`/api/bookings?date=${globalBookingInfo.date_booked}`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("Bookings Data from API :")
@@ -57,7 +57,7 @@ export default function DeskList(props){
     // FETCH FOR DESKS (all info on the desks):
     useEffect(() => {
     // GET request using fetch inside useEffect React hook
-        fetch(`http://localhost:3100/api/desks`, {mode: 'cors'})
+        fetch(`/api/desks`, {mode: 'cors'})
             .then(response => response.json())
             .then(data => {
                 console.log("Desks Data from API :")

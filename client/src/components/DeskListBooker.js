@@ -42,7 +42,7 @@ export default function DeskListBooker(props) {
             body:  JSON.stringify(passedData),
         };
 
-        fetch("http://localhost:3100/api/all-bookings", requestOptions)
+        fetch("/api/all-bookings", requestOptions)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data, "<------ booking id");
