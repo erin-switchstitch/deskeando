@@ -42,12 +42,13 @@ export default function DashboardUpcomingBookings(props) {
         console.log(index)
         console.log(bookingArray);
         let preSplicedArray = [bookingArray];
-        preSplicedArray.splice(index, 1);
 
-        console.log("LOOK HERE VVVVVVVVVVVVVVVV")
-        console.log(preSplicedArray);
+        // console.log("LOOK HERE VVVVVVVVVVVVVVVV")
+        // console.log(preSplicedArray);
 
-        setBookingArray(preSplicedArray);
+        setBookingArray(preSplicedArray.filter((elem, i) => {
+            return i !== index;
+        }))
     }
 
 

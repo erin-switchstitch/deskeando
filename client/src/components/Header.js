@@ -1,8 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../stylings/Header.css";
-import AdminSignIn from "./AdminSignIn";
-// import logo from "../images/logo6.png";
 import Hamburger from "../images/hamburger.svg";
 import useWindowDimensions from "./useWindowDimensions";
 
@@ -20,6 +18,14 @@ const Header = (props) => {
 	// is too small to accomidate the links
 	const { height, width } = useWindowDimensions();
 
+
+
+	useEffect(() => {
+			if (width > 1100){
+				setDisplay("");
+			}
+   	}, [width]);
+
 	return (
 		<div className="headerOuterWrapper">
 			<div className="headerLogoWrapper">
@@ -32,17 +38,17 @@ const Header = (props) => {
 					{globalUserDetails.user_id == "" ? (
 						<div className="navLinkWrapper">
 							<li className="navList">
-								<Link to={"/about"}>
+								<Link to={"/about"} onClick={() => setDisplay("")}>
 									<a className="navLink">About</a>
 								</Link>
 							</li>
 
-							<li className="navList">
+							<li className="navList" onClick={() => setDisplay("")}>
 								<Link to={"/contactUs"}>
 									<a className="navLink">Contact</a>
 								</Link>
 							</li>
-							<li className="navList">
+							<li className="navList" onClick={() => setDisplay("")}>
 								<Link to={"/"}>
 									<a className="navLink">Login</a>
 								</Link>
@@ -51,27 +57,27 @@ const Header = (props) => {
 					) : (
 						<div className="navLinkWrapperWide">
 							<li className="navList">
-								<Link to={"/dashboard"}>
+								<Link to={"/dashboard"}  onClick={() => setDisplay("")}>
 									<a className="navLink">Dashboard</a>
 								</Link>
 							</li>
-							<li className="navList">
+							<li className="navList"  onClick={() => setDisplay("")}>
 								<Link to={"/booking"}>
 									<a className="navLink">Make A Booking</a>
 								</Link>
 							</li>
-							<li className="navList">
+							<li className="navList"  onClick={() => setDisplay("")}>
 								<Link to={"/about"}>
 									<a className="navLink">About</a>
 								</Link>
 							</li>
 
-							<li className="navList">
+							<li className="navList"  onClick={() => setDisplay("")}>
 								<Link to={"/contactUs"}>
 									<a className="navLink">Contact</a>
 								</Link>
 							</li>
-							<li className="navList">
+							<li className="navList"  onClick={() => setDisplay("")}>
 								<Link to={"/"}>
 									<button
 										onClick={() => {
