@@ -9,8 +9,6 @@ import BookingPage from "./pages/BookingPage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import UserPreferencesPage from "./pages/UserPreferencesPage";
 import AboutPage from "./pages/AboutPage";
-import Moment from "react-moment";
-import moment from "moment";
 import "./stylings/root.css";
 import ContactUs from "./components/ContactUs";
 
@@ -43,7 +41,7 @@ export default function App(){
 
 
 	return (
-		<div>
+		<div className="AppJsMainWrapper">
 
 		<Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)} />
 
