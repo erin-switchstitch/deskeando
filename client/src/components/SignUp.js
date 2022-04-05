@@ -68,42 +68,52 @@ export default function SignUp(props) {
 	const handleOnSubmit = (event) => {
 		event.preventDefault();
 		const actualAccessibilityValue = Boolean(state.accessibility);
-		axios
-			.put("http://localhost:3000/api/register", {
-				email: state.email,
-				last_name: state.lastName,
-				first_name: state.firstName,
-				password: state.password,
-				accessibility: actualAccessibilityValue,
-			})
-			.then(function (response) {
-				console.log(response);
-				setGlobalUserDetails({
-					user_id: response.data[0].id,
-					first_name: response.data[0].first_name,
-					last_name: response.data[0].last_name,
-					email: response.data[0].email,
-					accessibility: Boolean(response.data[0].accessibility),
+
+		
+
+		if(state.password !== state.confirmPassword){
+			alert("Passwords do not match!")
+		} else {
+			axios
+				.put("http://localhost:3000/api/register", {
+					email: state.email,
+					last_name: state.lastName,
+					first_name: state.firstName,
+					password: state.password,
+					accessibility: actualAccessibilityValue,
+				})
+				.then(function (response) {
+					console.log(response);
+					setGlobalUserDetails({
+						user_id: response.data[0].id,
+						first_name: response.data[0].first_name,
+						last_name: response.data[0].last_name,
+						email: response.data[0].email,
+						accessibility: Boolean(response.data[0].accessibility),
+					});
+					setHideSubmitLink("none");
+				})
+				.catch(function (error) {
+					console.log(error);
+					// alert(error)
 				});
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-			setHideSubmitLink("none");
-			console.log(hideSubmitLink);
-		};
+				;
+				console.log(hideSubmitLink);
+			};
+		}
+		
 		
 
 	return (
 		<div className="SignUpOuterWrapper">
-			<form
+			<div
 				className="SignUpMainWrapper"
 				// style={{ display: props.display }}
-				onSubmit={(e)=>handleOnSubmit(e)}
+				
 			>
 				<h1 style={{ display:`${hideSubmitLink}` }} className="formHeader">Sign Up</h1>
 
-				<div className="signUpInputContainer">
+				<form className="signUpInputContainer" onSubmit={handleOnSubmit}> 
 					<span>{errorMsg}</span>
 					<label style={{ display:`${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">First Name:</p> */}
@@ -112,8 +122,11 @@ export default function SignUp(props) {
 							type="text"
 							className="form-control formInputField"
 							name="name"
+							required
 							value={state.firstName || ""}
 							placeholder="First name"
+							maxLength="25"
+							minLength="2"
 							onChange={handleFirstNameChange}
 						/>
 					</label>
@@ -123,6 +136,9 @@ export default function SignUp(props) {
 							type="text"
 							className="form-control formInputField"
 							name="name"
+							required
+							maxLength="25"
+							minLength="2"
 							value={state.lastName || ""}
 							placeholder="Last name"
 							onChange={handleLastNameChange}
@@ -135,6 +151,8 @@ export default function SignUp(props) {
 							name="email"
 							className="form-control formInputField"
 							required
+							maxLength="25"
+							minLength="6"
 							value={state.email || ""}
 							placeholder="Email address"
 							onChange={handleEmailChange}
@@ -149,6 +167,8 @@ export default function SignUp(props) {
 							required
 							value={state.password || ""}
 							placeholder="Create a password"
+							maxLength="15"
+							minLength="6"
 							onChange={handlePasswordChange}
 						/>
 					</label>
@@ -190,9 +210,10 @@ export default function SignUp(props) {
 							<>
 								{console.log(true)}
 								<button
-									onClick={handleOnSubmit}
-									className="signInButton"
 									type="submit"
+									// onClick={handleOnSubmit}
+									className="signInButton"
+									
 								>
 									<h3>Sign Up</h3>
 								</button>
@@ -203,8 +224,8 @@ export default function SignUp(props) {
 							</Link>
 						)}
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 }

@@ -35,28 +35,45 @@ button {
     /* font-size: 2.5em; */
     border-radius: var(--button-border-radius);
     background-color: var(--lg-Green);
-    border: none;
+     border:2px solid #00000057;
     font-weight:bold;
     color: var(--wh-White);
     width: 100%;
     height: auto;
-    margin:0 1rem;
+    cursor: pointer;
+    /* margin:0 1rem; */
 }
-/* button:hover{
 
-    background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
-    border: var(--dk-Green) 2px solid;
-    color: white;
-} */
 
 button:hover{
-    transform:scale(1.1);
-    background-color: black;
+    transform:scale(1.07);
+    background-color:#142e2d;
+    border:2px solid var(--lg-Green);
     color:#ffffff;
     transition:all .2s linear;
+    /* font-weight: bolder; */
 }
-    
 
+.navLinkLogoutButton:hover{
+          background: none repeat scroll 0 0 transparent;
+    border: medium none;
+      /* font-size: 1rem; */
+          text-decoration: underline;
+    text-decoration-color: var(--dk-Green);
+    transform: scale(1.5);
+    transition-duration: 100ms;
+    }
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.849);
+  color: #000000;
+  
+}
+
+input[type="text"]:focus {
+    font-size: 1.3em;
+    color: #000000;
+}
 
 /* Document level adjustments */
 
@@ -91,6 +108,13 @@ td{
     a{
         font-size: 1rem;
     }
+    p{
+        font-size: 1.3rem;
+    }
+    .navLinkLogoutButton{
+      font-size: 1rem;
+      
+    }
 }
 
 @media only screen and (max-width: 5000px) and (min-width: 700px) {
@@ -114,7 +138,13 @@ td{
         font-size: 1.2rem;
     }
     a{
-        font-size: 1.4rem;
+      font-size: 1.7rem;
+    }
+    p{
+      font-size: 1.5rem;
+    }
+    .navLinkLogoutButton{
+      font-size: 1.7rem !important;
     }
 
 }

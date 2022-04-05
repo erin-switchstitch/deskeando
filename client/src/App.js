@@ -36,7 +36,7 @@ export default function App(){
 	<button onClick={()=>setGlobalUserDetails({...globalUserDetails, accessability : false})}>Accessability = false</button>
 	*/
 	// const [globalBookingInfo, setGlobalBookingInfo] = useState({desk_id: "", date_booked: moment().format('YYYY-MM-D'), am:false, pm:false})
-	const [globalBookingInfo, setGlobalBookingInfo] = useState({ desk_id: "", date_booked: "", am:false, pm:false });
+	const [globalBookingInfo, setGlobalBookingInfo] = useState({ desk_id: "", date_booked: "", am:false, pm:false, other_id: 0, other_first_name : "", other_last_name : "", other_email : "" });
 
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 

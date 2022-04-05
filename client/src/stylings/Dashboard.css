@@ -12,7 +12,7 @@
 
 .DashboardOuterWrapper{
     /* padding-top: 15vh; */
-    padding-top: max(150px, 15vh);
+    padding-top: max(220px, 15vh);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,6 +105,7 @@
 
 .DubButton{
     border-left: 2px solid black;
+    width: 91%;
 }
 
 

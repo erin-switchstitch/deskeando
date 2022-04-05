@@ -18,6 +18,8 @@ export default function DeskListBooker(props) {
     //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 
+    console.log(props.otherPersonsName.thirdPartyFirstName)
+
     const [bookingIdState, setBookingIdState] = useState(false);
 
     async function fetchData() {

@@ -4,9 +4,18 @@
     font-family: var(--deskeando-font-family);
 }
 
-/* .LoginPageOuterWrapper{
+.HeroContainerAboutPage{
+    display: none;
+}
 
-} */
+.HeroImage{
+        height: 60vh;
+}
+
+.LoginPageOuterWrapper{
+    margin-bottom: 8vh;
+    overflow: hidden;
+}
 
 .LoginPageInnerWrapper{
     padding-top: var(--header-Height);
@@ -18,46 +27,41 @@
 }
 
 .LoginPageTextHeading {
-    /* display: flex;
-    flex-direction: column; */
-    position:relative;
-    top:5vw;
-    left:28vw;
-    /* flex-shrink: 0; */
-    /* position: fixed; */
-    /* height: 10vh; */
-    /* padding-left: 10vw; */
-    /* padding-right: 10vw; */
-    /* padding-top: 2vh; */
-    /* padding-bottom: 5vh; */
-    /* border-bottom: 10vh; */
-    /* font-size: 2.5rem; */
-    display:inline-block;
-    /* flex-direction: column;
-    gap:2rem; */
+    display: flex;
+    position: relative;
+    width: 75vw;
+    max-width: 700px;
+    min-width: 300px;
+    top: 5vh;
+    padding-left: 12.5vw;
+    /* display: inline-block; */
+    z-index: 10;
+    margin-bottom: 2vh;
     color: #000000;
-    /* background-color: #ffffff; */
-    /* background: rgb(0,0,0); */
-    /* background: linear-gradient(180deg, rgba(0,0,0,0.8847514005602241) 0%, rgba(0,0,0,0.6718662464985995) 49%,rgba(0,0,0,0.4718662464985995) 79%, rgba(0,0,0,0) 100%); */
+    height: 15vh;
+    /* background-color: #ffffffd1; */
+    border-radius: var(--button-border-radius);
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 }
+
 .LoginPageTextHeading h2{
-    background-color: #ffffffc0;
+        background-color: #ffffffd1;
     border-radius: var(--button-border-radius);
     padding:.5rem 1rem;
     margin:.3rem;
-    /* position:relative;
-    left:-100vw;
-    transform:translateX(calc(130vw));
-    transition:transform 2s linear; */
+
 }
 
 .LoginPageTextHeading h3{
     /* display:inline-block; */
     /* width:auto; */
-    background-color: #ffffffc0;
+    background-color: #ffffffd1;
     border-radius: var(--button-border-radius);
-    padding:.5rem 1rem;
+        padding: 1.5rem 1rem;
     margin:.3rem;
+    /* height: 10vh; */
     /* position:relative;
     left:100vw;
     transform:translateX(-70vw);
@@ -65,10 +69,10 @@
 }
 
 .LoginBannerWrapper{
-    padding-top: 5vh;
+    padding-top: 1vh;
     width: 100vw;
     background-image: url("../images/hero_image.jpg");
-    /* background-color: gray; */
+    z-index: 10;
 }
 
 
@@ -81,21 +85,23 @@
     display: flex;
     justify-content: center;
     width: 100vw;
-    margin-top:8vw;
+        margin-top: 6vw;
     /* height: 100vh; */
 }
 
 .SignInMainWrapper{
-    width: 45vw;
+    width: 75vw;
     max-width: 700px;
+    min-width: 300px;
     height: auto;
     background: rgb(0,0,0,.6);
-    /* background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%); */
+    background: linear-gradient(90deg, rgba(0,0,0,0.6763480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.68) 100%);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     border-radius: var(--button-border-radius);
+    z-index: 10;
 }
 
 
@@ -157,26 +163,24 @@
         padding-bottom: 5vh;
 }
 
-.buttonContainer button {
+/* .buttonContainer button {
         padding: 1em;
-    /* font-size: 2.5em; */
     border-radius: var(--button-border-radius);
     background-color: var(--lg-Green);
     border: none;
     color: var(--wh-White);
     width: 100%;
     height: auto;
-}
+} */
 
-.buttonContainer button:hover{
+/* .buttonContainer button:hover{
     transform:scale(1.1);
     background-color: #ffffff;
     transition:all .2s linear;
-}
+} */
 
 .signInButton{
     padding: 1em;
-    /* font-size: 2.5em; */
     border-radius: var(--button-border-radius);
     background-color: var(--lg-Green);
     color: var(--wh-White);
@@ -218,17 +222,19 @@
 }
 
 .SignUpMainWrapper{  
-       width: 45vw;
+       width: 75vw;
     max-width: 700px;
     min-width:  300px;
+        margin-top: 5vh;
     height: auto;
-    background: rgb(0,0,0,.6);
-    /* background: linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%); */
+        background: rgb(0,0,0,.6);
+    background: linear-gradient(90deg, rgba(0,0,0,0.6763480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.68) 100%);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     border-radius: var(--button-border-radius);
+    
 }
 
 
@@ -267,10 +273,19 @@
 }
 
 @media screen and (max-width:800px){
-    .SignInMainWrapper, .SignInMainWrapper{
-        width:70vw;
+    .SignInMainWrapper, .SignUpMainWrapper{
+        width:90vw;
+        margin-top: 10vh;
     }
     .LoginPageTextHeading{
         display:none;
     }
 }
+
+@media screen and (min-width:800px){
+    .LoginPageOuterWrapper {
+    margin-bottom: 20vh;
+    overflow: hidden;
+    }
+}
+

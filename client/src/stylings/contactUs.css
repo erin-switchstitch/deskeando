@@ -1,6 +1,7 @@
 .ContactOuterWrapper{
-    padding-top: 25vh;
+    padding-top: 20vh;
     width: 100vw;
+    margin-bottom: 10vh;
 }
 
 
@@ -10,7 +11,8 @@
 }
 
 .ContactFirstInnerWrapper{
-    background-color: rgb(0,0,0);
+        background: rgb(0 0 0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.7263480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.72) 100%);
     height: auto;
     display: flex;
     padding: 2rem 1.5rem;
@@ -73,5 +75,13 @@
 @media screen and (max-width:768px){
     .ContactFirstInnerWrapper form{
         width:90%;
+    }
+}
+
+@media screen and (min-width:768px){
+    .ContactOuterWrapper {
+    padding-top: 25vh;
+    width: 100vw;
+    margin-bottom: 20vh;
     }
 }

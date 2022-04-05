@@ -32,11 +32,14 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding:1.5rem;
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
     background-color: #ffffff;
     height: var(--header-Height);
     width: 100vw;
     z-index: 100;
+    border-bottom: 4px solid #c3c3c3a8;
+    /* border: 2px dotted red; */
 }
 
 /* Holds h1 and p tag */
@@ -63,7 +66,7 @@ a{
     width: auto; 
     height: 10vh; 
     margin: 0;
-    padding-left: 2vw;
+    /* padding-left: 2vw; */
 }
 
 
@@ -88,6 +91,14 @@ a{
     justify-content: space-around;
 }
 
+.navLinkWrapperWide{
+    width: 69vw;
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+
 .navUL {
     display: flex;
         
@@ -99,7 +110,7 @@ a{
 
 
 .navLink{
-    width:50px;
+    /* width:50px; */
     display: flex;
 
     text-decoration: none;
@@ -148,34 +159,44 @@ a{
 } */
 .navLink:hover{
     text-decoration: underline;
-    border-bottom: 4px var(--dk-Green) solid;
+    text-decoration-color: var(--dk-Green);
+    transform: scale(1.3);
+    transition-duration: 100ms;
+    /* border-bottom: 4px var(--dk-Green) solid; */
 }
 /* Holds hero */
 
 
-@media screen and (max-width:768px){
+@media screen and (max-width:1100px){
     .menu-icon{
         display:block;
     }
     nav{
-    position:absolute;
-    top:15vw;
-    left:0;
-    transform: translateX(calc(100vw));
-    transition:transform .5s ease-in-out
-}
-.navLinkWrapper{
-    flex-direction: column;
-}
-.navList{
-    /* padding:5vw 34vw; */
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:100vw;
-    height:15vw;
-    background-color: #f0f0f0;
-}
+        position:absolute;
+        top: 15vh;
+        left:0;
+        transform: translateX(calc(100vw));
+        transition:transform .5s ease-in-out;
+        
+    }
+    .navLinkWrapper{
+        flex-direction: column;
+        border-bottom : 4px solid #c3c3c3a8;
+    }
+    .navLinkWrapperWide{
+        flex-direction: column;
+        border-bottom : 4px solid #c3c3c3a8;
+    }
+    .navList{
+        /* padding:5vw 34vw; */
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width:100vw;
+        height:15vw;
+        background-color: #f0f0f0;
+        border : 4px solid #c3c3c3a8;
+    }
 }
 
 @media screen and (max-width:835px){
