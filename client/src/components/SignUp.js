@@ -181,6 +181,8 @@ export default function SignUp(props) {
 							required
 							value={state.confirmPassword || ""}
 							placeholder="Enter password"
+							maxLength="15"
+							minLength="6"
 							onChange={handleConfirmPasswordChange}
 						/>
 					</label>
