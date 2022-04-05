@@ -1,104 +1,63 @@
 import React, { useState } from "react";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
-import ".././stylings/signUp.css";
+// import ".././stylings/signUp.css";
 import ".././stylings/LoginPage.css";
 import Hero from ".././components/Hero";
 
-export default function LoginPage(props){
+export default function LoginPage(props) {
+	const [booleanSwitch, setBooleanSwitch] = useState(true);
+	const [signInShow, setSignInShow] = useState("flex");
+	const [signUpShow, setSignUpShow] = useState("none");
 
+	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
+	let globalUserDetails = props.globalUserDetails;
+	let setGlobalUserDetails = props.setGlobalUserDetails;
+	console.log(globalUserDetails);
+	//  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
-    const [booleanSwitch, setBooleanSwitch] = useState(true);
-    const [signInShow, setSignInShow] = useState("flex");
-    const [signUpShow, setSignUpShow] = useState("none");
+	function loginInSingUpSwitch(passedBoolean) {
+		console.log(booleanSwitch);
+		if (booleanSwitch) {
+			setBooleanSwitch(false);
 
-    //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
-    let globalUserDetails = props.globalUserDetails;
-    let setGlobalUserDetails = props.setGlobalUserDetails;
-    console.log(globalUserDetails);
-    //  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+			setSignInShow("none");
+			setSignUpShow("flex");
+		} else {
+			setBooleanSwitch(true);
+			setSignInShow("flex");
+			setSignUpShow("none");
+		}
+	}
 
-    function loginInSingUpSwitch(passedBoolean){
-        console.log(booleanSwitch);
-        if (booleanSwitch) {
-            setBooleanSwitch(false);
+	return (
+		<div className="LoginPageOuterWrapper">
+			{/* <NavbarGuest /> */}
+			{/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
 
-            setSignInShow("none");
-            setSignUpShow("flex");
-        } else {
-            setBooleanSwitch(true);
-            setSignInShow("flex");
-            setSignUpShow("none");
+			<div className="LoginPageInnerWrapper">
+				<Hero />
 
-        }
-    }
-
-
-    return (
-			<div className="LoginPageOuterWrapper">
-				{/* <NavbarGuest /> */}
-				{/* <Header globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/> */}
-
-
-				<div className="LoginPageInnerWrapper">
-					<Hero />
-					{/* <div className="LoginPageTextHeading">
-						<h2>Welcome to Deskeando.</h2>
-						<h3>The easy way to manage your working day.</h3>
-					</div> */}
-
-					<div className="LoginBannerWrapper">
-
-						{(booleanSwitch == true) ? (
-							<SignIn
-								setBooleanSwitch={(data)=>setBooleanSwitch(data)}
-								display={signInShow}
-								globalUserDetails={globalUserDetails}
-								setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
-							/>
-
-						):(
-							<div>
-								<SignUp
-								setBooleanSwitch={(data)=>setBooleanSwitch(data)}
+				<div className="LoginBannerWrapper">
+					{booleanSwitch == true ? (
+						<SignIn
+							setBooleanSwitch={(data) => setBooleanSwitch(data)}
+							display={signInShow}
+							globalUserDetails={globalUserDetails}
+							setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
+						/>
+					) : (
+						<div>
+							<SignUp
+								setBooleanSwitch={(data) => setBooleanSwitch(data)}
 								display={signUpShow}
 								globalUserDetails={globalUserDetails}
 								setGlobalUserDetails={(data) => setGlobalUserDetails(data)}
-								/>
-							</div>
-
-						)}
-
-
-
-
-
-
-
-						{/* <div className="SignUpContainer">
-							<div className="accountRegisterText">
-								{" "}
-								<span>
-									{booleanSwitch ? (
-										"Do not have an account?"
-
-									):(
-										"Already registered?"
-									)}
-								</span>
-								<button
-									className="buttonSignup"
-									type="button"
-									onClick={loginInSingUpSwitch}
-								>
-									{booleanSwitch ? "Sign Up" : "Sign In"}
-								</button>
-							</div>
-						</div> */}
-
-					</div>
+							/>
+						</div>
+					)}
 				</div>
 			</div>
-		);
+		</div>
+	);
 }
-

@@ -1,156 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
 
-:root{
-    --lg-Green:#469796;
-    --bl-Black:#000000;
-    --dk-Green:#367473;
-    --lg-Grey:#D4D1D2;
-    --wh-White:#FFFFFF;
-    --deskeando-font-family:'Oxygen', sans-serif;
-    --heading-font-family: 'Oxygen', sans-serif;
-    --paragraph-font-family:'Oxygen', sans-serif;
-    --form-background:#000000ce;
-    --header-Height:10vh;
-    --button-border-radius: 0.4rem;
-    --faded-background-reset: rgb(0,0,0);
-    --faded-background-set:  linear-gradient(90deg, rgba(0,0,0,0.7763480392156863) 0%, rgba(0,0,0,0.8463760504201681) 10%, rgba(0,0,0,0.8491771708683473) 90%, rgba(0,0,0,0.78) 100%);
+:root {
+	--lg-Green: #469796;
+	--bl-Black: #000000;
+	--dk-Green: #367473;
+	--lg-Grey: #d4d1d2;
+	--wh-White: #ffffff;
+	--deskeando-font-family: "Oxygen", sans-serif;
+	--heading-font-family: "Oxygen", sans-serif;
+	--paragraph-font-family: "Oxygen", sans-serif;
+	--form-background: #000000ce;
+	--header-Height: 10vh;
+	--button-border-radius: 0.4rem;
+	--faded-background-reset: rgb(0, 0, 0);
+	--faded-background-set: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 0.7763480392156863) 0%,
+		rgba(0, 0, 0, 0.8463760504201681) 10%,
+		rgba(0, 0, 0, 0.8491771708683473) 90%,
+		rgba(0, 0, 0, 0.78) 100%
+	);
 }
 
 body::-webkit-scrollbar {
-  width: .6em;
+	width: 0.6em;
 }
- 
+
 body::-webkit-scrollbar-track {
-  background-color: #f0f0f0;
+	background-color: #f0f0f0;
 }
- 
+
 body::-webkit-scrollbar-thumb {
-  border:4px solid #000000;
-  background-color:#ffffff;
-  border-radius:20px;
+	border: 4px solid #000000;
+	background-color: #ffffff;
+	border-radius: 20px;
 }
 
 button {
-        padding: 1em;
-    /* font-size: 2.5em; */
-    border-radius: var(--button-border-radius);
-    background-color: var(--lg-Green);
-     border:2px solid #00000057;
-    font-weight:bold;
-    color: var(--wh-White);
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    /* margin:0 1rem; */
+	padding: 1em;
+	/* font-size: 2.5em; */
+	border-radius: var(--button-border-radius);
+	background-color: var(--lg-Green);
+	border: 2px solid #00000057;
+	font-weight: bold;
+	color: var(--wh-White);
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+	/* margin:0 1rem; */
 }
 
-
-button:hover{
-    transform:scale(1.07);
-    background-color:#142e2d;
-    border:2px solid var(--lg-Green);
-    color:#ffffff;
-    transition:all .2s linear;
-    /* font-weight: bolder; */
+button:hover {
+	transform: scale(1.07);
+	background-color: #142e2d;
+	border: 2px solid var(--lg-Green);
+	color: #ffffff;
+	transition: all 0.2s linear;
+	/* font-weight: bolder; */
 }
 
-.navLinkLogoutButton:hover{
-          background: none repeat scroll 0 0 transparent;
-    border: medium none;
-      /* font-size: 1rem; */
-          text-decoration: underline;
-    text-decoration-color: var(--dk-Green);
-    transform: scale(1.5);
-    transition-duration: 100ms;
-    }
+.navLinkLogoutButton:hover {
+	background: none repeat scroll 0 0 transparent;
+	border: medium none;
+	/* font-size: 1rem; */
+	text-decoration: underline;
+	text-decoration-color: var(--dk-Green);
+	transform: scale(1.5);
+	transition-duration: 100ms;
+}
 
 input:focus {
-  background-color: rgba(255, 255, 255, 0.849);
-  color: #000000;
-  
+	background-color: rgba(255, 255, 255, 0.849);
+	color: #000000;
 }
 
 input[type="text"]:focus {
-    font-size: 1.3em;
-    color: #000000;
+	font-size: 1.3em;
+	color: #000000;
 }
 
 /* Document level adjustments */
 
 body {
-  font-size: 18px;
+	font-size: 18px;
 }
-td{
-    padding: 1rem;
-    padding-right: 3rem;
+td {
+	padding: 1rem;
+	padding-right: 3rem;
 }
 
 @media only screen and (max-width: 700px) and (min-width: 0px) {
-  html { font-size: 17px; }
-  /* .footerContainer{
+	html {
+		font-size: 17px;
+	}
+	/* .footerContainer{
     color: blue;
   } */
-    h1 {
-    font-size: 2rem;
-    }
-    h2 {
-      font-size: 1.7rem;
-    }
-    h3 {
-      font-size: 1.4rem;
-    }
-    h4 {
-      font-size: 1.2rem;
-    }
-    input{
-        font-size: 1.2rem;
-    }
-    a{
-        font-size: 1rem;
-    }
-    p{
-        font-size: 1.3rem;
-    }
-    .navLinkLogoutButton{
-      font-size: 1rem;
-      
-    }
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.7rem;
+	}
+	h3 {
+		font-size: 1.4rem;
+	}
+	h4 {
+		font-size: 1.2rem;
+	}
+	input {
+		font-size: 1.2rem;
+	}
+	a {
+		font-size: 1rem;
+	}
+	p {
+		font-size: 1.3rem;
+	}
+	.navLinkLogoutButton {
+		font-size: 1rem;
+	}
 }
 
 @media only screen and (max-width: 5000px) and (min-width: 700px) {
-  html { font-size: 19px; }
-  /* .footerContainer{
+	html {
+		font-size: 19px;
+	}
+	/* .footerContainer{
     color: red;
   } */
-      h1 {
-    font-size: 2.5rem;
-    }
-    h2 {
-      font-size: 1.8rem;
-    }
-    h3 {
-      font-size: 1.3rem;
-    }
-    h4 {
-      font-size: 1.2rem;
-    }
-    input{
-        font-size: 1.2rem;
-    }
-    a{
-      font-size: 1.7rem;
-    }
-    p{
-      font-size: 1.5rem;
-    }
-    .navLinkLogoutButton{
-      font-size: 1.7rem !important;
-    }
-
+	h1 {
+		font-size: 2.5rem;
+	}
+	h2 {
+		font-size: 1.8rem;
+	}
+	h3 {
+		font-size: 1.3rem;
+	}
+	h4 {
+		font-size: 1.2rem;
+	}
+	input {
+		font-size: 1.2rem;
+	}
+	a {
+		font-size: 1.7rem;
+	}
+	p {
+		font-size: 1.5rem;
+	}
+	.navLinkLogoutButton {
+		font-size: 1.7rem !important;
+	}
 }
-
-
-/* Type will scale with document */
-
-
-

@@ -1,192 +1,158 @@
 /* ---------- Dashboard Main Page ----------- */
 
-/* button{
-    font-size: 1rem;
-    border-radius: var(--button-border-radius);
-    background-color: var(--dk-Green);
-    color:var(--wh-White);
-    height: 5vh;
-    padding-left: 2vw;
-    padding-right: 2vw;
-} */
-
-.DashboardOuterWrapper{
-    /* padding-top: 15vh; */
-    padding-top: max(220px, 15vh);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.DashboardOuterWrapper {
+	/* padding-top: 15vh; */
+	padding-top: max(220px, 15vh);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.DashboardOuterWrapper h2{
-    display: flex;
-    width: 90vw;
-    flex-direction: column;
-    align-items: start;
-    border-left: 10vw;
+.DashboardOuterWrapper h2 {
+	display: flex;
+	width: 90vw;
+	flex-direction: column;
+	align-items: start;
+	border-left: 10vw;
 }
-
-
-
-/* .DashboardComponentWrappers{
-    border: 2px solid black;
-    width: 100vw;
-    margin-top: 5vh;
-} */
-
 
 /* ---------- Dub (Dashboard upcoming bookings) ----------- */
 
-.DubOuterWrapper{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    border-radius: var(--button-border-radius);
-    width: 90vw;
-    margin-top: 5vh;
+.DubOuterWrapper {
+	display: flex;
+	flex-direction: column;
+	border: 2px solid black;
+	border-radius: var(--button-border-radius);
+	width: 90vw;
+	margin-top: 5vh;
 }
 
-.DubHeaderText{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding-top: 1vh;
-    
+.DubHeaderText {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1vh;
 }
 
+.DubInnerWrapper {
+	display: flex;
+	flex-direction: column;
 
-.DubInnerWrapper{
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-    gap: 2vh;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+	justify-content: center;
+	align-items: center;
+	gap: 2vh;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
 }
 
-
-
-.DubBookingTile{
-    display: flex;
-    width: 90%;
-    background-color: #d1d1d1;
-    border: 2px solid #d1d1d1;
-    min-height: 5vh;
-    border-radius: var(--button-border-radius);
-    margin-left: 2vw;
-    margin-right: 2vw;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
+.DubBookingTile {
+	display: flex;
+	width: 90%;
+	background-color: #d1d1d1;
+	border: 2px solid #d1d1d1;
+	min-height: 5vh;
+	border-radius: var(--button-border-radius);
+	margin-left: 2vw;
+	margin-right: 2vw;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	flex-direction: row;
 }
 
-.DubBookingTileInner{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    padding: 2vw;
+.DubBookingTileInner {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	padding: 2vw;
 }
 
-
-.DubTileDeleteWrapper{
-    height: 100%;
-    border-left: 3px solid black;
-        
+.DubTileDeleteWrapper {
+	height: 100%;
+	border-left: 3px solid black;
 }
 
-.svg-inline--fa{
-    height: 1.3em;
+.svg-inline--fa {
+	height: 1.3em;
 }
 
-.DubButton{
-    border-left: 2px solid black;
-    width: 91%;
+.DubButton {
+	border-left: 2px solid black;
+	width: 91%;
 }
-
 
 #DubNoBookingFoundTileText {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
-
-
 
 /* ---------- Dbb (Dashboard booking banner) ----------- */
 
-.DbbOuterWrapper{
-    display: flex;
-    /* flex-direction: column;
+.DbbOuterWrapper {
+	display: flex;
+	/* flex-direction: column;
     justify-content: space-evenly;
     align-items: center; */
-    height: 20vh;
-    width: 100vw;
-    margin-top: 5vh;
-    background-color: rgba(0, 0, 0, 0.178);
-        
+	height: 20vh;
+	width: 100vw;
+	margin-top: 5vh;
+	background-color: rgba(0, 0, 0, 0.178);
 }
 
-.DbbInnerWrapperLeft{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 50vw;
-    padding-left: 10vw;
+.DbbInnerWrapperLeft {
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 50vw;
+	padding-left: 10vw;
 }
 
-.DbbInnerWrapperRight{
-    width: 40vw;
-    display: flex;
-    justify-content: center;
-    padding-top: 2vh;
+.DbbInnerWrapperRight {
+	width: 40vw;
+	display: flex;
+	justify-content: center;
+	padding-top: 2vh;
 }
 
-.DbbInnerWrapperRight img{
-    height: 60%;
+.DbbInnerWrapperRight img {
+	height: 60%;
 }
 
 /* ---------- Dpb (Dashboard preferences banner) ----------- */
 
-.DpbOuterWrapper{
-    display: flex;
-    /* flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center; */
-    height: 20vh;
-    width: 100vw;
-    background-color: rgb(235, 235, 235);
-    margin-top: 5vh;
-    padding-bottom: 10vh;
+.DpbOuterWrapper {
+	display: flex;
+	height: 20vh;
+	width: 100vw;
+	background-color: rgb(235, 235, 235);
+	margin-top: 5vh;
+	padding-bottom: 10vh;
 }
 
+.DbpInnerWrapperLeft {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 50vw;
 
-.DbpInnerWrapperLeft{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 50vw;
-    
-    padding-left: 10vw;
+	padding-left: 10vw;
 }
 
-.DbpInnerWrapperLeft{
-    text-align: start;
+.DbpInnerWrapperLeft {
+	text-align: start;
 }
 
-.DbpInnerWrapperRight{
-    width: 40vw;
-    display: flex;
-    justify-content: center;
-    padding-top: 2vh;
+.DbpInnerWrapperRight {
+	width: 40vw;
+	display: flex;
+	justify-content: center;
+	padding-top: 2vh;
 }
-
 
 .DbpInnerWrapperRight img {
-    height: 60%;
+	height: 60%;
 }
