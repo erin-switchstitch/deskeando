@@ -29,7 +29,7 @@ export default function AboutPage(props){
                 </div>
                 <div>
                     <GithubOutlined  className="GithubLogo" />
-                    <a href="https://github.com/Sharm-Dev"><span>S</span>harmine</a>
+                    <a href="https://github.com/Sharm-Dev"><span>S</span>harmaine</a>
                 </div>
                 <div>
                     <GithubOutlined className="GithubLogo" />
