@@ -72,7 +72,7 @@ export default function SignUp(props) {
 			alert("Passwords do not match!");
 		} else {
 			axios
-				.put("http://localhost:3000/api/register", {
+				.put("/api/register", {
 					email: state.email,
 					last_name: state.lastName,
 					first_name: state.firstName,

@@ -74,7 +74,7 @@ const Header = (props) => {
 								<Link to={"/"}>
 									<button
 										onClick={() => {
-											window.location.href = "http://localhost:3000";
+											window.location.href = "/";
 										}}
 										className="navLinkLogoutButton"
 									>

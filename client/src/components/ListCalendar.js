@@ -96,7 +96,7 @@ const ListCalender = (props) => {
 	//Making API calls for every day of the current week
 	let taken = allDates.map((date) => {
 		return (
-			"http://localhost:3000/api/bookings?date=" +
+			"/api/bookings?date=" +
 			String(date[0].format("YYYY-MM-DD"))
 		);
 	});
