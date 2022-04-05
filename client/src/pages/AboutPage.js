@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { GithubOutlined } from "@ant-design/icons";
 import Hero from "../components/Hero";
 import ".././stylings/About.css";
+import ".././stylings/Hero.css";
 
 export default function AboutPage(props){
 
@@ -15,7 +16,7 @@ export default function AboutPage(props){
 
     return(
         <div>
-            <Hero display="none" />
+            <Hero display="none"/>
             <p>Our Team</p>
             <div className="social-container">
                 <div>
@@ -26,7 +27,7 @@ export default function AboutPage(props){
                     <GithubOutlined className="GithubLogo" />
                     <a href="https://github.com/xtremelibasic"><span>A</span>manda</a>
                 </div>
-                <div style={{ backgroundColor:"#ffffff" }}>
+                <div>
                     <GithubOutlined  className="GithubLogo" />
                     <a href="https://github.com/Sharm-Dev"><span>S</span>harmine</a>
                 </div>

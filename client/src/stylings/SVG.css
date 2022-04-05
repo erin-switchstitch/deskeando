@@ -25,10 +25,17 @@
     width: 90vw;
 }
 
+.SvgKeyWrapper div {
+      display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .SvgKey{
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
 }
+
 
 .outer-svg-wrapper{
   width: 90vw;
@@ -186,9 +193,13 @@ grid-area: From23To30;
     cursor: pointer;  
 }
 
-.matchingAccessibility{
-
+.selectedDesk{
+  transform: scale(1.3);
+  background-color: rgb(74, 151, 253);
+  box-shadow: 0px 0px 10px 5px rgb(74, 151, 253);
 }
+
+
 
 span{
   color:#ffffff;

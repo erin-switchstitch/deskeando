@@ -47,14 +47,14 @@ export default function BookingsAccessibilityBanner(props) {
 		<div className="BookingAccessibilityBannerWrapper">
 
             <div className="BookingAccessibilityPreClick" onClick={()=>displayComponent()}>
-                <h3>1. Change your accessibility preferences</h3>                                
-                {/* <button onClick={()=>displayComponent()}>Show More...</button> */}
+                <h3>2. Change your accessibility preferences</h3>                                
             </div>
             
             <div className="BookingAccessibilityPostClick">
                 <FormGroup style={{display : displayValue}}>
-                    <FormControlLabel onChange={(e)=>sliderChange(e)} control={<Switch checked={sliderToggle} />} label="Accessibility Requirements" labelPlacement="start"/>
-                    <h4>Current global accessibility : {globalUserDetails.accessibility.toString()}</h4>
+                    <h4 className="BookingAccessibilityPostClickText">Current accessibility settings : "{globalUserDetails.accessibility.toString()}"</h4>
+                    <label className="BookingAccessibilityPostClickLabel">Accessibility Requirements</label>
+                    <FormControlLabel onChange={(e)=>sliderChange(e)} control={<Switch checked={sliderToggle}  />} label="" labelPlacement="start" />
                 </FormGroup>
                 
             </div>

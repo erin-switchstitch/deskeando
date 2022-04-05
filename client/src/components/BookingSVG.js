@@ -207,12 +207,22 @@ function BookingSVG(props){
    console.log(svgFormatting);
    return (
       <div className="BookingSvgWrapper">
-         <h3>3. Choose Your desk</h3>
+         <h3>4. Choose Your desk</h3>
 
          <div className="SvgKeyWrapper">
-            <div className="SvgKey"><h4>Accessible and Available Desk</h4><img src={leftDeskAccessible}/></div>
-            <div className="SvgKey"><h4>Inaccessible but Available Desk</h4><img src={leftDesk}/></div>
-            <div className="SvgKey"><h4>Unavailable Desk</h4><img src={leftDeskInaccessible}/></div>
+            {globalUserDetails.accessibility == true ? (
+               <div>
+                  <div className="SvgKey"><h4>Accessible and Available Desk</h4><img src={leftDeskAccessible}/></div>
+                  <div className="SvgKey"><h4>Inaccessible but Available Desk</h4><img src={leftDesk}/></div>
+                  <div className="SvgKey"><h4>Unavailable Desk</h4><img src={leftDeskInaccessible}/></div>
+               </div>
+            ):(
+               <div>
+                  <div className="SvgKey"><h4>Available Desk</h4><img src={leftDesk}/></div>
+                  <div className="SvgKey"><h4>Unavailable Desk</h4><img src={leftDeskInaccessible}/></div>
+               </div>
+            )}
+
             
             
             
@@ -233,7 +243,18 @@ function BookingSVG(props){
                            <div className={`desks-${elem.start}-to-${elem.end} desk-space`} role={extraClasses}>
                               {elem.individual_desks.map((element,index) =>{
                                  return (
-                                    <div onClick={(e) => handleSVGClick(e)} key={index} onKeyDown={(e)=>handleSVGClick(e)} role="tab" tabIndex={index} style={{ backgroundImage: `url(${element.leftOrRight})` }} className={`desk ${element.leftOrRight} ${element.desk_booked} ${ element.desk_accessibility }`}> <span>{element.desk_id}</span></div>
+                                    <div onClick={(e) => handleSVGClick(e)} key={index} onKeyDown={(e)=>handleSVGClick(e)} role="tab" 
+                                    tabIndex={index} style={{ backgroundImage: `url(${element.leftOrRight})` }} 
+                                    className={
+                                       (element.desk_id == globalBookingInfo.desk_id) ? (
+                                          `selectedDesk desk ${element.leftOrRight} ${element.desk_booked} ${ element.desk_accessibility}`
+                                       ):(
+                                          `desk ${element.leftOrRight} ${element.desk_booked} ${ element.desk_accessibility }`
+                                       )}
+                                       
+                                       
+                                    > 
+                                    <span>{element.desk_id}</span></div>
                                  );
                               })}
                            </div>

@@ -49,7 +49,7 @@ const Header = (props) => {
 							</li>
 						</div>
 					) : (
-						<div className="navLinkWrapper">
+						<div className="navLinkWrapperWide">
 							<li className="navList">
 								<Link to={"/dashboard"}>
 									<a className="navLink">Dashboard</a>

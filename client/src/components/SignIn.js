@@ -73,7 +73,7 @@ export default function SignIn(props) {
 									value={email}
 									onChange={handleNameChange}
 									placeholder="Email Address"
-									maxLength="20"
+									maxLength="25"
 									minLength="6"
 								/>
 							</label>
@@ -86,7 +86,7 @@ export default function SignIn(props) {
 									value={password}
 									onChange={handlePasswordChange}
 									placeholder="Password"
-									maxLength="10"
+									maxLength="15"
 									minLength="6"
 								/>
 							</label>
