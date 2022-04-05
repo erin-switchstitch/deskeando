@@ -79,7 +79,7 @@ const Header = (props) => {
 										}}
 										className="navLinkLogoutButton"
 									>
-										LogOut
+										Logout
 									</button>
 								</Link>
 							</li>
