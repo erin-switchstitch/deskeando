@@ -13,10 +13,6 @@ export default function DeskList(props) {
 
 	//  ↓↓↓ Parent component useState and setState for currently selected date ↓↓↓
 	let selectedDateParent = props.selectedDateParent;
-	// let selectedDateParent="2022-03-13";
-	// if (!selectedDateParent){
-	//     selectedDateParent="2022-03-13";
-	// }
 	let setSelectedDateParent = props.setSelectedDateParent;
 
 	//  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
