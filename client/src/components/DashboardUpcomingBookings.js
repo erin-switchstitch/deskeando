@@ -2,9 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import templateData from "./../data/bookings.json";
 import Moment from 'react-moment';
-import moment from 'moment';
-import axios from 'axios'
 import DeleteBookings from "./DeleteBookings";
+
 export default function DashboardUpcomingBookings(props) {
 
     //  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
@@ -42,9 +41,6 @@ export default function DashboardUpcomingBookings(props) {
         console.log(index)
         console.log(bookingArray);
         let preSplicedArray = [bookingArray];
-
-        // console.log("LOOK HERE VVVVVVVVVVVVVVVV")
-        // console.log(preSplicedArray);
 
         setBookingArray(preSplicedArray.filter((elem, i) => {
             return i !== index;

@@ -57,7 +57,6 @@ export default function App(){
 					<Dashboard globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
 				):(
 					<LoginPage globalUserDetails={globalUserDetails} setGlobalUserDetails={(data)=>setGlobalUserDetails(data)}/>
-					// alert={("Login or Signup required before this page will open")}
 				)} 
 			/>
 			
