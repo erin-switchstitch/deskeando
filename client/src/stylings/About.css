@@ -91,7 +91,9 @@ background: linear-gradient(180deg, rgba(255,255,255,0.7959558823529411) 37%, rg
     border-radius: 50px;
     margin-top: 55vh;
     padding-bottom: 10vh;
-    color: black;
+    color: white;
+     background: rgb(0,0,0,.6);
+    background: linear-gradient(90deg, rgba(0,0,0,0.6763480392156863) 0%, rgba(0,0,0,0.7463760504201681) 10%, rgba(0,0,0,0.7491771708683473) 90%, rgba(0,0,0,0.68) 100%);
     z-index: -1;
 }
 
@@ -177,14 +179,12 @@ background: linear-gradient(180deg, rgba(255,255,255,0.7959558823529411) 37%, rg
     display: inline;
 }
 
-@media screen and (min-width:1100px){
+@media screen and (min-width: 1100px){
     .HeroContainerAboutPage {
-    height: 19vh;
-    width: 100vw;
-    position: fixed;
-    top: 39vh;
-    background: rgb(255,255,255);
-    background: linear-gradient(198deg, rgb(255 255 255) 27%, rgb(255 255 255 / 84%) 35%, rgb(255 255 255 / 92%) 40%, rgb(255 255 255 / 30%) 45%, rgb(255 255 255 / 0%) 100%);
+        height: 20vh;
+        width: 100vw;
+        position: fixed;
+        top: 35vh;
+        background: linear-gradient(198deg, rgb(255 255 255) 27%, rgb(255 255 255 / 84%) 35%, rgb(255 255 255 / 92%) 40%, rgb(255 255 255 / 0%) 45%, rgb(255 255 255 / 0%) 100%);
     }
-    
 }
