@@ -2,8 +2,8 @@
 	position: relative;
 	display: block;
 	vertical-align: top;
-	    width: 25vw;
-    height: 5vh;
+	width: 25vw;
+	height: 5vh;
 	padding: 3px;
 	margin: 0 10px 10px 0;
 	background: linear-gradient(to bottom, #333, #333 25px);
@@ -11,14 +11,14 @@
 	border-radius: var(--button-border-radius);
 	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
 	cursor: pointer;
-	box-sizing:content-box;
+	box-sizing: content-box;
 }
 .switch-input {
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
-	box-sizing:content-box;
+	box-sizing: content-box;
 }
 .switch-label {
 	position: relative;
@@ -28,19 +28,21 @@
 	text-transform: uppercase;
 	background: #eceeef;
 	border-radius: inherit;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-	box-sizing:content-box;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12),
+		inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing: content-box;
 }
-.switch-label:before, .switch-label:after {
+.switch-label:before,
+.switch-label:after {
 	position: absolute;
 	top: 50%;
-	margin-top: -.5em;
+	margin-top: -0.5em;
 	line-height: 1;
 	-webkit-transition: inherit;
 	-moz-transition: inherit;
 	-o-transition: inherit;
 	transition: inherit;
-	box-sizing:content-box;
+	box-sizing: content-box;
 }
 .switch-label:before {
 	content: attr(data-off);
@@ -51,13 +53,14 @@
 .switch-label:after {
 	content: attr(data-on);
 	left: 11px;
-	color: #FFFFFF;
+	color: #ffffff;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
 	opacity: 0;
 }
 .switch-input:checked ~ .switch-label {
-	background: #E1B42B;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+	background: #e1b42b;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+		inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 .switch-input:checked ~ .switch-label:before {
 	opacity: 0;
@@ -71,8 +74,8 @@
 	left: 4px;
 	width: 28px;
 	height: 28px;
-	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
-	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	background: linear-gradient(to bottom, #ffffff 40%, #f0f0f0);
+	background-image: -webkit-linear-gradient(top, #ffffff 40%, #f0f0f0);
 	border-radius: 100%;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
@@ -84,8 +87,8 @@
 	margin: -6px 0 0 -6px;
 	width: 12px;
 	height: 12px;
-	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
-	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+	background: linear-gradient(to bottom, #eeeeee, #ffffff);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff);
 	border-radius: 6px;
 	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
@@ -93,10 +96,11 @@
 	left: 74px;
 	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
- 
+
 /* Transition
 ========================== */
-.switch-label, .switch-handle {
+.switch-label,
+.switch-handle {
 	transition: All 0.3s ease;
 	-webkit-transition: All 0.3s ease;
 	-moz-transition: All 0.3s ease;
@@ -104,10 +108,10 @@
 }
 
 .switch-slide {
-    display: inline;
+	display: inline;
 	padding: 0;
 	margin: 15px 0 0;
-	background: #FFF;
+	background: #fff;
 	border-radius: 0;
 	background-image: none;
 }
@@ -116,31 +120,33 @@
 	background: none;
 	overflow: hidden;
 }
-.switch-slide .switch-label:after, .switch-slide .switch-label:before {
+.switch-slide .switch-label:after,
+.switch-slide .switch-label:before {
 	width: 100%;
 	height: 65%;
 	top: 5px;
 	left: 0;
 	text-align: start;
 	padding-top: 10%;
-	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2),
+		inset 0 0 3px rgba(0, 0, 0, 0.1);
 }
 .switch-slide .switch-label:after {
-	color: #FFFFFF;
+	color: #ffffff;
 	background: var(--lg-Green);
 	left: -100px;
-    text-indent: 2vw;
+	text-indent: 2vw;
 }
 .switch-slide .switch-label:before {
 	background: var(--lg-Grey);
-    color: #000000;
-    text-indent: 2vw;
+	color: #000000;
+	text-indent: 2vw;
 }
 .switch-slide .switch-handle {
 	display: none;
 }
 .switch-slide .switch-input:checked ~ .switch-label {
-	background: #FFF;
+	background: #fff;
 	border: black solid 2px;
 }
 .switch-slide .switch-input:checked ~ .switch-label:before {
@@ -150,18 +156,13 @@
 	left: 0;
 }
 
-
-
-
-
-
 .switch-flat {
 	padding: 0;
-	background: #FFF;
+	background: #fff;
 	background-image: none;
 }
 .switch-flat .switch-label {
-	background: #FFF;
+	background: #fff;
 	/* border: solid 3px black; */
 	box-shadow: none;
 }
@@ -180,7 +181,7 @@
 	background: #eceeef;
 }
 .switch-flat .switch-input:checked ~ .switch-label {
-	background: #FFF;
+	background: #fff;
 	border-color: var(--dk-Green);
 }
 .switch-flat .switch-input:checked ~ .switch-handle {

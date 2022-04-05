@@ -2,7 +2,6 @@ import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import "../stylings/Header.css";
 import AdminSignIn from "./AdminSignIn";
-// import logo from "../images/logo6.png";
 import Hamburger from "../images/hamburger.svg";
 import useWindowDimensions from "./useWindowDimensions";
 

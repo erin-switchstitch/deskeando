@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../stylings/SignInUp.css";
+// import "../stylings/SignInUp.css";
 import "../stylings/AccessibilitySwitch.css";
 import axios from "axios";
 
 export default function SignUp(props) {
-	
-	console.log("------ SignUp run !!!!!")
+	console.log("------ SignUp run !!!!!");
 	//  ↓↓↓↓↓ globalUserDetails useState AND setGlobalUserDetails setState ↓↓↓↓↓
 	let globalUserDetails = props.globalUserDetails;
 	let setGlobalUserDetails = props.setGlobalUserDetails;
@@ -69,10 +68,8 @@ export default function SignUp(props) {
 		event.preventDefault();
 		const actualAccessibilityValue = Boolean(state.accessibility);
 
-		
-
-		if(state.password !== state.confirmPassword){
-			alert("Passwords do not match!")
+		if (state.password !== state.confirmPassword) {
+			alert("Passwords do not match!");
 		} else {
 			axios
 				.put("http://localhost:3000/api/register", {
@@ -97,25 +94,23 @@ export default function SignUp(props) {
 					console.log(error);
 					// alert(error)
 				});
-				;
-				console.log(hideSubmitLink);
-			};
+			console.log(hideSubmitLink);
 		}
-		
-		
+	};
 
 	return (
 		<div className="SignUpOuterWrapper">
 			<div
 				className="SignUpMainWrapper"
 				// style={{ display: props.display }}
-				
 			>
-				<h1 style={{ display:`${hideSubmitLink}` }} className="formHeader">Sign Up</h1>
+				<h1 style={{ display: `${hideSubmitLink}` }} className="formHeader">
+					Sign Up
+				</h1>
 
-				<form className="signUpInputContainer" onSubmit={handleOnSubmit}> 
+				<form className="signUpInputContainer" onSubmit={handleOnSubmit}>
 					<span>{errorMsg}</span>
-					<label style={{ display:`${hideSubmitLink}` }}>
+					<label style={{ display: `${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">First Name:</p> */}
 
 						<input
@@ -130,7 +125,10 @@ export default function SignUp(props) {
 							onChange={handleFirstNameChange}
 						/>
 					</label>
-					<label style={{ display:`${hideSubmitLink}` }} className="formSubHeaderLName">
+					<label
+						style={{ display: `${hideSubmitLink}` }}
+						className="formSubHeaderLName"
+					>
 						{/* <p className="formSubHeader">Last Name:</p> */}
 						<input
 							type="text"
@@ -144,7 +142,7 @@ export default function SignUp(props) {
 							onChange={handleLastNameChange}
 						/>
 					</label>
-					<label style={{ display:`${hideSubmitLink}` }}>
+					<label style={{ display: `${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">Email address:</p> */}
 						<input
 							type="email"
@@ -158,7 +156,7 @@ export default function SignUp(props) {
 							onChange={handleEmailChange}
 						/>
 					</label>
-					<label style={{ display:`${hideSubmitLink}` }}>
+					<label style={{ display: `${hideSubmitLink}` }}>
 						{/* <p className="formSubHeader">Password:</p> */}
 						<input
 							type="password"
@@ -172,7 +170,7 @@ export default function SignUp(props) {
 							onChange={handlePasswordChange}
 						/>
 					</label>
-					<label style={{ display:`${hideSubmitLink}` }}>
+					<label style={{ display: `${hideSubmitLink}` }}>
 						<p className="formSubHeader">Confirm Password:</p>
 						<input
 							type="password"
@@ -187,17 +185,23 @@ export default function SignUp(props) {
 						/>
 					</label>
 
-					<p style={{ display:`${hideSubmitLink}` }} className="formSubHeader">
+					<p style={{ display: `${hideSubmitLink}` }} className="formSubHeader">
 						Do you have any <strong>accessibility </strong> needs?
 					</p>
 
-					<label style={{ display:`${hideSubmitLink}` }} className="switch switch-flat">
+					<label
+						style={{ display: `${hideSubmitLink}` }}
+						className="switch switch-flat"
+					>
 						<input className="switch-input" type="checkbox" />
 						<span className="switch-label" data-on="Yes" data-off="No"></span>
 						<span className="switch-handle"></span>
 					</label>
 
-					<div style={{ display:`${hideSubmitLink}` }} className="SignInSwitch">
+					<div
+						style={{ display: `${hideSubmitLink}` }}
+						className="SignInSwitch"
+					>
 						<h3>Already registered?</h3>
 						<h4
 							className="SignInSwitchLink"
@@ -208,14 +212,13 @@ export default function SignUp(props) {
 					</div>
 
 					<div className="buttonContainer">
-						{(globalUserDetails.user_id == "") ? (
+						{globalUserDetails.user_id == "" ? (
 							<>
 								{console.log(true)}
 								<button
 									type="submit"
 									// onClick={handleOnSubmit}
 									className="signInButton"
-									
 								>
 									<h3>Sign Up</h3>
 								</button>
