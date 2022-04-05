@@ -11,6 +11,8 @@ a{
 .display{
     transform:translateX(0);
     /* transition:transform .5s ease-in-out; */
+     position: fixed;
+    z-index: 120;
 }
 
 .menu-icon{
