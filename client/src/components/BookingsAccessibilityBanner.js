@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import Moment from "react-moment";
-// import moment from "moment";
 import "./../stylings/Booking.css";
-// import Header from "./Header";
-// import DeskList from "./DeskList";
-// import DisplayCalendar from "./DisplayCalender";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
